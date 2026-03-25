@@ -29,6 +29,7 @@ const Navbar: FC = () => {
       <div className="navbar-cta">
         <a href="#contact" className="btn-primary">Запитване</a>
       </div>
+      <div className="nav-pulse-line"></div>
     </nav>
   );
 };
