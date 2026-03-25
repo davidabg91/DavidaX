@@ -86,26 +86,46 @@
 }
 
 .btn-hero {
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
+  padding: 16px 40px;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-hero.primary {
   background: var(--accent-color);
   color: white;
-  box-shadow: 0 8px 30px var(--accent-glow);
+  box-shadow: 0 0 20px rgba(0, 112, 243, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-hero.secondary {
   border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: white;
+  margin-left: 20px;
 }
 
 .btn-hero:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 35px var(--accent-glow);
+}
+
+.btn-hero.secondary:hover {
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent-color);
 }
 
 .hero-background {
