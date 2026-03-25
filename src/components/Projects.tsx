@@ -1,33 +1,34 @@
+import { type FC } from 'react';
 import './Projects.css';
 
 const projects = [
   {
     title: 'Fortnite Status',
     category: 'Мониторинг & API',
-    image: '/assets/projects/isfortnite.png',
+    image: `${import.meta.env.BASE_URL}assets/projects/isfortnite.png`,
     link: 'https://isfortnite.online/'
   },
   {
     title: 'The Corner Bar & Grill',
     category: 'Ресторантски Бизнес',
-    image: '/assets/projects/thecornerbar.png',
+    image: `${import.meta.env.BASE_URL}assets/projects/thecornerbar.png`,
     link: 'https://www.thecornerbar.online/'
   },
   {
     title: 'Fabcrush Marketplace',
     category: 'E-commerce & Мода',
-    image: '/assets/projects/fabcrush.png',
+    image: `${import.meta.env.BASE_URL}assets/projects/fabcrush.png`,
     link: 'https://fabcrush.com/'
   },
   {
     title: 'Odd One Out',
     category: 'Социална Игра',
-    image: '/assets/projects/oddoneout.png',
+    image: `${import.meta.env.BASE_URL}assets/projects/oddoneout.png`,
     link: 'https://oddoneout.site/'
   }
 ];
 
-const Projects: React.FC = () => {
+const Projects: FC = () => {
   return (
     <section id="projects" className="projects-section section fade-in">
       <h2 className="section-title">Част от <span className="gradient-text">Проекти</span></h2>
