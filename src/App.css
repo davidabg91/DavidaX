@@ -1,0 +1,15 @@
+.app-container {
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 100px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+}

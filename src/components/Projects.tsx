@@ -1,0 +1,54 @@
+import './Projects.css';
+
+const projects = [
+  {
+    title: 'Fortnite Status',
+    category: 'Мониторинг & API',
+    image: '/assets/projects/isfortnite.png',
+    link: 'https://isfortnite.online/'
+  },
+  {
+    title: 'The Corner Bar & Grill',
+    category: 'Ресторантски Бизнес',
+    image: '/assets/projects/thecornerbar.png',
+    link: 'https://www.thecornerbar.online/'
+  },
+  {
+    title: 'Fabcrush Marketplace',
+    category: 'E-commerce & Мода',
+    image: '/assets/projects/fabcrush.png',
+    link: 'https://fabcrush.com/'
+  },
+  {
+    title: 'Odd One Out',
+    category: 'Социална Игра',
+    image: '/assets/projects/oddoneout.png',
+    link: 'https://oddoneout.site/'
+  }
+];
+
+const Projects: React.FC = () => {
+  return (
+    <section id="projects" className="projects-section section fade-in">
+      <h2 className="section-title">Част от <span className="gradient-text">Проекти</span></h2>
+      <div className="projects-grid">
+        {projects.map((p, i) => (
+          <div key={i} className="project-card glass overflow-hidden">
+            <div className="project-image-container">
+              <img src={p.image} alt={p.title} className="project-image-img" />
+            </div>
+            <div className="project-info">
+              <span className="project-category">{p.category}</span>
+              <h3 className="project-name">{p.title}</h3>
+              <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                Посети сайта →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

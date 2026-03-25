@@ -1,0 +1,26 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0070f3" />
+      <stop offset="100%" stop-color="#00dfd8" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Left Bracket -->
+  <path d="M20 15L10 30L20 45" stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- DX Text -->
+  <text x="35" y="42" fill="white" font-family="Outfit, sans-serif" font-weight="800" font-size="28" style="filter: url(#glow);">DX</text>
+  
+  <!-- Slash -->
+  <path d="M85 45L105 15" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.3" />
+  
+  <!-- Right Bracket -->
+  <path d="M120 15L130 30L120 45" stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <text x="145" y="40" fill="white" font-family="Outfit, sans-serif" font-weight="600" font-size="18" opacity="0.9">DAVIDAX</text>
+</svg>

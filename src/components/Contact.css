@@ -1,0 +1,233 @@
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 60px;
+  border-radius: 30px;
+  gap: 50px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-desc {
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+/* Technological Contact Styles */
+.contact-section {
+  position: relative;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.detail-item .icon {
+  font-size: 1.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: white;
+  font-family: var(--font-body);
+  outline: none;
+}
+
+.w-full {
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+}
+
+.contact-.contact-container.holographic {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  position: relative;
+}
+
+.tech-card {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(0, 112, 243, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 112, 243, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 112, 243, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: -1;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-color);
+  animation: pulse 2s infinite;
+}
+
+.status-dot.green {
+  background: #00ffca;
+  box-shadow: 0 0 10px #00ffca;
+}
+
+.header-text {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+}
+
+.tech-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: var(--transition);
+}
+
+.tech-item:hover {
+  background: rgba(0, 112, 243, 0.05);
+  border-color: rgba(0, 112, 243, 0.3);
+  transform: translateX(10px);
+}
+
+.item-text label {
+  display: block;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.item-text p {
+  color: white;
+  font-weight: 500;
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 112, 243, 0.1);
+  box-shadow: 0 0 15px rgba(0, 112, 243, 0.2);
+  z-index: 2;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+.input-label {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.tech-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 15px 20px !important;
+  color: white !important;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.tech-input:focus {
+  outline: none;
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 20px rgba(0, 112, 243, 0.2);
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.tech-submit-btn {
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(90deg, #0070f3, #00dfd8);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.tech-submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0, 112, 243, 0.5);
+  letter-spacing: 4px;
+}
+
+@media (max-width: 968px) {
+  .contact-container.holographic {
+    grid-template-columns: 1fr;
+  }
+}
