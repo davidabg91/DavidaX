@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type FC } from 'react';
 import './Navbar.css';
 
-const Navbar: React.FC = () => {
+const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -16,11 +16,11 @@ const Navbar: React.FC = () => {
     <nav className={`navbar ${scrolled ? 'scrolled glass' : ''}`}>
       <div className="navbar-logo">
         <div className="logo-wrapper-dev">
-          <img src="/assets/logo-dev.svg" alt="DavidaX IT Logo" className="logo-img-dev" />
+          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX IT Logo" className="logo-img-dev" />
         </div>
       </div>
       <ul className="navbar-links">
-        <li><a href="#hero">Начало</a></li>
+        <li><a href="#home">Начало</a></li>
         <li><a href="#about">Бранд</a></li>
         <li><a href="#services">Услуги</a></li>
         <li><a href="#projects">Проекти</a></li>
