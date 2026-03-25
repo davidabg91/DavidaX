@@ -25,7 +25,6 @@ const Navbar: FC = () => {
         <li><a href="#services">Услуги</a></li>
         <li><a href="#projects">Проекти</a></li>
         <li><a href="#contact">Контакт</a></li>
-        <li><a href="tel:0876141826" className="nav-phone">📞 0876 141 826</a></li>
       </ul>
       <div className="navbar-cta">
         <a href="#contact" className="btn-primary">Запитване</a>
