@@ -13,7 +13,7 @@ import './App.css'
 
 function App() {
   useEffect(() => {
-    initFaviconZoom('/logo.jpg');
+    initFaviconZoom(`${import.meta.env.BASE_URL}logo.jpg`);
   }, []);
 
   return (

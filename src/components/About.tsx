@@ -8,7 +8,7 @@ const About: React.FC = () => {
         <div className="about-image">
           <div className="hologram-container">
             <div className="logo-blend-wrapper">
-              <img src="/logo.jpg" alt="DavidaX Logo" className="about-logo-img-seamless" />
+              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="about-logo-img-seamless" />
               <div className="scanline-overlay"></div>
             </div>
             <div className="orbit-ring"></div>
