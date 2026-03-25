@@ -1,7 +1,7 @@
-import React from 'react';
+import { type FC } from 'react';
 import './Campaign.css';
 
-const Campaign: React.FC = () => {
+const Campaign: FC = () => {
   return (
     <section id="campaign" className="campaign-section section fade-in">
       <div className="campaign-container tech-card holographic">

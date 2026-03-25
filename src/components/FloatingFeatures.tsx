@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type FC } from 'react';
 import './FloatingFeatures.css';
 
 const features = [
@@ -39,7 +39,7 @@ const features = [
   }
 ];
 
-const FloatingFeatures: React.FC = () => {
+const FloatingFeatures: FC = () => {
   const [activeFeature, setActiveFeature] = useState<number>(0);
 
   useEffect(() => {
