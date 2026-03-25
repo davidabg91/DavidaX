@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
         <h4 className="hero-subtitle">Премиум Студио за Софтуерни Иновации</h4>
         <h1 className="hero-title">
           <DecipherText text="Изграждаме" /> <span className="highlight"><DecipherText text="Бъдещето" delay={800} /></span> <br />
-          чрез <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={1600} /></span>.
+          <DecipherText text="чрез" delay={1300} /> <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={1600} /></span>.
         </h1>
         <p className="hero-description">
           DavidaX — Екосистема за иновации. Превръщаме сложни концепции в мащабируеми, 
