@@ -1,3 +1,4 @@
+import { DecipherText } from './DecipherText';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -6,8 +7,8 @@ const Hero: React.FC = () => {
       <div className="hero-content fade-in">
         <h4 className="hero-subtitle">Премиум Студио за Софтуерни Иновации</h4>
         <h1 className="hero-title">
-          Изграждаме <span className="highlight">Бъдещето</span> <br />
-          чрез <span className="gradient-text glow-text">Чист Код</span>.
+          <DecipherText text="Изграждаме" /> <span className="highlight"><DecipherText text="Бъдещето" delay={800} /></span> <br />
+          чрез <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={1600} /></span>.
         </h1>
         <p className="hero-description">
           DavidaX — Екосистема за иновации. Превръщаме сложни концепции в мащабируеми, 
@@ -15,7 +16,7 @@ const Hero: React.FC = () => {
         </p>
         <div className="hero-btns">
           <a href="#projects" className="btn-hero primary">Виж Проектите</a>
-          <a href="#contact" className="btn-hero secondary">Свържи се с мен</a>
+          <a href="#contact" className="btn-hero secondary">Свържи се с нас</a>
         </div>
       </div>
       <div className="hero-background">
