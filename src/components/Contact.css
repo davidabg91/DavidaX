@@ -1,25 +1,7 @@
-.contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 60px;
-  border-radius: 30px;
-  gap: 50px;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.contact-desc {
-  color: var(--text-secondary);
-  margin-bottom: 30px;
-}
-
-/* Technological Contact Styles */
+/* Unified Technological Contact Styles */
 .contact-section {
   position: relative;
+  padding: 100px 0;
 }
 
 .contact-details {
@@ -65,9 +47,11 @@
   }
 }
 
-.contact-.contact-container.holographic {
+.contact-container.holographic {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
   gap: 40px;
   position: relative;
 }
@@ -154,9 +138,18 @@
   letter-spacing: 1px;
 }
 
-.item-text p {
-  color: white;
+.item-text p, .contact-link {
+  color: white !important;
   font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  display: block;
+}
+
+.contact-link:hover {
+  color: var(--accent-color) !important;
+  text-shadow: 0 0 10px var(--accent-glow);
+  transform: translateX(5px);
 }
 
 .scanline {
@@ -184,6 +177,14 @@
   color: var(--text-secondary);
   margin-bottom: 10px;
   letter-spacing: 1px;
+}
+
+.contact-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  min-height: 3.2rem; /* Align with first form label height */
 }
 
 .tech-input {

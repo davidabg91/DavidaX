@@ -18,14 +18,14 @@ const Contact: React.FC = () => {
               <span className="icon">📧</span>
               <div className="item-text">
                 <label>EMAIL_ADDR</label>
-                <p>davida1991@gmail.com</p>
+                <a href="mailto:davida1991@gmail.com" className="contact-link">davida1991@gmail.com</a>
               </div>
             </div>
             <div className="detail-item tech-item">
               <span className="icon">📞</span>
               <div className="item-text">
                 <label>PHONE_LINE</label>
-                <p>0876 141 826</p>
+                <a href="tel:0876141826" className="contact-link">0876 141 826</a>
               </div>
             </div>
             <div className="detail-item tech-item">
@@ -50,6 +50,10 @@ const Contact: React.FC = () => {
           <div className="form-group">
             <label className="input-label">USER_EMAIL:</label>
             <input type="email" placeholder="въведете имейл..." required className="tech-input" />
+          </div>
+          <div className="form-group">
+            <label className="input-label">USER_PHONE:</label>
+            <input type="tel" placeholder="въведете телефон..." className="tech-input" />
           </div>
           <div className="form-group">
             <label className="input-label">USER_MESSAGE:</label>
