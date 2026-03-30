@@ -1,15 +1,15 @@
 .campaign-section {
-  padding: 150px 5%;
+  padding: 100px 5%;
   position: relative;
 }
 
 .campaign-container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 100px 60px;
+  padding: 80px 40px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 60px;
+  border-radius: 40px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -19,44 +19,45 @@
 
 .tech-badge {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 6px 14px;
   background: rgba(255, 255, 255, 0.05);
   color: #888;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 800;
   border-radius: 100px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   letter-spacing: 2px;
 }
 
 .campaign-title {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 900;
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   letter-spacing: -0.05em;
+  line-height: 1.1;
 }
 
 .campaign-intro {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #888;
   max-width: 800px;
-  margin: 0 auto 60px;
+  margin: 0 auto 50px;
   line-height: 1.6;
 }
 
 .campaign-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 60px;
+  gap: 25px;
+  margin-bottom: 50px;
 }
 
 .offer-card {
-  padding: 40px 30px;
+  padding: 30px 25px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
+  border-radius: 20px;
   transition: all 0.3s ease;
   text-align: left;
 }
@@ -67,34 +68,34 @@
 }
 
 .campaign-offer-tag {
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-weight: 900;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   letter-spacing: -0.05em;
 }
 
 .offer-icon {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 15px;
   display: block;
 }
 
 .offer-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-weight: 800;
 }
 
 .offer-card p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #666;
   line-height: 1.5;
 }
 
 .campaign-btn {
-  padding: 20px 40px;
+  padding: 18px 36px;
   background: #fff;
   color: #000;
   font-weight: 800;
@@ -103,6 +104,7 @@
   letter-spacing: 1px;
   display: inline-block;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .campaign-btn:hover {
@@ -111,22 +113,43 @@
 }
 
 .eligibility-text {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #444;
-  margin-bottom: 30px;
+  margin-top: 25px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1100px) {
   .campaign-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
+  .campaign-section {
+    padding: 60px 20px;
+  }
   .campaign-container {
-    padding: 60px 30px;
+    padding: 60px 25px;
+    border-radius: 32px;
   }
   .campaign-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+  .campaign-intro {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .campaign-offer-tag {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .campaign-title {
+    font-size: 1.7rem;
+  }
+  .offer-card {
+    padding: 25px 20px;
   }
 }
