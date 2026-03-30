@@ -3,6 +3,13 @@ import './Projects.css';
 
 const projects = [
   {
+    title: 'ДИ ЦЕНТЪР',
+    category: 'Airbnb & Хотели',
+    image: `${import.meta.env.BASE_URL}assets/projects/dicenter.png`,
+    link: 'https://davidabg91.github.io/AIRBNB/',
+    description: 'Луксозно дигитално изживяване за гости.'
+  },
+  {
     title: 'Dary Commerce',
     category: 'Системи за Транспорт',
     image: `${import.meta.env.BASE_URL}assets/projects/darycommerce.png`,
