@@ -38,7 +38,7 @@ const Campaign: FC = () => {
           <p className="eligibility-text">
             * Офертата важи за нови бизнеси, регистрирани през последните 180 дни.
           </p>
-          <a href="https://wa.me/359877011033" target="_blank" rel="noopener noreferrer" className="campaign-btn">
+          <a href="#contact" className="campaign-btn">
             КАНДИДАТСТВАЙ ЗА ПОДКРЕПА
           </a>
         </div>

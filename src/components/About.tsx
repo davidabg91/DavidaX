@@ -6,7 +6,7 @@ const About: React.FC = () => {
       <h2 className="section-title">Зад бранда <span className="gradient-text">DavidaX</span></h2>
       <div className="about-grid">
         <div className="about-image fade-in">
-          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX Logo" className="about-logo-img-seamless" />
+          <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="about-logo-img-seamless" />
         </div>
         <div className="about-text">
           <p className="about-p">
