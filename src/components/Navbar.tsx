@@ -26,7 +26,7 @@ const Navbar: FC = () => {
         <li><a href="#projects">Проекти</a></li>
       </ul>
       <div className="navbar-cta">
-        <a href="https://wa.me/359877011033" target="_blank" rel="noopener noreferrer" className="nav-btn">
+        <a href="#contact" className="nav-btn">
           Консултация
         </a>
       </div>
