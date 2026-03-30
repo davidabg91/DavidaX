@@ -3,11 +3,32 @@ import './Contact.css';
 
 const Contact: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate form submission
-    setIsSubmitted(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xnjodpza', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setIsError(false);
+        form.reset();
+      } else {
+        setIsError(true);
+      }
+    } catch (err) {
+      setIsError(true);
+    }
   };
 
   return (
@@ -56,21 +77,22 @@ const Contact: React.FC = () => {
           </div>
         ) : (
           <form className="contact-form tech-card" onSubmit={handleSubmit}>
+            {isError && <p style={{ color: '#ff4d4d', marginBottom: '15px' }}>Грешка при изпращането. Моля опитайте отново.</p>}
             <div className="form-group">
               <label className="input-label">USER_NAME:</label>
-              <input type="text" placeholder="въведете име..." required className="tech-input" />
+              <input type="text" name="name" placeholder="въведете име..." required className="tech-input" />
             </div>
             <div className="form-group">
               <label className="input-label">USER_EMAIL:</label>
-              <input type="email" placeholder="въведете имейл..." required className="tech-input" />
+              <input type="email" name="email" placeholder="въведете имейл..." required className="tech-input" />
             </div>
             <div className="form-group">
               <label className="input-label">USER_PHONE:</label>
-              <input type="tel" placeholder="въведете телефон..." className="tech-input" />
+              <input type="tel" name="phone" placeholder="въведете телефон..." className="tech-input" />
             </div>
             <div className="form-group">
               <label className="input-label">PROJECT_DESC:</label>
-              <textarea placeholder="описание на вашия проект..." rows={4} required className="tech-input"></textarea>
+              <textarea name="description" placeholder="описание на вашия проект..." rows={4} required className="tech-input"></textarea>
             </div>
             <button type="submit" className="tech-submit-btn">
               ИЗПРАТИ ЗАЯВКА()
