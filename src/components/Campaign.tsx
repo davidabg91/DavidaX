@@ -6,7 +6,7 @@ const Campaign: FC = () => {
     <section id="campaign" className="campaign-section section fade-in">
       <div className="campaign-container">
         <div className="campaign-header">
-          <div className="tech-badge">PROMO_2024 // SUPPORT_PROGRAM</div>
+          <div className="tech-badge">PROMO_2026 // SUPPORT_PROGRAM</div>
           <h2 className="campaign-title">Подкрепа за <span className="gradient-text">Стартиращи Бизнеси</span></h2>
           <p className="campaign-intro">
             Вярваме в силата на новите идеи. Затова DavidaX стартира ексклузивна кампания за подкрепа на бизнеси, 

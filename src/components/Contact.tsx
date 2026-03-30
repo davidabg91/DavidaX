@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
               <span className="icon">📞</span>
               <div className="item-text">
                 <label>PHONE_LINE</label>
-                <a href="tel:0877011033" className="contact-link">0877 011 033</a>
+                <a href="tel:0876141826" className="contact-link">0876 141 826</a>
               </div>
             </div>
             <div className="detail-item tech-item">
