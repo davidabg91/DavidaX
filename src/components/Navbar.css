@@ -3,70 +3,81 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 30px 5%;
+  padding: 40px 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  transition: all 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .navbar.scrolled {
-  padding: 15px 5%;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 10%;
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-logo-img {
-  height: 45px;
+  height: 55px;
   width: auto;
   display: block;
-  filter: brightness(1.2);
-  transition: transform 0.3s ease;
+  filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .navbar-logo-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(-3deg);
+  filter: brightness(1.4) drop-shadow(0 0 20px var(--accent-glow));
 }
 
 .navbar-links {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   list-style: none;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 40px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
 }
 
 .navbar-links a {
-  color: #888;
+  color: var(--text-secondary);
   font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-
-.navbar-links a:hover {
-  color: #fff;
-}
-
-.nav-btn {
-  padding: 10px 24px;
-  background: #fff;
-  color: #000;
-  font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  border-radius: 8px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
 }
 
-.nav-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+.navbar-links a:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+.nav-btn {
+  padding: 14px 32px;
+  background: #fff;
+  color: #000;
+  font-size: 0.85rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  border-radius: 12px;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 20px 50px rgba(255, 255, 255, 0.2);
+  background: var(--accent-color);
+}
+
+@media (max-width: 1100px) {
   .navbar-links {
     display: none;
   }
