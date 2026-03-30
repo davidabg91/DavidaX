@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 
 const Contact: React.FC = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate form submission
+    setIsSubmitted(true);
+  };
+
   return (
     <section id="contact" className="contact-section section fade-in">
       <h2 className="section-title">Свържете се с <span className="gradient-text">Нас</span></h2>
@@ -35,27 +43,40 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <form className="contact-form tech-card">
-          <div className="form-group">
-            <label className="input-label">USER_NAME:</label>
-            <input type="text" placeholder="въведете име..." required className="tech-input" />
+        {isSubmitted ? (
+          <div className="success-message tech-card fade-in">
+            <div className="success-icon">✅</div>
+            <h3 className="success-title">Заявката е изпратена Успешно!</h3>
+            <p className="success-text">
+              Благодарим ви за доверието. Наш експерт ще прегледа информацията и ще се свърже с вас в рамките на 24 часа.
+            </p>
+            <button onClick={() => setIsSubmitted(false)} className="tech-reset-btn">
+              ИЗПРАТИ НОВА ЗАЯВКА
+            </button>
           </div>
-          <div className="form-group">
-            <label className="input-label">USER_EMAIL:</label>
-            <input type="email" placeholder="въведете имейл..." required className="tech-input" />
-          </div>
-          <div className="form-group">
-            <label className="input-label">USER_PHONE:</label>
-            <input type="tel" placeholder="въведете телефон..." className="tech-input" />
-          </div>
-          <div className="form-group">
-            <label className="input-label">PROJECT_DESC:</label>
-            <textarea placeholder="описание на вашия проект..." rows={4} required className="tech-input"></textarea>
-          </div>
-          <button type="submit" className="tech-submit-btn">
-            ИЗПРАТИ ЗАЯВКА()
-          </button>
-        </form>
+        ) : (
+          <form className="contact-form tech-card" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label className="input-label">USER_NAME:</label>
+              <input type="text" placeholder="въведете име..." required className="tech-input" />
+            </div>
+            <div className="form-group">
+              <label className="input-label">USER_EMAIL:</label>
+              <input type="email" placeholder="въведете имейл..." required className="tech-input" />
+            </div>
+            <div className="form-group">
+              <label className="input-label">USER_PHONE:</label>
+              <input type="tel" placeholder="въведете телефон..." className="tech-input" />
+            </div>
+            <div className="form-group">
+              <label className="input-label">PROJECT_DESC:</label>
+              <textarea placeholder="описание на вашия проект..." rows={4} required className="tech-input"></textarea>
+            </div>
+            <button type="submit" className="tech-submit-btn">
+              ИЗПРАТИ ЗАЯВКА()
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
