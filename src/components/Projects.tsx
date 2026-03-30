@@ -34,15 +34,15 @@ const Projects: FC = () => {
       <h2 className="section-title">Част от <span className="gradient-text">Проекти</span></h2>
       <div className="projects-grid">
         {projects.map((p, i) => (
-          <div key={i} className="project-card glass overflow-hidden">
+          <div key={i} className="project-card fade-in">
             <div className="project-image-container">
               <img src={p.image} alt={p.title} className="project-image-img" />
             </div>
             <div className="project-info">
               <span className="project-category">{p.category}</span>
-              <h3 className="project-name">{p.title}</h3>
+              <h2 className="project-name">{p.title}</h2>
               <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                Посети сайта →
+                Виж сайта →
               </a>
             </div>
           </div>

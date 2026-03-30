@@ -1,14 +1,14 @@
 :root {
-  --bg-color: #050505;
+  --bg-color: #000000;
   --text-primary: #ffffff;
-  --text-secondary: #a1a1a1;
+  --text-secondary: #888888;
   --accent-color: #0070f3;
   --accent-glow: rgba(0, 112, 243, 0.4);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --font-heading: 'Outfit', sans-serif;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-heading: 'Outfit', 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 * {
@@ -25,15 +25,15 @@ body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 .glass {
@@ -44,41 +44,31 @@ h1, h2, h3, h4 {
 }
 
 .section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
   text-align: center;
-  margin-bottom: 80px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+  margin-bottom: 60px;
+  letter-spacing: -0.04em;
   position: relative;
   color: white;
 }
 
 .section-title span {
-  font-family: 'Syncopate', sans-serif;
-  letter-spacing: 8px;
-}
-
-.section-title::before {
-  content: '// ';
-  color: var(--accent-color);
-  font-family: monospace;
-  font-size: 1.5rem;
-  letter-spacing: normal;
-  vertical-align: middle;
+  font-family: inherit;
+  letter-spacing: inherit;
 }
 
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -20px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  height: 2px;
-  background: var(--accent-color);
-  box-shadow: 0 0 15px var(--accent-glow);
+  width: 100px;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
 }
 
 .gradient-text {

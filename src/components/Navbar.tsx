@@ -13,23 +13,21 @@ const Navbar: FC = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled glass' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-logo">
-        <div className="logo-wrapper-dev">
-          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX IT Logo" className="logo-img-dev" />
-        </div>
+        <span className="logo-text">DAVIDAX</span>
       </div>
       <ul className="navbar-links">
         <li><a href="#home">Начало</a></li>
         <li><a href="#about">Бранд</a></li>
         <li><a href="#services">Услуги</a></li>
         <li><a href="#projects">Проекти</a></li>
-        <li><a href="#contact">Контакт</a></li>
       </ul>
       <div className="navbar-cta">
-        <a href="#contact" className="btn-primary">Запитване</a>
+        <a href="https://wa.me/359877011033" target="_blank" rel="noopener noreferrer" className="nav-btn">
+          Консултация
+        </a>
       </div>
-      <div className="nav-pulse-line"></div>
     </nav>
   );
 };

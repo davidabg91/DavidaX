@@ -4,68 +4,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5%;
+  padding: 120px 5% 80px;
   overflow: hidden;
+  background-color: #000000;
 }
 
 .hero-content {
   text-align: center;
   z-index: 10;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 .hero-badge-container {
   display: inline-flex;
-  padding: 8px 24px;
-  background: rgba(0, 112, 243, 0.1);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(0, 112, 243, 0.3);
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0, 112, 243, 0.15);
+  margin-bottom: 40px;
 }
 
 .hero-subtitle {
-  color: #fff;
+  color: #888;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
   font-weight: 700;
   margin: 0;
-  font-family: 'Outfit', sans-serif;
 }
 
 .hero-title {
-  font-size: 5.5rem;
+  font-size: clamp(3rem, 10vw, 7.5rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 25px;
-  font-family: 'Outfit', sans-serif;
-  letter-spacing: -2px;
+  line-height: 0.95;
+  margin-bottom: 40px;
+  letter-spacing: -0.05em;
+  color: #fff;
 }
 
 .highlight {
-  color: white;
-  position: relative;
-  z-index: 1;
+  color: #fff;
 }
 
-.glow-text {
-  text-shadow: 0 0 20px rgba(0, 112, 243, 0.5);
-  position: relative;
-}
-
-.glow-text::after {
-  content: '';
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background: var(--accent-color);
-  z-index: -1;
-  opacity: 0.3;
-  filter: blur(5px);
+.gradient-text.glow-text {
+  background: linear-gradient(90deg, #fff, #888, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 8s linear infinite;
 }
 
 @keyframes shimmer {
@@ -73,23 +60,92 @@
   100% { background-position: 200% center; }
 }
 
-.gradient-text.glow-text {
-  background: linear-gradient(90deg, #0070f3, #00dfd8, #0070f3);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shimmer 5s linear infinite;
+/* Offer Panel Styling */
+.offer-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 30px 40px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  gap: 30px;
+}
+
+.offer-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(0, 112, 243, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.offer-content {
+  flex: 1;
+}
+
+.offer-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--accent-color);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.offer-text {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+.offer-description {
+  font-size: 1rem;
+  color: #888;
+  line-height: 1.4;
+}
+
+.offer-btn {
+  padding: 18px 36px;
+  background: #fff;
+  color: #000;
+  font-weight: 800;
+  border-radius: 12px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.offer-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
 }
 
 .hero-description {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.4rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 40px;
-  opacity: 0.9;
-  letter-spacing: 0.5px;
+  font-size: 1.25rem;
+  color: #888;
+  max-width: 650px;
+  margin: 0 auto 50px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .hero-btns {
@@ -99,46 +155,37 @@
 }
 
 .btn-hero {
-  padding: 16px 40px;
-  border-radius: 4px;
-  font-family: 'Orbitron', sans-serif;
+  padding: 20px 45px;
+  border-radius: 12px;
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 .btn-hero.primary {
-  background: var(--accent-color);
-  color: white;
-  box-shadow: 0 0 20px rgba(0, 112, 243, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #fff;
+  color: #000;
 }
 
 .btn-hero.secondary {
-  border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  color: white;
-  margin-left: 20px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-hero:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 35px var(--accent-glow);
+  transform: translateY(-5px);
+}
+
+.btn-hero.primary:hover {
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
 }
 
 .btn-hero.secondary:hover {
-  border-color: var(--accent-color);
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #fff;
 }
 
 .hero-background {
@@ -152,30 +199,47 @@
 
 .glow-circle {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.2;
+  filter: blur(150px);
+  opacity: 0.1;
 }
 
 .glow-circle.top {
-  top: -100px;
-  right: -50px;
-  background: #0070f3;
+  top: -200px;
+  right: -100px;
+  background: #fff;
 }
 
 .glow-circle.bottom {
-  bottom: -150px;
-  left: -100px;
-  background: #7928ca;
+  bottom: -300px;
+  left: -200px;
+  background: #0070f3;
+}
+
+@media (max-width: 991px) {
+  .offer-panel {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+  }
+  .offer-btn {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   .hero-btns {
     flex-direction: column;
+  }
+  .btn-hero {
+    width: 100%;
+  }
+  .offer-text {
+    font-size: 1.8rem;
   }
 }

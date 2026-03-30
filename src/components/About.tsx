@@ -5,16 +5,8 @@ const About: React.FC = () => {
     <section id="about" className="about-section section fade-in">
       <h2 className="section-title">Зад бранда <span className="gradient-text">DavidaX</span></h2>
       <div className="about-grid">
-        <div className="about-image">
-          <div className="hologram-container">
-            <div className="logo-blend-wrapper">
-              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="about-logo-img-seamless" />
-              <div className="scanline-overlay"></div>
-            </div>
-            <div className="orbit-ring"></div>
-            <div className="tech-tag top-right">[VERSION_4.0]</div>
-            <div className="tech-tag bottom-left">[SYS_STABLE]</div>
-          </div>
+        <div className="about-image fade-in">
+          <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="about-logo-img-seamless" />
         </div>
         <div className="about-text">
           <p className="about-p">

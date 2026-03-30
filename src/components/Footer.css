@@ -1,132 +1,55 @@
 .footer {
-  padding: 40px 5%;
-  margin-top: 50px;
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
+  padding: 80px 10%;
+  background-color: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.footer-brand {
-  margin-bottom: 20px;
-}
-
-.tech-signature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .sig-main {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 10px;
-  background: linear-gradient(90deg, #fff, var(--accent-color));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  position: relative;
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 2px;
 }
 
 .sig-tag {
-  font-family: monospace;
   font-size: 0.7rem;
-  color: var(--accent-color);
-  letter-spacing: 3px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-top: 5px;
-  opacity: 0.8;
-}
-
-.sig-line {
-  width: 100%;
-  height: 1px;
-  background: rgba(0, 112, 243, 0.3);
-  margin-top: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.sig-line::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: var(--accent-color);
-  box-shadow: 0 0 10px var(--accent-glow);
-  animation: scan 3s linear infinite;
-}
-
-@keyframes scan {
-  0% { left: -100%; }
-  100% { left: 200%; }
+  display: block;
 }
 
 .footer p {
-  color: var(--text-secondary);
+  color: #555;
   font-size: 0.9rem;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 20px;
 }
 
 .fb-button {
   display: flex;
   align-items: center;
-  gap: 15px;
-  color: white;
-  background: rgba(24, 119, 242, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 15px 35px;
-  border-radius: 15px;
-  text-decoration: none;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid rgba(24, 119, 242, 0.3);
-  box-shadow: 0 0 20px rgba(24, 119, 242, 0.1);
+  gap: 12px;
+  color: #888;
+  transition: all 0.3s ease;
 }
 
 .fb-button:hover {
-  background: rgba(24, 119, 242, 0.2);
-  transform: translateY(-5px);
-  border-color: #1877F2;
-  box-shadow: 0 15px 40px rgba(24, 119, 242, 0.4), 0 0 20px rgba(24, 119, 242, 0.3);
-  letter-spacing: 4px;
-}
-
-.fb-button svg {
-  color: #1877F2;
-  filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.8));
-}
-
-.fb-button span {
-  background: linear-gradient(90deg, #fff, #1877F2);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
-    gap: 20px;
     text-align: center;
   }
 }

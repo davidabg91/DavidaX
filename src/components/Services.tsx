@@ -39,14 +39,10 @@ const Services: React.FC = () => {
       <h2 className="section-title">Какво <span className="gradient-text">Предлагаме</span></h2>
       <div className="services-grid">
         {services.map((s, i) => (
-          <div key={i} className="service-card floating-style-card">
-            <div className="panel-glow"></div>
-            <div className="service-content">
-              <div className="service-icon">{s.icon}</div>
-              <h3 className="service-title">{s.title}</h3>
-              <p className="service-desc">{s.description}</p>
-            </div>
-            <div className="tech-line"></div>
+          <div key={i} className="service-card fade-in">
+            <div className="service-icon">{s.icon}</div>
+            <h3 className="service-title">{s.title}</h3>
+            <p className="service-desc">{s.description}</p>
           </div>
         ))}
       </div>

@@ -4,7 +4,7 @@ import './Campaign.css';
 const Campaign: FC = () => {
   return (
     <section id="campaign" className="campaign-section section fade-in">
-      <div className="campaign-container tech-card holographic">
+      <div className="campaign-container">
         <div className="campaign-header">
           <div className="tech-badge">PROMO_2024 // SUPPORT_PROGRAM</div>
           <h2 className="campaign-title">Подкрепа за <span className="gradient-text">Стартиращи Бизнеси</span></h2>
@@ -38,12 +38,10 @@ const Campaign: FC = () => {
           <p className="eligibility-text">
             * Офертата важи за нови бизнеси, регистрирани през последните 180 дни.
           </p>
-          <a href="#contact" className="tech-submit-btn campaign-btn">
-            КАНДИДАТСТВАЙ ЗА ПОДКРЕПА_
+          <a href="https://wa.me/359877011033" target="_blank" rel="noopener noreferrer" className="campaign-btn">
+            КАНДИДАТСТВАЙ ЗА ПОДКРЕПА
           </a>
         </div>
-        
-        <div className="bg-glow"></div>
       </div>
     </section>
   );
