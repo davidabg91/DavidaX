@@ -49,7 +49,7 @@ const projects = [
 const Projects: FC = () => {
   return (
     <section id="projects" className="projects-section section fade-in">
-      <h2 className="section-title">Част от <span className="gradient-text">Проекти</span></h2>
+      <h2 className="section-title">Избрани <span className="gradient-text">Проекти</span></h2>
       <div className="projects-grid">
         {projects.map((p, i) => (
           <div key={i} className="project-card fade-in">
