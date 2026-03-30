@@ -5,6 +5,7 @@ import About from './components/About'
 import Campaign from './components/Campaign'
 import Services from './components/Services'
 import Projects from './components/Projects'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingFeatures from './components/FloatingFeatures'
 import { initFaviconZoom } from './utils/favicon'
@@ -24,6 +25,7 @@ function App() {
       <Campaign />
       <Services />
       <Projects />
+      <Contact />
       <Footer />
     </div>
   )

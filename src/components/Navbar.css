@@ -18,12 +18,16 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #fff;
+.navbar-logo-img {
+  height: 45px;
+  width: auto;
+  display: block;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo-img:hover {
+  transform: scale(1.05);
 }
 
 .navbar-links {

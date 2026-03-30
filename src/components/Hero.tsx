@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             <h2 className="offer-text">ВЗЕМИ БЕЗПЛАТНА ОФЕРТА ДНЕС!</h2>
             <p className="offer-description">Консултирайте се с нашите експерти и получете план за вашия дигитален растеж.</p>
           </div>
-          <a href="https://wa.me/359877011033" target="_blank" rel="noopener noreferrer" className="offer-btn">
+          <a href="#contact" className="offer-btn">
             Вземи Сега
           </a>
         </div>

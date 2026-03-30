@@ -15,7 +15,9 @@ const Navbar: FC = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-logo">
-        <span className="logo-text">DAVIDAX</span>
+        <a href="#home">
+          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX Logo" className="navbar-logo-img" />
+        </a>
       </div>
       <ul className="navbar-links">
         <li><a href="#home">Начало</a></li>

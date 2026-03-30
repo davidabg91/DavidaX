@@ -5,10 +5,8 @@ const Footer: React.FC = () => {
     <footer className="footer section">
       <div className="footer-content">
         <div className="footer-brand">
-          <div className="tech-signature">
-            <span className="sig-main">DAVIDAX</span>
-            <span className="sig-tag">EST. 2022 // INNOVATION LAB</span>
-          </div>
+          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX Logo" className="footer-logo-img" />
+          <span className="sig-tag">EST. 2022 // INNOVATION LAB</span>
         </div>
         <div className="footer-info">
           <p>© {new Date().getFullYear()} DavidaX. Built for Excellence.</p>
