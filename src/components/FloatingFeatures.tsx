@@ -2,71 +2,61 @@ import { useState, useEffect, type FC } from 'react';
 import './FloatingFeatures.css';
 
 const features = [
-  {
-    id: 1,
-    title: 'Dashboard Analytics',
-    content: 'Интерактивни графики в реално време',
-    icon: '📊',
-    position: 'top-left'
-  },
-  {
-    id: 2,
-    title: 'User Profile',
-    content: 'Модерно управление на акаунти',
-    icon: '👤',
-    position: 'bottom-right'
-  },
-  {
-    id: 3,
-    title: 'AI Assistant',
-    content: 'Интелигентни чат ботове и агенти',
-    icon: '🤖',
-    position: 'top-right'
-  },
-  {
-    id: 4,
-    title: 'Payment Gateway',
-    content: 'Сигурни транзакции и абонаменти',
-    icon: '💳',
-    position: 'bottom-left'
-  },
-  {
-    id: 5,
-    title: 'Navigation Systems',
-    content: 'Сложни йерархични менюта',
-    icon: '🗺️',
-    position: 'left-center'
-  }
+  { id: 1, content: 'ИНТЕРАКТИВНИ ГРАФИКИ В РЕАЛНО ВРЕМЕ', icon: '📊' },
+  { id: 2, content: 'МОДЕРНО УПРАВЛЕНИЕ НА АКАУНТИ', icon: '👤' },
+  { id: 3, content: 'ИНТЕЛИГЕНТНИ ЧАТ БОТОВЕ И АГЕНТИ', icon: '🤖' },
+  { id: 4, content: 'СИГУРНИ ТРАНЗАКЦИИ И АБОНАМЕНТИ', icon: '💳' },
+  { id: 5, content: 'СЛОЖНИ ЙЕРАРХИЧНИ СИСТЕМИ', icon: '🗺️' }
 ];
 
 const FloatingFeatures: FC = () => {
   const [activeFeature, setActiveFeature] = useState<number>(0);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveFeature((prev) => (prev + 1) % features.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Hide bar when within 300px of the footer/bottom
+      if (scrollY + windowHeight > documentHeight - 300) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="floating-container">
-      {features.map((f, index) => (
-        <div 
-          key={f.id} 
-          className={`floating-panel ${f.position} ${activeFeature === index ? 'active' : ''}`}
-        >
-          <div className="panel-glow"></div>
-          <div className="panel-content">
-            <span className="panel-icon">{f.icon}</span>
-            <div className="panel-text">
-              <h4>{f.title}</h4>
-              <p>{f.content}</p>
-            </div>
+    <div className={`info-ticker-container ${isVisible ? 'visible' : 'hidden'}`}>
+      <div className="ticker-track">
+        {features.map((f, index) => (
+          <div 
+            key={f.id} 
+            className={`ticker-item ${activeFeature === index ? 'active' : ''}`}
+          >
+            <span className="ticker-icon">{f.icon}</span>
+            <span className="ticker-text">{f.content}</span>
           </div>
-          <div className="tech-line"></div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div className="ticker-progress-bar">
+        <div 
+          className="progress-fill" 
+          style={{ width: `${((activeFeature + 1) / features.length) * 100}%` }}
+        ></div>
+      </div>
     </div>
   );
 };
