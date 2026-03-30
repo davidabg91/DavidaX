@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
         {/* New Offer Panel */}
         <div className="offer-panel glass fade-in" style={{ animationDelay: '2s' }}>
           <div className="offer-content">
-            <span className="offer-tag">Ексклузивно</span>
+            <span className="hero-offer-tag">Ексклузивно</span>
             <h2 className="offer-text">ВЗЕМИ БЕЗПЛАТНА ОФЕРТА ДНЕС!</h2>
             <p className="offer-description">Консултирайте се с нашите експерти и получете план за вашия дигитален растеж.</p>
           </div>

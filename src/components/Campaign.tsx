@@ -16,7 +16,7 @@ const Campaign: FC = () => {
 
         <div className="campaign-grid">
           <div className="offer-card glass">
-            <div className="offer-tag">-50%</div>
+            <div className="campaign-offer-tag">-50%</div>
             <h3>Изграждане на Сайт & Система</h3>
             <p>Пълна разработка на вашата дигитална инфраструктура на половин цена.</p>
           </div>
