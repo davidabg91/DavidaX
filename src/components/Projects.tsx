@@ -3,46 +3,46 @@ import './Projects.css';
 
 const projects = [
   {
-    title: 'ДИ ЦЕНТЪР',
-    category: 'Airbnb & Хотели',
-    image: `${import.meta.env.BASE_URL}assets/projects/dicenter.png`,
-    link: 'https://davidabg91.github.io/AIRBNB/',
-    description: 'Луксозно дигитално изживяване за гости.'
-  },
-  {
     title: 'Dary Commerce',
-    category: 'Системи за Транспорт',
+    category: 'SaaS & Fintech',
     image: `${import.meta.env.BASE_URL}assets/projects/darycommerce.png`,
     link: 'https://darycommerce.com/',
-    description: 'Софтуер за абонаменти.'
+    description: 'Иновативна платформа за управление на абонаменти и дигитални разплащания.'
   },
   {
-    title: 'Fortnite Status',
-    category: 'Мониторинг & API',
-    image: `${import.meta.env.BASE_URL}assets/projects/isfortnite.png`,
-    link: 'https://isfortnite.online/',
-    description: 'Статус на сървърите в реално време.'
+    title: 'ДИ ЦЕНТЪР',
+    category: 'Хотелиерски Софтуер',
+    image: `${import.meta.env.BASE_URL}assets/projects/dicenter.png`,
+    link: 'https://davidabg91.github.io/AIRBNB/',
+    description: 'Премиум уеб сайт за управление на резервации и луксозно настаняване.'
   },
   {
     title: 'The Corner Bar & Grill',
-    category: 'Ресторантски Бизнес',
+    category: 'Digital Menu & Business',
     image: `${import.meta.env.BASE_URL}assets/projects/thecornerbar.png`,
     link: 'https://www.thecornerbar.online/',
-    description: 'Модерно дигитално меню и резервации.'
+    description: 'Цялостна дигитална екосистема за ресторантски бизнес и онлайн поръчки.'
   },
   {
     title: 'Fabcrush Marketplace',
-    category: 'E-commerce & Мода',
+    category: 'E-commerce Platform',
     image: `${import.meta.env.BASE_URL}assets/projects/fabcrush.png`,
     link: 'https://fabcrush.com/',
-    description: 'Платформа за онлайн търговия.'
+    description: 'Мащабируем онлайн маркетплейс с фокус върху потребителското преживяване.'
+  },
+  {
+    title: 'Fortnite Status',
+    category: 'Real-time API Monitor',
+    image: `${import.meta.env.BASE_URL}assets/projects/isfortnite.png`,
+    link: 'https://isfortnite.online/',
+    description: 'Система за мониторинг на гейминг сървъри в реално време.'
   },
   {
     title: 'Odd One Out',
-    category: 'Социална Игра',
+    category: 'Interactive Social Game',
     image: `${import.meta.env.BASE_URL}assets/projects/oddoneout.png`,
     link: 'https://oddoneout.site/',
-    description: 'Интерактивна игра за социални контакти.'
+    description: 'Уеб-базирана социална игра с фокус върху интерактивността.'
   }
 ];
 
@@ -52,19 +52,19 @@ const Projects: FC = () => {
       <h2 className="section-title">Избрани <span className="gradient-text">Проекти</span></h2>
       <div className="projects-grid">
         {projects.map((p, i) => (
-          <div key={i} className="project-card fade-in">
+          <article key={i} className="project-card fade-in" style={{ animationDelay: `${i * 0.15}s` }}>
             <div className="project-image-container">
-              <img src={p.image} alt={p.title} className="project-image-img" />
+              <img src={p.image} alt={`Проект: ${p.title} - ${p.category}`} className="project-image-img" loading="lazy" />
             </div>
             <div className="project-info">
               <span className="project-category">{p.category}</span>
-              <h2 className="project-name">{p.title}</h2>
+              <h3 className="project-name">{p.title}</h3>
               <p className="project-description">{p.description}</p>
-              <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
+              <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`Прегледай проекта ${p.title}`}>
                 Виж сайта →
               </a>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

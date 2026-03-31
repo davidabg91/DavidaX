@@ -45,5 +45,9 @@ export const DecipherText: React.FC<DecipherTextProps> = ({ text, speed = 40, de
     };
   }, [text, speed, delay]);
 
-  return <span>{displayText}</span>;
+  return (
+    <span aria-label={text} role="text">
+      {displayText || text.split('').map(() => ' ').join('')}
+    </span>
+  );
 };

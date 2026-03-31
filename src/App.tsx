@@ -19,13 +19,17 @@ function App() {
   return (
     <div className="app-container">
       <FloatingFeatures />
-      <Navbar />
-      <Hero />
-      <About />
-      <Campaign />
-      <Services />
-      <Projects />
-      <Contact />
+      <header>
+        <Navbar />
+      </header>
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Campaign />
+        <Services />
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
     </div>
   )

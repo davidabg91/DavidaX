@@ -8,7 +8,8 @@ const Hero: React.FC = () => {
         <div className="hero-badge-container">
           <h4 className="hero-subtitle">Премиум Студио за Софтуерни Иновации</h4>
         </div>
-        <h1 className="hero-title">
+        <h1 className="hero-title" aria-label="DavidaX - Професионална Изработка на Сайтове и Софтуерни Решения Плевен">
+          <span className="sr-only">DavidaX — Професионална Изработка на Сайтове Плевен, Уеб Дизайн и Софтуерни Решения. </span>
           <DecipherText text="Изграждаме" /> <span className="highlight"><DecipherText text="Бъдещето" delay={800} /></span> <br />
           <DecipherText text="чрез" delay={1300} /> <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={1600} /></span>.
         </h1>
@@ -20,7 +21,7 @@ const Hero: React.FC = () => {
             <h2 className="offer-text">ВЗЕМИ БЕЗПЛАТНА ОФЕРТА ДНЕС!</h2>
             <p className="offer-description">Консултирайте се с нашите експерти и получете план за вашия дигитален растеж.</p>
           </div>
-          <a href="#contact" className="offer-btn">
+          <a href="#contact" className="offer-btn" aria-label="Вземи своята безплатна оферта">
             Вземи Сега
           </a>
         </div>
@@ -30,8 +31,8 @@ const Hero: React.FC = () => {
           високопроизводителни и естетически съвършени дигитални решения.
         </p>
         <div className="hero-btns">
-          <a href="#projects" className="btn-hero primary">Виж Проектите</a>
-          <a href="#services" className="btn-hero secondary">Нашите Услуги</a>
+          <a href="#projects" className="btn-hero primary" aria-label="Разгледай нашите проекти">Виж Проектите</a>
+          <a href="#services" className="btn-hero secondary" aria-label="Научи повече за нашите услуги">Нашите Услуги</a>
         </div>
       </div>
       <div className="hero-background">

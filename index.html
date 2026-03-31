@@ -4,12 +4,185 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DavidaX | Premium Software Solutions</title>
-    <meta name="description" content="DavidaX - Премиум студио за софтуерни иновации. Разработка на уеб сайтове, сложни системи и ИИ интеграция. Вашият партньор за дигитално съвършенство." />
-    <!-- Google Fonts -->
+    <title>DavidaX | Изработка на Сайтове Плевен | Уеб Дизайн и Софтуерни Решения</title>
+    <meta name="description" content="DavidaX - Премиум студио за софтуерни иновации в Плевен. Професионална изработка на уеб сайтове, сложни системи, уеб дизайн и ИИ интеграция. Вашият партньор за дигитален успех." />
+    <meta name="keywords" content="изработка на сайтове плевен, уеб дизайн плевен, разработчик на софтуер, софтуерни разработки, ИИ интеграция, DavidaX, програмиране Плевен" />
+    <link rel="canonical" href="https://davidax.org" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/logo.jpg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="bg_BG" />
+    <meta property="og:site_name" content="DavidaX" />
+    <meta property="og:url" content="https://davidax.org" />
+    <meta property="og:title" content="DavidaX | Изработка на Сайтове Плевен" />
+    <meta property="og:description" content="Премиум студио за софтуерни иновации в Плевен. Изграждаме бъдещето чрез чист код." />
+    <meta property="og:image" content="https://davidax.org/logo.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://davidax.org" />
+    <meta property="twitter:title" content="DavidaX | Изработка на Сайтове Плевен" />
+    <meta property="twitter:description" content="Премиум студио за софтуерни иновации в Плевен. Изграждаме бъдещето чрез чист код." />
+    <meta property="twitter:image" content="https://davidax.org/logo.jpg" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://davidax.org/#organization",
+          "name": "DavidaX",
+          "url": "https://davidax.org",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://davidax.org/logo.jpg"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+359876141826",
+            "contactType": "customer service",
+            "areaServed": "BG",
+            "availableLanguage": ["Bulgarian", "English"]
+          },
+          "sameAs": [
+            "https://www.facebook.com/DavidaX",
+            "https://www.linkedin.com/company/davidax"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://davidax.org/#website",
+          "url": "https://davidax.org",
+          "name": "DavidaX",
+          "publisher": {
+            "@id": "https://davidax.org/#organization"
+          },
+          "inLanguage": "bg-BG"
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://davidax.org/#service",
+          "name": "DavidaX - Изработка на Сайтове Плевен",
+          "image": "https://davidax.org/logo.jpg",
+          "url": "https://davidax.org",
+          "telephone": "+359876141826",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Център",
+            "addressLocality": "Плевен",
+            "postalCode": "5800",
+            "addressCountry": "BG"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.4170,
+            "longitude": 24.6067
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          "description": "Професионална изработка на уеб сайтове, уеб дизайн и софтуерни решения за бизнеса в Плевен.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Услуги на DavidaX",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "ИИ Интеграция & Автоматизация"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Custom Web Solutions"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Абонаментни Системи & SaaS"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://davidax.org/#projects",
+          "name": "Нашите Проекти",
+          "description": "Списък с успешно реализирани софтуерни проекти от DavidaX.",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Dary Commerce",
+              "url": "https://darycommerce.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Fabcrush Marketplace",
+              "url": "https://fabcrush.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "The Corner Bar & Grill",
+              "url": "https://www.thecornerbar.online/"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://davidax.org/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Начало",
+              "item": "https://davidax.org/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Услуги",
+              "item": "https://davidax.org/#services"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Проекти",
+              "item": "https://davidax.org/#projects"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts - Optimized (Only using Outfit and Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Syncopate:wght@400;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -28,6 +201,7 @@
       gtag('js', new Date());
       gtag('config', 'G-5M22WSWEP5');
     </script>
+
   </head>
   <body>
     <div id="root"></div>
