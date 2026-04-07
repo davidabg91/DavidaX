@@ -3,6 +3,13 @@ import './Projects.css';
 
 const projects = [
   {
+    title: 'NFC Bulgaria',
+    category: 'NFC & Digital IDs',
+    image: `${import.meta.env.BASE_URL}assets/projects/nfcbulgaria.png`,
+    link: 'https://nfcbulgaria.com/',
+    description: 'Смарт решения за дигитални визитки, NFC табели и автоматизация на бизнеса.'
+  },
+  {
     title: 'Dary Commerce',
     category: 'SaaS & Fintech',
     image: `${import.meta.env.BASE_URL}assets/projects/darycommerce.png`,
