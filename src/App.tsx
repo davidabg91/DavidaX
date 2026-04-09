@@ -7,6 +7,7 @@ import Services from './components/Services'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import LegalInfo from './components/LegalInfo'
 import FloatingFeatures from './components/FloatingFeatures'
 import { initFaviconZoom } from './utils/favicon'
 import './App.css'
@@ -30,6 +31,7 @@ function App() {
         <Projects />
         <Contact />
       </main>
+      <LegalInfo />
       <Footer />
     </div>
   )

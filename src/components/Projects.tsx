@@ -3,6 +3,13 @@ import './Projects.css';
 
 const projects = [
   {
+    title: 'TransitFlow',
+    category: 'Fleet Management & NFC',
+    image: `${import.meta.env.BASE_URL}assets/projects/transitflow.png`,
+    link: 'http://transitflow.org/',
+    description: 'Дигитализация на транспортния сектор чрез NFC валидиране, динамични графици и детайлна финансова отчетност.'
+  },
+  {
     title: 'NFC Bulgaria',
     category: 'NFC & Digital IDs',
     image: `${import.meta.env.BASE_URL}assets/projects/nfcbulgaria.png`,
