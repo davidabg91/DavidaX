@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './LegalInfo.css';
 
 const LegalInfo: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section id="legal" className="legal-section section fade-in">
       <div className="legal-container glass">
@@ -72,6 +77,9 @@ const LegalInfo: React.FC = () => {
 
         <div className="legal-footer">
           <p>Предмет на дейност: покупка на стоки с цел продажба в първоначален, преработен и обработен вид, производство на стоки с цел продажба, комисионна, складова, лизингова дейност, търговско представителство и посредничество.</p>
+          <div className="legal-back">
+            <Link to="/" className="back-link">← Обратно към началната страница</Link>
+          </div>
         </div>
       </div>
     </section>

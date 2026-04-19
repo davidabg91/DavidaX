@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -13,7 +14,7 @@ const Footer: React.FC = () => {
             <li><a href="#services">Услуги</a></li>
             <li><a href="#projects">Проекти</a></li>
             <li><a href="#about">За Нас</a></li>
-            <li><a href="#legal">Правна Информация</a></li>
+            <li><Link to="/legal">Правна Информация</Link></li>
             <li><a href="#contact">Контакт</a></li>
           </ul>
         </nav>

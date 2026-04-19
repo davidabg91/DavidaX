@@ -1,11 +1,7 @@
 import { useEffect } from 'react'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Campaign from './components/Campaign'
-import Services from './components/Services'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import Home from './components/Home'
 import Footer from './components/Footer'
 import LegalInfo from './components/LegalInfo'
 import FloatingFeatures from './components/FloatingFeatures'
@@ -18,22 +14,19 @@ function App() {
   }, []);
 
   return (
-    <div className="app-container">
-      <FloatingFeatures />
-      <header>
-        <Navbar />
-      </header>
-      <main id="main-content">
-        <Hero />
-        <About />
-        <Campaign />
-        <Services />
-        <Projects />
-        <Contact />
-      </main>
-      <LegalInfo />
-      <Footer />
-    </div>
+    <Router>
+      <div className="app-container">
+        <FloatingFeatures />
+        <header>
+          <Navbar />
+        </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/legal" element={<LegalInfo />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 
