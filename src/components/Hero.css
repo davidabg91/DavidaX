@@ -26,20 +26,20 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 10vw, 8.5rem);
+  font-size: clamp(3rem, 10vw, 8.5rem);
   font-weight: 950;
-  line-height: 1;
-  margin-bottom: 25px;
+  line-height: 1.1;
+  margin-bottom: 40px;
   letter-spacing: -0.05em;
   color: #fff;
   text-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .hero-tagline {
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   text-transform: uppercase;
   color: var(--text-secondary);
-  letter-spacing: 0.5em;
+  letter-spacing: 0.3em;
   font-weight: 600;
   margin-bottom: 60px;
   opacity: 0.8;
@@ -245,8 +245,9 @@
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 12vw, 4rem);
-    margin-bottom: 30px;
+    font-size: clamp(2.8rem, 14vw, 5rem);
+    margin-bottom: 35px;
+    line-height: 1.1;
   }
 
   .offer-panel {
@@ -281,7 +282,8 @@
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    line-height: 1.1;
   }
   
   .hero-badge-container {
