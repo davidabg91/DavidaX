@@ -7,12 +7,11 @@ const Hero: React.FC = () => {
     <section id="home" className="hero-section">
       <div className="hero-content fade-in">
         <h1 className="hero-branding-title">DavidaX</h1>
-        <h2 className="hero-title" aria-label="DavidaX - Професионална Изработка на Сайтове и Софтуерни Решения Плевен">
-          <span className="sr-only">DavidaX — Професионална Изработка на Сайтове Плевен, Уеб Дизайн и Софтуерни Решения. </span>
+        <h2 className="hero-title" aria-label="DavidaX - Професионална Изработка на Сайтове Плевен, Уеб Дизайн и Софтуерни Решения">
           <DecipherText text="Изграждаме" /> <span className="highlight"><DecipherText text="Бъдещето" delay={800} /></span> <br />
           <DecipherText text="чрез" delay={1300} /> <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={1600} /></span>.
         </h2>
-        <p className="hero-tagline">Премиум Студио за Софтуерни Иновации</p>
+        <p className="hero-tagline">Професионална Изработка на Сайтове Плевен, Уеб Дизайн и Софтуерни Решения.</p>
         
         {/* New Offer Panel */}
         <div className="offer-panel glass fade-in" style={{ animationDelay: '2s' }}>
