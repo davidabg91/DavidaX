@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
           <DecipherText text="Изграждаме" from="DavidaX" delay={1000} revealSpeed={2} /> <span className="highlight"><DecipherText text="Бъдещето" delay={1400} /></span> <br />
           <DecipherText text="чрез" delay={1800} /> <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={2100} /></span>.
         </h1>
-        <p className="hero-tagline">Професионална Изработка на Сайтове Плевен, Уеб Дизайн и Софтуерни Решения.</p>
+        <p className="hero-tagline">Премиум Студио за Софтуерни Иновации</p>
         
         {/* New Offer Panel */}
         <div className="offer-panel glass fade-in" style={{ animationDelay: '2s' }}>
