@@ -27,8 +27,7 @@ export const DecipherText: React.FC<DecipherTextProps> = ({
         const targetChars = text.split('');
         const fromChars = from.split('');
         
-        // Determine the length to animate (max of both)
-        const maxLength = Math.max(targetChars.length, fromChars.length);
+        // Determine the length to animate
         const currentLength = Math.max(
           fromChars.length,
           Math.min(targetChars.length, Math.floor(iteration * 1.5))
