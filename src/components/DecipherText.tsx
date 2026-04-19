@@ -6,6 +6,7 @@ interface DecipherTextProps {
   speed?: number;
   delay?: number;
   revealSpeed?: number;
+  className?: string;
 }
 
 export const DecipherText: React.FC<DecipherTextProps> = ({ 
@@ -13,7 +14,8 @@ export const DecipherText: React.FC<DecipherTextProps> = ({
   from = '', 
   speed = 40, 
   delay = 500,
-  revealSpeed = 3
+  revealSpeed = 3,
+  className = ''
 }) => {
   const [displayText, setDisplayText] = useState(from || '');
   const chars = '01';
@@ -69,7 +71,7 @@ export const DecipherText: React.FC<DecipherTextProps> = ({
   }, [text, from, speed, delay, revealSpeed]);
 
   return (
-    <span aria-label={text} role="text" className="decipher-span">
+    <span aria-label={text} role="text" className={`decipher-span ${className}`}>
       {displayText}
     </span>
   );

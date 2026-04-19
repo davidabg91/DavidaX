@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     <section id="home" className="hero-section">
       <div className="hero-content fade-in">
         <h1 className="hero-title" aria-label="DavidaX - Професионална Изработка на Сайтове Плевен, Уеб Дизайн и Софтуерни Решения">
-          <DecipherText text="Изграждаме" from="DavidaX" delay={1000} revealSpeed={2} /> <span className="highlight"><DecipherText text="Бъдещето" delay={1400} /></span> <br />
+          <DecipherText text="Изграждаме" from="DavidaX" delay={1000} revealSpeed={2} className="brand-decipher" /> <span className="highlight"><DecipherText text="Бъдещето" delay={1400} /></span> <br />
           <DecipherText text="чрез" delay={1800} /> <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={2100} /></span>.
         </h1>
         <p className="hero-tagline">Премиум Студио за Софтуерни Иновации</p>
