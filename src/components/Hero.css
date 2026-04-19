@@ -15,7 +15,7 @@
 }
 
 .hero-title {
-  font-size: clamp(3.2rem, 12vw, 9.5rem);
+  font-size: clamp(2.5rem, 12vw, 9.5rem);
   font-weight: 950;
   line-height: 0.95;
   margin-bottom: 40px;
@@ -47,7 +47,6 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 0 20px rgba(0, 242, 254, 0.1);
   display: inline-block;
-  white-space: nowrap;
 }
 
 .decipher-span {
@@ -277,7 +276,7 @@
   }
 
   .hero-title {
-    font-size: clamp(2.8rem, 14vw, 5rem);
+    font-size: clamp(2.2rem, 14vw, 5rem);
     margin-bottom: 35px;
     line-height: 1.1;
   }
@@ -313,11 +312,20 @@
 }
 
 @media (max-width: 480px) {
+  .hero-section {
+    padding-top: 120px;
+  }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     line-height: 1.1;
   }
   
+  .hero-tagline-badge {
+    font-size: 0.65rem;
+    padding: 8px 15px;
+    letter-spacing: 0.2em;
+  }
+
   .hero-badge-container {
     margin-bottom: 30px;
     padding: 10px 20px;
