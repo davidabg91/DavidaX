@@ -13,7 +13,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(20px);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
 }
 

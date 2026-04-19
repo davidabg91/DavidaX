@@ -46,7 +46,8 @@ body::before {
   background: radial-gradient(circle at 50% 50%, rgba(0, 242, 254, 0.05), transparent 80%);
   pointer-events: none;
   z-index: -1;
-  animation: moveBg 20s infinite alternate ease-in-out;
+  animation: moveBg 30s infinite alternate ease-in-out;
+  will-change: transform;
 }
 
 body::after {
@@ -76,8 +77,8 @@ h1, h2, h3, h4 {
 
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
 }
 
@@ -144,6 +145,7 @@ ul {
 
 .fade-in {
   animation: fadeIn 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  will-change: transform, opacity;
 }
 
 .sr-only {
