@@ -10,7 +10,9 @@ const Hero: React.FC = () => {
           <DecipherText text="Изграждаме" from="DavidaX" delay={1000} revealSpeed={2} className="brand-decipher" /> <span className="highlight"><DecipherText text="Бъдещето" delay={1400} /></span> <br />
           <DecipherText text="чрез" delay={1800} /> <span className="gradient-text glow-text"><DecipherText text="Чист Код" delay={2100} /></span>.
         </h1>
-        <p className="hero-tagline">Премиум Студио за Софтуерни Иновации</p>
+        <div className="hero-tag-container fade-in" style={{ animationDelay: '1.2s' }}>
+          <span className="hero-tagline-badge">Премиум Студио за Софтуерни Иновации</span>
+        </div>
         
         {/* New Offer Panel */}
         <div className="offer-panel glass fade-in" style={{ animationDelay: '2s' }}>

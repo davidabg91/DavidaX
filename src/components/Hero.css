@@ -18,13 +18,36 @@
   font-size: clamp(3.2rem, 12vw, 9.5rem);
   font-weight: 950;
   line-height: 0.95;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   letter-spacing: -0.06em;
   background: linear-gradient(180deg, #fff 40%, rgba(255, 255, 255, 0.6) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  will-change: transform;
+}
+
+.hero-tag-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.hero-tagline-badge {
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  text-transform: uppercase;
+  color: var(--accent-color);
+  letter-spacing: 0.3em;
+  font-weight: 800;
+  padding: 10px 25px;
+  background: rgba(0, 242, 254, 0.03);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.1);
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .decipher-span {
@@ -41,6 +64,7 @@
   animation: liquidGradient 4s linear infinite, brandPulse 3s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));
   font-weight: 950;
+  will-change: transform, filter;
 }
 
 @keyframes liquidGradient {
@@ -51,17 +75,6 @@
 @keyframes brandPulse {
   from { filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.3)); transform: scale(1); }
   to { filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.6)); transform: scale(1.02); }
-}
-
-.hero-tagline {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  letter-spacing: 0.3em;
-  font-weight: 600;
-  margin-bottom: 60px;
-  opacity: 0.8;
-  animation: fadeIn 1.5s ease-out 2s both;
 }
 
 .highlight {
@@ -227,9 +240,10 @@
   width: 800px;
   height: 800px;
   border-radius: 50%;
-  filter: blur(150px);
+  filter: blur(80px);
   opacity: 0.15;
   animation: float 15s infinite alternate ease-in-out;
+  will-change: transform;
 }
 
 @keyframes float {
