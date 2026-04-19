@@ -1,5 +1,6 @@
 import { useState, useEffect, type FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Navbar.css';
 
 const Navbar: FC = () => {
@@ -17,13 +18,6 @@ const Navbar: FC = () => {
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const getLinkProps = (id: string) => {
-    if (isHomePage) {
-      return { href: `#${id}` };
-    }
-    return { href: `/#${id}` };
-  };
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
@@ -47,26 +41,28 @@ const Navbar: FC = () => {
 
       <ul id="navbar-links" className={`navbar-links ${isMenuOpen ? 'active' : ''}`} role="menu">
         <li role="none">
-          {isHomePage ? (
-            <a href="#home" role="menuitem" onClick={() => setIsMenuOpen(false)}>Начало</a>
-          ) : (
-            <Link to="/" role="menuitem" onClick={() => setIsMenuOpen(false)}>Начало</Link>
-          )}
+          <HashLink smooth to="/#home" role="menuitem" onClick={() => setIsMenuOpen(false)}>Начало</HashLink>
         </li>
-        <li role="none"><a {...getLinkProps('about')} role="menuitem" onClick={() => setIsMenuOpen(false)}>Бранд</a></li>
-        <li role="none"><a {...getLinkProps('services')} role="menuitem" onClick={() => setIsMenuOpen(false)}>Услуги</a></li>
-        <li role="none"><a {...getLinkProps('projects')} role="menuitem" onClick={() => setIsMenuOpen(false)}>Проекти</a></li>
+        <li role="none">
+          <HashLink smooth to="/#about" role="menuitem" onClick={() => setIsMenuOpen(false)}>Бранд</HashLink>
+        </li>
+        <li role="none">
+          <HashLink smooth to="/#services" role="menuitem" onClick={() => setIsMenuOpen(false)}>Услуги</HashLink>
+        </li>
+        <li role="none">
+          <HashLink smooth to="/#projects" role="menuitem" onClick={() => setIsMenuOpen(false)}>Проекти</HashLink>
+        </li>
         <li role="none" className="mobile-only-cta">
-          <a {...getLinkProps('contact')} role="menuitem" className="nav-btn" onClick={() => setIsMenuOpen(false)}>
+          <HashLink smooth to="/#contact" role="menuitem" className="nav-btn" onClick={() => setIsMenuOpen(false)}>
             Консултация
-          </a>
+          </HashLink>
         </li>
       </ul>
 
       <div className="navbar-cta">
-        <a {...getLinkProps('contact')} className="nav-btn" aria-label="Заявете безплатна консултация">
+        <HashLink smooth to="/#contact" className="nav-btn" aria-label="Заявете безплатна консултация">
           Консултация
-        </a>
+        </HashLink>
       </div>
     </nav>
   );

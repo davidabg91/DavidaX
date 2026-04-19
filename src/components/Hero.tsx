@@ -1,3 +1,4 @@
+import { HashLink } from 'react-router-hash-link';
 import { DecipherText } from './DecipherText';
 import './Hero.css';
 
@@ -20,9 +21,9 @@ const Hero: React.FC = () => {
             <h2 className="offer-text">ВЗЕМИ БЕЗПЛАТНА ОФЕРТА ДНЕС!</h2>
             <p className="offer-description">Консултирайте се с нашите експерти и получете план за вашия дигитален растеж.</p>
           </div>
-          <a href="#contact" className="offer-btn" aria-label="Вземи своята безплатна оферта">
+          <HashLink smooth to="/#contact" className="offer-btn" aria-label="Вземи своята безплатна оферта">
             Вземи Сега
-          </a>
+          </HashLink>
         </div>
 
         <p className="hero-description">
@@ -30,8 +31,8 @@ const Hero: React.FC = () => {
           високопроизводителни и естетически съвършени дигитални решения.
         </p>
         <div className="hero-btns">
-          <a href="#projects" className="btn-hero primary" aria-label="Разгледай нашите проекти">Виж Проектите</a>
-          <a href="#services" className="btn-hero secondary" aria-label="Научи повече за нашите услуги">Нашите Услуги</a>
+          <HashLink smooth to="/#projects" className="btn-hero primary" aria-label="Разгледай нашите проекти">Виж Проектите</HashLink>
+          <HashLink smooth to="/#services" className="btn-hero secondary" aria-label="Научи повече за нашите услуги">Нашите Услуги</HashLink>
         </div>
       </div>
       <div className="hero-background">

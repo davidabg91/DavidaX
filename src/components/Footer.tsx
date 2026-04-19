@@ -1,3 +1,4 @@
+import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
@@ -11,11 +12,11 @@ const Footer: React.FC = () => {
         </div>
         <nav className="footer-nav" aria-label="Footer Navigation">
           <ul className="footer-links">
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#projects">Проекти</a></li>
-            <li><a href="#about">За Нас</a></li>
+            <li><HashLink smooth to="/#services">Услуги</HashLink></li>
+            <li><HashLink smooth to="/#projects">Проекти</HashLink></li>
+            <li><HashLink smooth to="/#about">За Нас</HashLink></li>
             <li><Link to="/legal">Правна Информация</Link></li>
-            <li><a href="#contact">Контакт</a></li>
+            <li><HashLink smooth to="/#contact">Контакт</HashLink></li>
           </ul>
         </nav>
         <div className="footer-info">
