@@ -287,6 +287,10 @@
     display: block;
   }
 
+  .hero-title br {
+    display: none;
+  }
+
   .offer-panel {
     padding: 30px 20px;
     margin-bottom: 50px;
