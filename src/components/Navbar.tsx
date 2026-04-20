@@ -39,26 +39,26 @@ const Navbar: FC = () => {
 
       <ul id="navbar-links" className={`navbar-links ${isMenuOpen ? 'active' : ''}`} role="menu">
         <li role="none">
-          <HashLink smooth to="/#home" role="menuitem" onClick={() => setIsMenuOpen(false)}>Начало</HashLink>
+          <HashLink to="/#home" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Начало</HashLink>
         </li>
         <li role="none">
-          <HashLink smooth to="/#about" role="menuitem" onClick={() => setIsMenuOpen(false)}>Бранд</HashLink>
+          <HashLink to="/#about" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Бранд</HashLink>
         </li>
         <li role="none">
-          <HashLink smooth to="/#services" role="menuitem" onClick={() => setIsMenuOpen(false)}>Услуги</HashLink>
+          <HashLink to="/#services" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Услуги</HashLink>
         </li>
         <li role="none">
-          <HashLink smooth to="/#projects" role="menuitem" onClick={() => setIsMenuOpen(false)}>Проекти</HashLink>
+          <HashLink to="/#projects" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Проекти</HashLink>
         </li>
         <li role="none" className="mobile-only-cta">
-          <HashLink smooth to="/#contact" role="menuitem" className="nav-btn" onClick={() => setIsMenuOpen(false)}>
+          <HashLink to="/#contact" role="menuitem" className="nav-btn" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>
             Консултация
           </HashLink>
         </li>
       </ul>
 
       <div className="navbar-cta">
-        <HashLink smooth to="/#contact" className="nav-btn" aria-label="Заявете безплатна консултация">
+        <HashLink to="/#contact" className="nav-btn" aria-label="Заявете безплатна консултация" scroll={(el) => window.lenisInstance?.scrollTo(el)}>
           Консултация
         </HashLink>
       </div>

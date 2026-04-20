@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+import { HashLink } from 'react-router-hash-link';
 import './Campaign.css';
 
 const Campaign: FC = () => {
@@ -38,9 +39,13 @@ const Campaign: FC = () => {
           <p className="eligibility-text">
             * Офертата важи за нови бизнеси, регистрирани през последните 180 дни.
           </p>
-          <a href="#contact" className="campaign-btn">
+          <HashLink 
+            to="/#contact" 
+            className="campaign-btn"
+            scroll={(el) => window.lenisInstance?.scrollTo(el)}
+          >
             КАНДИДАТСТВАЙ ЗА ПОДКРЕПА
-          </a>
+          </HashLink>
         </div>
       </div>
     </section>

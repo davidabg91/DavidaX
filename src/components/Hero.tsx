@@ -21,7 +21,12 @@ const Hero: React.FC = () => {
             <h2 className="offer-text">ВЗЕМИ БЕЗПЛАТНА ОФЕРТА ДНЕС!</h2>
             <p className="offer-description">Консултирайте се с нашите експерти и получете план за вашия дигитален растеж.</p>
           </div>
-          <HashLink smooth to="/#contact" className="offer-btn" aria-label="Вземи своята безплатна оферта">
+          <HashLink 
+            to="/#contact" 
+            className="offer-btn" 
+            aria-label="Вземи своята безплатна оферта"
+            scroll={(el) => window.lenisInstance?.scrollTo(el)}
+          >
             Вземи Сега
           </HashLink>
         </div>
@@ -31,8 +36,8 @@ const Hero: React.FC = () => {
           високопроизводителни и естетически съвършени дигитални решения.
         </p>
         <div className="hero-btns">
-          <HashLink smooth to="/#projects" className="btn-hero primary" aria-label="Разгледай нашите проекти">Виж Проектите</HashLink>
-          <HashLink smooth to="/#services" className="btn-hero secondary" aria-label="Научи повече за нашите услуги">Нашите Услуги</HashLink>
+          <HashLink to="/#projects" className="btn-hero primary" aria-label="Разгледай нашите проекти" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Виж Проектите</HashLink>
+          <HashLink to="/#services" className="btn-hero secondary" aria-label="Научи повече за нашите услуги" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Нашите Услуги</HashLink>
         </div>
       </div>
       <div className="hero-background">

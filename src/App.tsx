@@ -9,6 +9,12 @@ import FloatingFeatures from './components/FloatingFeatures'
 import { initFaviconZoom } from './utils/favicon'
 import './App.css'
 
+declare global {
+  interface Window {
+    lenisInstance: Lenis | undefined;
+  }
+}
+
 function App() {
   useEffect(() => {
     initFaviconZoom(`${import.meta.env.BASE_URL}logo.jpg`);
@@ -24,6 +30,8 @@ function App() {
       infinite: false,
     });
 
+    window.lenisInstance = lenis;
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -33,6 +41,7 @@ function App() {
 
     return () => {
       lenis.destroy();
+      window.lenisInstance = undefined;
     };
   }, []);
 

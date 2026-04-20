@@ -12,11 +12,11 @@ const Footer: React.FC = () => {
         </div>
         <nav className="footer-nav" aria-label="Footer Navigation">
           <ul className="footer-links">
-            <li><HashLink smooth to="/#services">Услуги</HashLink></li>
-            <li><HashLink smooth to="/#projects">Проекти</HashLink></li>
-            <li><HashLink smooth to="/#about">За Нас</HashLink></li>
+            <li><HashLink to="/#services" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Услуги</HashLink></li>
+            <li><HashLink to="/#projects" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Проекти</HashLink></li>
+            <li><HashLink to="/#about" scroll={(el) => window.lenisInstance?.scrollTo(el)}>За Нас</HashLink></li>
             <li><Link to="/legal">Правна Информация</Link></li>
-            <li><HashLink smooth to="/#contact">Контакт</HashLink></li>
+            <li><HashLink to="/#contact" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Контакт</HashLink></li>
           </ul>
         </nav>
         <div className="footer-info">
