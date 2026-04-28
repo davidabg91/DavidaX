@@ -20,13 +20,13 @@ function App() {
     initFaviconZoom(`${import.meta.env.BASE_URL}logo.jpg`);
 
     const lenis = new Lenis({
-      duration: 1.0,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.2,
+      touchMultiplier: 1.5,
       infinite: false,
     });
 
@@ -48,14 +48,17 @@ function App() {
   return (
     <Router>
       <div className="app-container">
+        <div className="fixed-background" aria-hidden="true"></div>
         <FloatingFeatures />
         <header>
           <Navbar />
         </header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/legal" element={<LegalInfo />} />
-        </Routes>
+        <main className="optimize-gpu">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/legal" element={<LegalInfo />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </Router>
