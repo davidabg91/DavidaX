@@ -31,11 +31,11 @@ const projects = [
     description: 'Премиум уеб сайт за управление на резервации и луксозно настаняване.'
   },
   {
-    title: 'The Corner Bar & Grill',
-    category: 'Digital Menu & Business',
+    title: 'The Corner',
+    category: 'Grocery Store & E-commerce',
     image: `${import.meta.env.BASE_URL}assets/projects/thecornerbar.png`,
     link: 'https://www.thecornerbar.online/',
-    description: 'Цялостна дигитална екосистема за ресторантски бизнес и онлайн поръчки.'
+    description: 'Модерна платформа за онлайн пазаруване и дигитализация на местни хранителни магазини.'
   },
   {
     title: 'Fabcrush Marketplace',
