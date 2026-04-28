@@ -53,12 +53,6 @@ const FloatingFeatures: FC = () => {
           </div>
         ))}
       </div>
-      <div className="ticker-progress-bar">
-        <div 
-          className="progress-fill" 
-          style={{ width: `${((activeFeature + 1) / features.length) * 100}%` }}
-        ></div>
-      </div>
     </div>
   );
 };
