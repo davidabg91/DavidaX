@@ -2,11 +2,11 @@ import { useState, useEffect, type FC } from 'react';
 import './FloatingFeatures.css';
 
 const features = [
-  { id: 1, content: 'ИНТЕРАКТИВНИ ГРАФИКИ В РЕАЛНО ВРЕМЕ', icon: '📊' },
-  { id: 2, content: 'МОДЕРНО УПРАВЛЕНИЕ НА АКАУНТИ', icon: '👤' },
-  { id: 3, content: 'ИНТЕЛИГЕНТНИ ЧАТ БОТОВЕ И АГЕНТИ', icon: '🤖' },
-  { id: 4, content: 'СИГУРНИ ТРАНЗАКЦИИ И АБОНАМЕНТИ', icon: '💳' },
-  { id: 5, content: 'СЛОЖНИ ЙЕРАРХИЧНИ СИСТЕМИ', icon: '🗺️' }
+  { id: 1, content: 'ИНТЕРАКТИВНИ ГРАФИКИ В РЕАЛНО ВРЕМЕ' },
+  { id: 2, content: 'МОДЕРНО УПРАВЛЕНИЕ НА АКАУНТИ' },
+  { id: 3, content: 'ИНТЕЛИГЕНТНИ ЧАТ БОТОВЕ И АГЕНТИ' },
+  { id: 4, content: 'СИГУРНИ ТРАНЗАКЦИИ И АБОНАМЕНТИ' },
+  { id: 5, content: 'СЛОЖНИ ЙЕРАРХИЧНИ СИСТЕМИ' }
 ];
 
 const FloatingFeatures: FC = () => {
@@ -48,7 +48,6 @@ const FloatingFeatures: FC = () => {
             key={f.id} 
             className={`ticker-item ${activeFeature === index ? 'active' : ''}`}
           >
-            <span className="ticker-icon">{f.icon}</span>
             <span className="ticker-text">{f.content}</span>
           </div>
         ))}
