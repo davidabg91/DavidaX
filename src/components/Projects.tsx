@@ -3,6 +3,13 @@ import './Projects.css';
 
 const projects = [
   {
+    title: 'Needo',
+    category: 'Services Marketplace',
+    image: `${import.meta.env.BASE_URL}assets/projects/needo.png`,
+    link: 'https://needobg.com/',
+    description: 'Needo свързва хората с идеи с хората с умения. Снимай, публикувай и избери най-добрата оферта за секунди.'
+  },
+  {
     title: 'TransitFlow',
     category: 'Fleet Management & NFC',
     image: `${import.meta.env.BASE_URL}assets/projects/transitflow.png`,
