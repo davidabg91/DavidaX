@@ -40,7 +40,7 @@ const projects = [
   {
     title: 'The Corner',
     category: 'Grocery Store & E-commerce',
-    image: `${import.meta.env.BASE_URL}assets/projects/thecornerbar.png`,
+    image: `${import.meta.env.BASE_URL}assets/projects/the_corner_store.png`,
     link: 'https://www.thecornerbar.online/',
     description: 'Модерна платформа за онлайн пазаруване и дигитализация на местни хранителни магазини.'
   },
