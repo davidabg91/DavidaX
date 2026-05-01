@@ -50,6 +50,9 @@ const Navbar: FC = () => {
         <li role="none">
           <HashLink to="/#projects" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Проекти</HashLink>
         </li>
+        <li role="none">
+          <Link to="/blog" role="menuitem" onClick={() => setIsMenuOpen(false)}>Блог</Link>
+        </li>
         <li role="none" className="mobile-only-cta">
           <HashLink to="/#contact" role="menuitem" className="nav-btn" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>
             Консултация

@@ -15,6 +15,7 @@ const Footer: React.FC = () => {
             <li><HashLink to="/#services" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Услуги</HashLink></li>
             <li><HashLink to="/#projects" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Проекти</HashLink></li>
             <li><HashLink to="/#about" scroll={(el) => window.lenisInstance?.scrollTo(el)}>За Нас</HashLink></li>
+            <li><Link to="/blog">Блог</Link></li>
             <li><Link to="/legal">Правна Информация</Link></li>
             <li><HashLink to="/#contact" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Контакт</HashLink></li>
           </ul>

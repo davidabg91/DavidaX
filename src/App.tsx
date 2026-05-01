@@ -7,6 +7,8 @@ import Footer from './components/Footer'
 import LegalInfo from './components/LegalInfo'
 import FloatingFeatures from './components/FloatingFeatures'
 import { initFaviconZoom } from './utils/favicon'
+import Blog from './components/Blog'
+import Article from './components/Article'
 import './App.css'
 
 declare global {
@@ -57,6 +59,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/legal" element={<LegalInfo />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<Article />} />
           </Routes>
         </main>
         <Footer />
