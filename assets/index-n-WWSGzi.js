@@ -48,30 +48,34 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
 
       <h2>Заключение</h2>
       <p>Избягването на тези грешки е разликата между успешния бизнес и проваления онлайн експеримент. С правилната стратегия от <strong>davidax</strong>, вашият сайт ще работи за вас денонощно.</p>
-    `},{slug:`transport-firma-uvelichenie-klienti`,title:`Кейс стъди: Как транспортна фирма увеличи клиентите си с 40%`,date:`30 Април, 2026`,category:`Кейс Стъди`,readTime:`7 мин.`,image:`transport-case.png`,excerpt:`Вижте как една логистична компания преобрази бизнеса си чрез модерна дигитална стратегия и нов сайт от davidax.`,content:`
-      <h2>Предизвикателството</h2>
-      <p>Нашият клиент, голяма транспортна фирма, страдаше от ниска видимост онлайн. Старият им сайт беше морално остарял, труден за управление и не генерираше никакви запитвания.</p>
+    `},{slug:`transport-firma-uvelichenie-klienti`,title:`Кейс стъди: Как TransitFlow трансформира автобусните превози`,date:`30 Април, 2026`,category:`Кейс Стъди`,readTime:`8 мин.`,image:`transport-case.png`,excerpt:`Вижте как интеграцията на TransitFlow помогна на транспортна фирма да елиминира измамите, да автоматизира абонаментите и да повиши оборота си с 30%.`,content:`
+      <h2>Предизвикателството: Остарели системи и загуби</h2>
+      <p>Нашият клиент, утвърдена компания за междуградски и градски автобусни превози, се сблъскваше с класически проблеми за сектора: липса на контрол върху продажбите, чести опити за използване на фалшиви или невалидни карти и тромава администрация на абонаментните планове.</p>
+      <p>Ръчното проверяване на билети и пластики водеше до значителни финансови загуби (т.нар. "изтичане на приходи") и недоволство сред пътниците поради забавяния.</p>
 
-      <h2>Решението от davidax</h2>
-      <p>Екипът на <strong>davidax</strong> анализира конкуренцията и нуждите на пазара. Изградихме изцяло нова платформа със следните ключови подобрения:</p>
+      <h2>Решението: Пълна дигитализация с TransitFlow</h2>
+      <p>Екипът на <strong>davidax</strong> внедри специализираната платформа <a href="http://transitflow.org/" target="_blank" rel="noopener noreferrer">TransitFlow</a>. Това не е просто уеб сайт, а цялостна екосистема за управление на автопаркове и пътникопоток. Ключовите иновации включваха:</p>
       <ul>
-        <li><strong>Калкулатор за оферти:</strong> Потребителите могат сами да изчислят приблизителна цена за транспорт, което спестява време на администрацията.</li>
-        <li><strong>Проследяване на пратки:</strong> Интеграция в реално време, която дава спокойствие на клиентите.</li>
-        <li><strong>Локално SEO:</strong> Оптимизация за ключови думи в конкретни региони, където фирмата оперира.</li>
+        <li><strong>NFC Валидация в реално време:</strong> Шофьорите бяха оборудвани със смарт устройства (myPOS терминали), интегрирани с нашия софтуер. Всяка карта се сканира за милисекунди, като системата веднага сигнализира при неплатена услуга с ясно съобщение „КАРТАТА НЕ Е ПЛАТЕНА“.</li>
+        <li><strong>Автоматизиран абонаментен център:</strong> Пътниците вече могат да подновяват картите си онлайн или чрез мобилно приложение, което елиминира опашките пред касите.</li>
+        <li><strong>Динамични графици и GPS проследяване:</strong> Оптимизация на маршрутите в реално време, базирана на натовареността и трафика.</li>
       </ul>
 
-      <h2>Резултатите</h2>
-      <p>Само 3 месеца след пускането на новия сайт, резултатите бяха впечатляващи:</p>
+      <h2>Иновация чрез Clean Code и Cloud Технологии</h2>
+      <p><strong>TransitFlow</strong> работи върху мащабируема облачна инфраструктура. Това позволява на управителите на фирмата да виждат детайлна финансова отчетност за всяко продадено билетче или сканирана карта в реално време, независимо къде се намират.</p>
+
+      <h2>Резултатите: Числата говорят сами</h2>
+      <p>След 6 месеца експлоатация на системата, клиентът отчете:</p>
       <ol>
-        <li>40% увеличение на новите клиенти.</li>
-        <li>65% ръст на органичния трафик от Google.</li>
-        <li>Намаляване на времето за обработка на запитвания с 30%.</li>
+        <li><strong>30% ръст в оборота:</strong> Пряк резултат от предотвратяването на измами и по-добрия контрол върху продажбите.</li>
+        <li><strong>100% елиминиране на „гратисчии“:</strong> NFC технологията направи невъзможно използването на невалидни карти.</li>
+        <li><strong>Огромно увеличение на продуктивността:</strong> Административната работа по издаване на отчети, която отнемаше часове, сега се генерира с един клик.</li>
       </ol>
 
       <blockquote>
-        "Работата с davidax беше най-доброто бизнес решение, което сме вземали. Те не просто направиха сайт, те ни дадоха мощен инструмент за растеж." – Управител на фирмата.
+        "TransitFlow не просто модернизира нашата фирма – тя я превърна в технологичен лидер. Сигурността и прозрачността, които davidax ни осигуриха, са безценни." – Изпълнителен директор на транспортната компания.
       </blockquote>
 
-      <h2>Вашият бизнес може да бъде следващият</h2>
-      <p>Независимо дали сте в транспортния сектор, производството или услугите, правилната дигитална стратегия от <strong>davidax</strong> може да изстреля бизнеса ви на следващото ниво. Свържете се с нас за безплатна консултация още днес!</p>
+      <h2>Вашият транспортен бизнес може да бъде следващият</h2>
+      <p>Ако управлявате логистична или транспортна фирма, времето на хартиените отчети е минало. <a href="http://transitflow.org/" target="_blank" rel="noopener noreferrer">TransitFlow</a> е доказаното решение за модерно управление. Свържете се с нас за демонстрация на живо!</p>
     `}],Rr=()=>((0,_.useEffect)(()=>{window.lenisInstance?.scrollTo(0,{immediate:!0})},[]),(0,j.jsxs)(`section`,{className:`blog-container`,children:[(0,j.jsxs)(`div`,{className:`blog-header fade-in`,children:[(0,j.jsx)(`span`,{className:`blog-subtitle`,children:`Познание и Иновации`}),(0,j.jsxs)(`h1`,{className:`section-title`,children:[`Нашият `,(0,j.jsx)(`span`,{className:`gradient-text`,children:`Блог`})]})]}),(0,j.jsx)(`div`,{className:`blog-grid`,children:Lr.map((e,t)=>(0,j.jsxs)(`article`,{className:`blog-card glass fade-in`,style:{animationDelay:`${t*.1}s`},children:[(0,j.jsx)(`div`,{className:`blog-card-image`,children:(0,j.jsx)(`img`,{src:`/assets/blog/${e.image}`,alt:e.title,loading:`lazy`})}),(0,j.jsxs)(`div`,{className:`blog-card-content`,children:[(0,j.jsxs)(`div`,{className:`blog-card-meta`,children:[(0,j.jsx)(`span`,{className:`blog-card-category`,children:e.category}),(0,j.jsxs)(`span`,{children:[e.date,` • `,e.readTime]})]}),(0,j.jsx)(`h2`,{className:`blog-card-title`,children:e.title}),(0,j.jsx)(`p`,{className:`blog-card-excerpt`,children:e.excerpt}),(0,j.jsxs)(kn,{to:`/blog/${e.slug}`,className:`blog-card-link`,children:[`Прочети повече`,(0,j.jsx)(`svg`,{viewBox:`0 0 24 24`,children:(0,j.jsx)(`path`,{d:`M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z`})})]})]})]},e.slug))})]})),zr=()=>{let{slug:e}=pt(),t=dt(),n=Lr.find(t=>t.slug===e);return(0,_.useEffect)(()=>{window.lenisInstance?.scrollTo(0,{immediate:!0}),n||t(`/blog`)},[n,t]),n?(0,j.jsxs)(`article`,{className:`article-container fade-in`,children:[(0,j.jsxs)(kn,{to:`/blog`,className:`blog-back-btn`,children:[(0,j.jsx)(`svg`,{viewBox:`0 0 24 24`,width:`20`,height:`20`,children:(0,j.jsx)(`path`,{fill:`currentColor`,d:`M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z`})}),`Назад към Блога`]}),(0,j.jsxs)(`header`,{className:`article-hero`,children:[(0,j.jsx)(`span`,{className:`article-category`,children:n.category}),(0,j.jsx)(`h1`,{className:`article-title`,children:n.title}),(0,j.jsxs)(`div`,{className:`article-meta`,children:[(0,j.jsx)(`span`,{children:n.date}),(0,j.jsx)(`span`,{children:`•`}),(0,j.jsxs)(`span`,{children:[n.readTime,` четене`]})]})]}),(0,j.jsx)(`div`,{className:`article-main-image`,children:(0,j.jsx)(`img`,{src:`/assets/blog/${n.image}`,alt:n.title})}),(0,j.jsx)(`div`,{className:`article-body`,dangerouslySetInnerHTML:{__html:n.content}}),(0,j.jsxs)(`div`,{className:`article-cta glass`,children:[(0,j.jsx)(`h3`,{children:`Готови ли сте да промените бизнеса си?`}),(0,j.jsx)(`p`,{children:`Нека заедно изградим вашето дигитално присъствие с модерни технологии и печеливша стратегия.`}),(0,j.jsx)(yr,{to:`/#contact`,className:`nav-btn`,scroll:e=>window.lenisInstance?.scrollTo(e),children:`Безплатна Консултация`})]}),(0,j.jsxs)(`footer`,{className:`article-footer-nav`,children:[(0,j.jsx)(kn,{to:`/blog`,className:`blog-back-btn`,children:`Всички статии`}),(0,j.jsx)(yr,{to:`/#home`,className:`blog-back-btn`,scroll:e=>window.lenisInstance?.scrollTo(e),children:`Към Начало`})]})]}):null};function Br(){return(0,_.useEffect)(()=>{Ir(`/logo.jpg`);let e=new sr({duration:1.2,easing:e=>Math.min(1,1.001-2**(-10*e)),orientation:`vertical`,gestureOrientation:`vertical`,smoothWheel:!0,wheelMultiplier:1,touchMultiplier:1.5,infinite:!1});window.lenisInstance=e;function t(n){e.raf(n),requestAnimationFrame(t)}return requestAnimationFrame(t),()=>{e.destroy(),window.lenisInstance=void 0}},[]),(0,j.jsx)(En,{children:(0,j.jsxs)(`div`,{className:`app-container`,children:[(0,j.jsx)(`div`,{className:`fixed-background`,"aria-hidden":`true`}),(0,j.jsx)(Fr,{}),(0,j.jsx)(`header`,{children:(0,j.jsx)(xr,{})}),(0,j.jsx)(`main`,{className:`optimize-gpu`,children:(0,j.jsxs)(Rt,{children:[(0,j.jsx)(It,{path:`/`,element:(0,j.jsx)(jr,{})}),(0,j.jsx)(It,{path:`/legal`,element:(0,j.jsx)(Nr,{})}),(0,j.jsx)(It,{path:`/blog`,element:(0,j.jsx)(Rr,{})}),(0,j.jsx)(It,{path:`/blog/:slug`,element:(0,j.jsx)(zr,{})})]})}),(0,j.jsx)(Mr,{})]})})}(0,g.createRoot)(document.getElementById(`root`)).render((0,j.jsx)(_.StrictMode,{children:(0,j.jsx)(Br,{})}));
