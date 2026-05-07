@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="footer section">
       <div className="footer-content">
         <div className="footer-brand">
-          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX - Изработка на Сайтове Плевен" className="footer-logo-img" />
+          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX - Изработка на Сайтове" className="footer-logo-img" />
           <span className="sig-tag">EST. 2022 // INNOVATION LAB</span>
         </div>
         <nav className="footer-nav" aria-label="Footer Navigation">
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             <p>Email: <a href="mailto:office@davidax.org">office@davidax.org</a></p>
             <p>Тел: <a href="tel:+359876141826">+359 876 141 826</a></p>
           </address>
-          <p className="footer-copyright">© {new Date().getFullYear()} DavidaX. Професионална Изработка на Сайтове и Софтуер Плевен. Всички права запазени.</p>
+          <p className="footer-copyright">© {new Date().getFullYear()} DavidaX. Професионална Изработка на Сайтове и Софтуер. Всички права запазени.</p>
         </div>
         <div className="footer-socials">
           <a href="https://www.facebook.com/p/DavidaX-61578418701694/" target="_blank" rel="noopener noreferrer" className="fb-button" aria-label="Последвайте ни във Facebook">

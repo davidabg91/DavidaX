@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
               <span className="icon">📍</span>
               <div className="item-text">
                 <label>LOCATION_GEO</label>
-                <p>Плевен, България</p>
+                <p>България / Global</p>
               </div>
             </div>
           </div>
