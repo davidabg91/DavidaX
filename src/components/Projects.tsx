@@ -34,13 +34,13 @@ const projects = [
     title: 'ДИ ЦЕНТЪР',
     category: 'Хотелиерски Софтуер',
     image: `${import.meta.env.BASE_URL}assets/projects/dicenter.png`,
-    link: 'https://davidabg91.github.io/AIRBNB/',
+    link: 'https://davidabg91.github.io/DICenter/',
     description: 'Премиум уеб сайт за управление на резервации и луксозно настаняване.'
   },
   {
     title: 'The Corner',
     category: 'Grocery Store & E-commerce',
-    image: `${import.meta.env.BASE_URL}assets/projects/thecornerbar.png`,
+    image: `${import.meta.env.BASE_URL}assets/projects/thecorner.png`,
     link: 'https://www.thecornerbar.online/',
     description: 'Модерна платформа за онлайн пазаруване и дигитализация на местни хранителни магазини.'
   },
