@@ -1,18 +1,6 @@
 .contact-section {
   padding: 100px 5%;
   position: relative;
-  overflow: hidden;
-  background: rgb(2 6 23);
-}
-
-.contact-boxes-mask {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(transparent 20%, rgb(2 6 23) 80%);
-  pointer-events: none;
-  z-index: 1;
 }
 
 .contact-container {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Boxes } from './ui/background-boxes';
 import './Contact.css';
 
 const Contact: React.FC = () => {
@@ -34,10 +33,8 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="contact-section section fade-in">
-      <Boxes />
-      <div className="contact-boxes-mask" />
-      <h2 className="section-title" style={{ position: 'relative', zIndex: 10 }}>Свържете се с <span className="gradient-text">Нас</span></h2>
-      <div className="contact-container holographic" style={{ position: 'relative', zIndex: 10 }}>
+      <h2 className="section-title">Свържете се с <span className="gradient-text">Нас</span></h2>
+      <div className="contact-container holographic">
         <div className="contact-info tech-card">
           <p className="contact-desc">
             Готови ли сте да трансформирате бизнеса си? Свържете се с нас за консултация и персонална оферта.
