@@ -1,93 +1,125 @@
-import { type FC } from 'react';
+import { type FC, useState, useEffect } from 'react';
+import { CardStack, type CardStackItem } from './ui/card-stack';
 import './Projects.css';
 
-const projects = [
+const projects: CardStackItem[] = [
   {
+    id: 1,
     title: 'Needo',
-    category: 'Services Marketplace',
-    image: `${import.meta.env.BASE_URL}assets/projects/needo.jpg`,
-    link: 'https://needobg.com/',
-    description: 'Needo свързва хората с идеи с хората с умения. Снимай, публикувай и избери най-добрата оферта за секунди.'
+    tag: 'Services Marketplace',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/needo.jpg`,
+    href: 'https://needobg.com/',
+    description: 'Needo свързва хората с идеи с хората с умения. Снимай, публикувай и избери най-добрата оферта за секунди.',
   },
   {
+    id: 2,
     title: 'TransitFlow',
-    category: 'Fleet Management & NFC',
-    image: `${import.meta.env.BASE_URL}assets/projects/transitflow.png`,
-    link: 'http://transitflow.org/',
-    description: 'Дигитализация на транспортния сектор чрез NFC валидиране, динамични графици и детайлна финансова отчетност.'
+    tag: 'Fleet Management & NFC',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/transitflow.png`,
+    href: 'http://transitflow.org/',
+    description: 'Дигитализация на транспортния сектор чрез NFC валидиране, динамични графици и детайлна финансова отчетност.',
   },
   {
+    id: 3,
     title: 'NFC Bulgaria',
-    category: 'NFC & Digital IDs',
-    image: `${import.meta.env.BASE_URL}assets/projects/nfcbulgaria.png`,
-    link: 'https://nfcbulgaria.com/',
-    description: 'Смарт решения за дигитални визитки, NFC табели и автоматизация на бизнеса.'
+    tag: 'NFC & Digital IDs',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/nfcbulgaria.png`,
+    href: 'https://nfcbulgaria.com/',
+    description: 'Смарт решения за дигитални визитки, NFC табели и автоматизация на бизнеса.',
   },
   {
+    id: 4,
     title: 'Dary Commerce',
-    category: 'SaaS & Fintech',
-    image: `${import.meta.env.BASE_URL}assets/projects/darycommerce.png`,
-    link: 'https://darycommerce.com/',
-    description: 'Иновативна платформа за управление на абонаменти и дигитални разплащания.'
+    tag: 'SaaS & Fintech',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/darycommerce.png`,
+    href: 'https://darycommerce.com/',
+    description: 'Иновативна платформа за управление на абонаменти и дигитални разплащания.',
   },
   {
+    id: 5,
     title: 'ДИ ЦЕНТЪР',
-    category: 'Хотелиерски Софтуер',
-    image: `${import.meta.env.BASE_URL}assets/projects/dicenter.png`,
-    link: 'https://davidabg91.github.io/DICenter/',
-    description: 'Премиум уеб сайт за управление на резервации и луксозно настаняване.'
+    tag: 'Хотелиерски Софтуер',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/dicenter.png`,
+    href: 'https://davidabg91.github.io/DICenter/',
+    description: 'Премиум уеб сайт за управление на резервации и луксозно настаняване.',
   },
   {
+    id: 6,
     title: 'The Corner',
-    category: 'Grocery Store & E-commerce',
-    image: `${import.meta.env.BASE_URL}assets/projects/thecorner.png`,
-    link: 'https://www.thecornerbar.online/',
-    description: 'Модерна платформа за онлайн пазаруване и дигитализация на местни хранителни магазини.'
+    tag: 'Grocery & E-commerce',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/thecorner.png`,
+    href: 'https://www.thecornerbar.online/',
+    description: 'Модерна платформа за онлайн пазаруване и дигитализация на местни хранителни магазини.',
   },
   {
-    title: 'Fabcrush Marketplace',
-    category: 'E-commerce Platform',
-    image: `${import.meta.env.BASE_URL}assets/projects/fabcrush.png`,
-    link: 'https://fabcrush.com/',
-    description: 'Мащабируем онлайн маркетплейс с фокус върху потребителското преживяване.'
+    id: 7,
+    title: 'Fabcrush',
+    tag: 'E-commerce Platform',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/fabcrush.png`,
+    href: 'https://fabcrush.com/',
+    description: 'Мащабируем онлайн маркетплейс с фокус върху потребителското преживяване.',
   },
   {
+    id: 8,
     title: 'Fortnite Status',
-    category: 'Real-time API Monitor',
-    image: `${import.meta.env.BASE_URL}assets/projects/isfortnite.png`,
-    link: 'https://isfortnite.online/',
-    description: 'Система за мониторинг на гейминг сървъри в реално време.'
+    tag: 'Real-time API Monitor',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/isfortnite.png`,
+    href: 'https://isfortnite.online/',
+    description: 'Система за мониторинг на гейминг сървъри в реално време.',
   },
   {
+    id: 9,
     title: 'Odd One Out',
-    category: 'Interactive Social Game',
-    image: `${import.meta.env.BASE_URL}assets/projects/oddoneout.png`,
-    link: 'https://oddoneout.site/',
-    description: 'Уеб-базирана социална игра с фокус върху интерактивността.'
-  }
+    tag: 'Interactive Social Game',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/oddoneout.png`,
+    href: 'https://oddoneout.site/',
+    description: 'Уеб-базирана социална игра с фокус върху интерактивността.',
+  },
 ];
 
+function useCardSize() {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handler = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+
+  const isMobile = width < 768;
+  const isTablet = width >= 768 && width < 1100;
+
+  if (isMobile) {
+    const cardWidth = Math.round(width * 0.78);
+    return { cardWidth, cardHeight: Math.round(cardWidth * 0.6), overlap: 0.3, spreadDeg: 28, maxVisible: 5 };
+  }
+  if (isTablet) {
+    return { cardWidth: 420, cardHeight: 260, overlap: 0.44, spreadDeg: 40, maxVisible: 7 };
+  }
+  return { cardWidth: 560, cardHeight: 340, overlap: 0.48, spreadDeg: 48, maxVisible: 7 };
+}
+
 const Projects: FC = () => {
+  const { cardWidth, cardHeight, overlap, spreadDeg, maxVisible } = useCardSize();
+
   return (
     <section id="projects" className="projects-section section fade-in">
-      <h2 className="section-title">Избрани <span className="gradient-text">Проекти</span></h2>
-      <div className="projects-grid">
-        {projects.map((p, i) => (
-          <article key={i} className="project-card fade-in" style={{ animationDelay: `${i * 0.15}s` }}>
-            <div className="project-image-container">
-              <img src={p.image} alt={`Проект: ${p.title} - ${p.category}`} className="project-image-img" loading="lazy" />
-            </div>
-            <div className="project-info">
-              <span className="project-category">{p.category}</span>
-              <h3 className="project-name">{p.title}</h3>
-              <p className="project-description">{p.description}</p>
-              <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`Прегледай проекта ${p.title}`}>
-                Виж сайта →
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
+      <h2 className="section-title">
+        Избрани <span className="gradient-text">Проекти</span>
+      </h2>
+      <CardStack
+        items={projects}
+        initialIndex={0}
+        cardWidth={cardWidth}
+        cardHeight={cardHeight}
+        overlap={overlap}
+        spreadDeg={spreadDeg}
+        maxVisible={maxVisible}
+        autoAdvance
+        intervalMs={2800}
+        pauseOnHover
+        showDots
+        loop
+      />
     </section>
   );
 };
