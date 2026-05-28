@@ -1,6 +1,14 @@
-.projects-section {
-  padding: 100px 5%;
+#projects.projects-section {
+  padding: 100px 0;
   position: relative;
+  overflow: hidden;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+}
+
+.projects-section .section-title {
+  padding-inline: 5%;
 }
 
 @media (max-width: 767px) {

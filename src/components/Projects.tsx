@@ -86,16 +86,23 @@ function useCardSize() {
   }, []);
 
   const isMobile = width < 768;
-  const isTablet = width >= 768 && width < 1100;
 
   if (isMobile) {
     const cardWidth = Math.round(width * 0.78);
-    return { cardWidth, cardHeight: Math.round(cardWidth * 0.6), overlap: 0.3, spreadDeg: 28, maxVisible: 5 };
+    const maxOffset = 2;
+    // leftmost card left edge = 0: width/2 - maxOffset*cardSpacing - cardWidth/2 = 0
+    const cardSpacing = (width - cardWidth) / (2 * maxOffset);
+    const overlap = 1 - cardSpacing / cardWidth;
+    return { cardWidth, cardHeight: Math.round(cardWidth * 0.6), overlap, spreadDeg: 24, maxVisible: maxOffset * 2 + 1 };
   }
-  if (isTablet) {
-    return { cardWidth: 420, cardHeight: 260, overlap: 0.44, spreadDeg: 40, maxVisible: 7 };
-  }
-  return { cardWidth: 560, cardHeight: 340, overlap: 0.48, spreadDeg: 48, maxVisible: 7 };
+
+  const cardWidth = 560;
+  const cardHeight = 340;
+  const maxOffset = 3;
+  // leftmost card left edge touches screen left: width/2 - maxOffset*cardSpacing - cardWidth/2 = 0
+  const cardSpacing = (width - cardWidth) / (2 * maxOffset);
+  const overlap = 1 - cardSpacing / cardWidth;
+  return { cardWidth, cardHeight, overlap, spreadDeg: 44, maxVisible: maxOffset * 2 + 1 };
 }
 
 const Projects: FC = () => {
