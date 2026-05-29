@@ -9,6 +9,7 @@ import FloatingFeatures from './components/FloatingFeatures'
 import { initFaviconZoom } from './utils/favicon'
 import Blog from './components/Blog'
 import Article from './components/Article'
+import NotFound from './components/NotFound'
 import './App.css'
 
 declare global {
@@ -61,6 +62,7 @@ function App() {
             <Route path="/legal" element={<LegalInfo />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<Article />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
