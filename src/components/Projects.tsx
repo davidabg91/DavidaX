@@ -75,6 +75,14 @@ const projects: CardStackItem[] = [
     href: 'https://oddoneout.site/',
     description: 'Уеб-базирана социална игра с фокус върху интерактивността.',
   },
+  {
+    id: 10,
+    title: 'Умаревска Ябълка',
+    tag: 'E-commerce & Local Business',
+    imageSrc: `${import.meta.env.BASE_URL}assets/projects/umarevskaqbylka.png`,
+    href: 'https://davidabg91.github.io/UmarevskaQbylka',
+    description: 'Иновативен уеб сайт и онлайн магазин за производител на натурални ябълки и студено пресован сок с интерактивна количка.',
+  },
 ];
 
 function useCardSize() {
