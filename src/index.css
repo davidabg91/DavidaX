@@ -207,3 +207,55 @@ ul {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
 }
+
+/* TextSplit character animation classes */
+.text-split-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.text-split-char-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.05em; /* Safe height to prevent vertical cutting */
+  width: auto;
+  line-height: 1 !important;
+  cursor: default;
+  overflow: visible;
+  user-select: none;
+}
+
+.text-split-char-top {
+  display: block;
+  height: 50%;
+  overflow: hidden;
+  line-height: 1 !important;
+  position: relative;
+}
+
+.text-split-char-bottom {
+  display: block;
+  height: 50%;
+  overflow: hidden;
+  line-height: 1 !important;
+  position: relative;
+}
+
+.text-split-char-bottom-inner {
+  display: block;
+  transform: translateY(-50%);
+  line-height: 2 !important; /* Forces character vertical positioning in bottom half */
+}
+
+/* Title wrapper to align multiple TextSplit components horizontally */
+.section-title-wrapper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.28em;
+  row-gap: 0.15em;
+}

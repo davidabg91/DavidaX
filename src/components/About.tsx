@@ -1,4 +1,5 @@
 import { ContainerScroll } from './ui/container-scroll-animation';
+import { TextSplit } from './ui/text-split';
 import './About.css';
 
 const About: React.FC = () => {
@@ -6,8 +7,9 @@ const About: React.FC = () => {
     <section id="about" className="about-section section fade-in">
       <ContainerScroll
         titleComponent={
-          <h2 className="section-title">
-            Зад бранда <span className="gradient-text">DavidaX</span>
+          <h2 className="section-title section-title-wrapper">
+            <TextSplit>Зад бранда</TextSplit>
+            <TextSplit className="gradient-text">DavidaX</TextSplit>
           </h2>
         }
       >

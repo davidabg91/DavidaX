@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TextSplit } from './ui/text-split';
 import './Contact.css';
 
 const Contact: React.FC = () => {
@@ -33,7 +34,10 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="contact-section section fade-in">
-      <h2 className="section-title">Свържете се с <span className="gradient-text">Нас</span></h2>
+      <h2 className="section-title section-title-wrapper">
+        <TextSplit>Свържете се с</TextSplit>
+        <TextSplit className="gradient-text">Нас</TextSplit>
+      </h2>
       <div className="contact-container holographic">
         <div className="contact-info tech-card">
           <p className="contact-desc">
