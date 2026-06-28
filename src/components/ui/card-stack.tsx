@@ -270,44 +270,49 @@ export function CardStack<T extends CardStackItem>({
         </div>
       </div>
 
-      {/* Dots */}
-      {showDots && (
-        <div style={{ marginTop: 24, display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            {items.map((it, idx) => {
-              const on = idx === active;
-              return (
-                <button
-                  key={it.id}
-                  onClick={() => setActive(idx)}
-                  aria-label={`Отиди на ${it.title}`}
-                  style={{
-                    height: 8,
-                    width: 8,
-                    borderRadius: "50%",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                    background: on ? "#fff" : "rgba(255,255,255,0.3)",
-                    transition: "background 0.2s",
-                  }}
-                />
-              );
-            })}
+      {/* Controls Container */}
+      <div className="card-stack-controls">
+        {showDots && (
+          <div className="card-stack-dots-row">
+            <div className="card-stack-dots">
+              {items.map((it, idx) => {
+                const on = idx === active;
+                return (
+                  <button
+                    key={it.id}
+                    onClick={() => setActive(idx)}
+                    aria-label={`Отиди на ${it.title}`}
+                    className={`card-stack-dot ${on ? "active" : ""}`}
+                  />
+                );
+              })}
+            </div>
+            {activeItem.href && (
+              <a
+                href={activeItem.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Отвори линк"
+                className="card-stack-link-icon"
+              >
+                <SquareArrowOutUpRight size={16} />
+              </a>
+            )}
           </div>
-          {activeItem.href && (
-            <a
-              href={activeItem.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Отвори линк"
-              style={{ color: "rgba(255,255,255,0.5)", display: "flex", transition: "color 0.2s" }}
-            >
-              <SquareArrowOutUpRight size={16} />
-            </a>
-          )}
-        </div>
-      )}
+        )}
+
+        {activeItem.href && (
+          <a
+            href={activeItem.href}
+            target="_blank"
+            rel="noreferrer"
+            className="card-stack-open-btn"
+          >
+            Отвори сайта
+            <SquareArrowOutUpRight size={16} />
+          </a>
+        )}
+      </div>
     </div>
   );
 }

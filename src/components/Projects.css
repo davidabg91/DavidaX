@@ -179,3 +179,101 @@
     padding: 4px 10px;
   }
 }
+
+/* CardStack controls styling */
+.card-stack-controls {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 110;
+}
+
+.card-stack-dots-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.card-stack-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-stack-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.card-stack-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+.card-stack-link-icon {
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.card-stack-link-icon:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* Open Project Button styling */
+.card-stack-open-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(90deg, #fff, #e0e0e0);
+  color: #000;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+  border: none;
+  cursor: pointer;
+}
+
+.card-stack-open-btn:hover {
+  transform: translateY(-3px);
+  background: var(--accent-color);
+  box-shadow: 0 15px 30px var(--accent-glow);
+}
+
+.card-stack-open-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.card-stack-open-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Media query to style for mobile */
+@media (max-width: 767px) {
+  .card-stack-controls {
+    margin-top: 80px; /* Safe space to prevent overlapping with tilted/rotated cards bottom edge */
+  }
+
+  .card-stack-open-btn {
+    display: inline-flex;
+  }
+}
