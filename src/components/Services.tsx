@@ -1,7 +1,6 @@
 import { type FC } from 'react';
 import { BrainCircuit, Code2, CreditCard, Gamepad2, Smartphone, Shield } from 'lucide-react';
 import './Services.css';
-import { TextSplit } from './ui/text-split';
 
 const services = [
   {
@@ -45,9 +44,7 @@ const services = [
 const Services: FC = () => {
   return (
     <section id="services" className="services-section section fade-in">
-      <h2 className="section-title">
-        <TextSplit>Какво</TextSplit> <TextSplit className="gradient-text">Предлагаме</TextSplit>
-      </h2>
+      <h2 className="section-title">Какво <span className="gradient-text">Предлагаме</span></h2>
       <div className="services-grid">
         {services.map((s, i) => {
           const IconComponent = s.icon;

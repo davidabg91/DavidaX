@@ -1,6 +1,5 @@
 import { type FC, useState, useEffect } from 'react';
 import { CardStack, type CardStackItem } from './ui/card-stack';
-import { TextSplit } from './ui/text-split';
 import './Projects.css';
 
 const projects: CardStackItem[] = [
@@ -120,7 +119,7 @@ const Projects: FC = () => {
   return (
     <section id="projects" className="projects-section section fade-in">
       <h2 className="section-title">
-        <TextSplit>Избрани</TextSplit> <TextSplit className="gradient-text">Проекти</TextSplit>
+        Избрани <span className="gradient-text">Проекти</span>
       </h2>
       <CardStack
         items={projects}
