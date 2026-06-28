@@ -34,9 +34,8 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="contact-section section fade-in">
-      <h2 className="section-title section-title-wrapper">
-        <TextSplit>Свържете се с</TextSplit>
-        <TextSplit className="gradient-text">Нас</TextSplit>
+      <h2 className="section-title">
+        <TextSplit>Свържете се с</TextSplit> <TextSplit className="gradient-text">Нас</TextSplit>
       </h2>
       <div className="contact-container holographic">
         <div className="contact-info tech-card">

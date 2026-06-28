@@ -250,12 +250,19 @@ ul {
   line-height: 2 !important; /* Forces character vertical positioning in bottom half */
 }
 
-/* Title wrapper to align multiple TextSplit components horizontally */
-.section-title-wrapper {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  column-gap: 0.28em;
-  row-gap: 0.15em;
+/* Ensure gradient text colors apply to the top and bottom character halves inside TextSplit */
+.text-split-container.gradient-text {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: initial !important;
+}
+
+.text-split-container.gradient-text .text-split-char-top,
+.text-split-container.gradient-text .text-split-char-bottom-inner {
+  background: linear-gradient(90deg, #fff, var(--accent-color));
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  display: inline-block;
 }

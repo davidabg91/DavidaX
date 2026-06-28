@@ -119,9 +119,8 @@ const Projects: FC = () => {
 
   return (
     <section id="projects" className="projects-section section fade-in">
-      <h2 className="section-title section-title-wrapper">
-        <TextSplit>Избрани</TextSplit>
-        <TextSplit className="gradient-text">Проекти</TextSplit>
+      <h2 className="section-title">
+        <TextSplit>Избрани</TextSplit> <TextSplit className="gradient-text">Проекти</TextSplit>
       </h2>
       <CardStack
         items={projects}

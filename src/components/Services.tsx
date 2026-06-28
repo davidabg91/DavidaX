@@ -45,9 +45,8 @@ const services = [
 const Services: FC = () => {
   return (
     <section id="services" className="services-section section fade-in">
-      <h2 className="section-title section-title-wrapper">
-        <TextSplit>Какво</TextSplit>
-        <TextSplit className="gradient-text">Предлагаме</TextSplit>
+      <h2 className="section-title">
+        <TextSplit>Какво</TextSplit> <TextSplit className="gradient-text">Предлагаме</TextSplit>
       </h2>
       <div className="services-grid">
         {services.map((s, i) => {

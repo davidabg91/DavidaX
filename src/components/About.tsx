@@ -7,9 +7,8 @@ const About: React.FC = () => {
     <section id="about" className="about-section section fade-in">
       <ContainerScroll
         titleComponent={
-          <h2 className="section-title section-title-wrapper">
-            <TextSplit>Зад бранда</TextSplit>
-            <TextSplit className="gradient-text">DavidaX</TextSplit>
+          <h2 className="section-title">
+            <TextSplit>Зад бранда</TextSplit> <TextSplit className="gradient-text">DavidaX</TextSplit>
           </h2>
         }
       >
