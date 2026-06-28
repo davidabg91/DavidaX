@@ -67,18 +67,36 @@
   transform: translateY(-5px);
 }
 
-.campaign-offer-tag {
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 15px;
-  letter-spacing: -0.05em;
+.offer-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .offer-icon {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  display: block;
+  color: var(--accent-color);
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), color 0.5s cubic-bezier(0.23, 1, 0.32, 1), filter 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.offer-card:hover .offer-icon {
+  transform: scale(1.15) rotate(8deg);
+  color: #fff;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+}
+
+.campaign-offer-badge {
+  padding: 6px 14px;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  font-weight: 950;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+  text-transform: uppercase;
 }
 
 .offer-card h3 {
@@ -89,9 +107,9 @@
 }
 
 .offer-card p {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
 }
 
 .campaign-btn {
@@ -142,8 +160,9 @@
     font-size: 1rem;
     margin-bottom: 40px;
   }
-  .campaign-offer-tag {
-    font-size: 1.8rem;
+  .offer-icon {
+    width: 32px !important;
+    height: 32px !important;
   }
 }
 

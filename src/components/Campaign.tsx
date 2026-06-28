@@ -1,5 +1,6 @@
 import { type FC } from 'react';
 import { HashLink } from 'react-router-hash-link';
+import { Percent, Wrench, Rocket } from 'lucide-react';
 import './Campaign.css';
 
 const Campaign: FC = () => {
@@ -17,19 +18,26 @@ const Campaign: FC = () => {
 
         <div className="campaign-grid">
           <div className="offer-card glass">
-            <div className="campaign-offer-tag">-50%</div>
+            <div className="offer-icon-wrapper">
+              <Percent className="offer-icon" size={36} />
+              <span className="campaign-offer-badge">-50%</span>
+            </div>
             <h3>Изграждане на Сайт & Система</h3>
             <p>Пълна разработка на вашата дигитална инфраструктура на половин цена.</p>
           </div>
           
           <div className="offer-card glass">
-            <div className="offer-icon">🛠️</div>
+            <div className="offer-icon-wrapper">
+              <Wrench className="offer-icon" size={36} />
+            </div>
             <h3>6 Месеца Безплатна Поддръжка</h3>
             <p>Ние се грижим за всичко технически, докато вие се фокусирате върху растежа.</p>
           </div>
 
           <div className="offer-card glass">
-            <div className="offer-icon">🚀</div>
+            <div className="offer-icon-wrapper">
+              <Rocket className="offer-icon" size={36} />
+            </div>
             <h3>Безплатни Обновявания</h3>
             <p>Актуализация на вашите продукти и услуги напълно безплатно през първото полугодие.</p>
           </div>
