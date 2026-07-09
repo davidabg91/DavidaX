@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
             <span className="brand-bracket">/&gt;</span>
           </div>
           <SplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
+            scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
             className="hero-robot-canvas"
           />
         </div>
