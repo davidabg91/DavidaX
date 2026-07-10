@@ -107,30 +107,28 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="hero-robot-container fade-in" style={{ animationDelay: '0.6s' }}>
-          <div className="hero-desktop-brand hero-robot-brand">
-            <span className="brand-bracket">&lt;</span>
-            <span className="brand-name">Davida</span>
-            <span className="brand-accent">X</span>
-            <span className="brand-bracket">/&gt;</span>
+        {isDesktop && (
+          <div className="hero-robot-container fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="hero-desktop-brand hero-robot-brand">
+              <span className="brand-bracket">&lt;</span>
+              <span className="brand-name">Davida</span>
+              <span className="brand-accent">X</span>
+              <span className="brand-bracket">/&gt;</span>
+            </div>
+            {loadSpline ? (
+              <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
+                <SplineScene 
+                  scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
+                  className="hero-robot-canvas"
+                />
+              </Suspense>
+            ) : (
+              <div className="hero-robot-fallback">
+                <span className="loader"></span>
+              </div>
+            )}
           </div>
-          {!isDesktop ? (
-            <div className="hero-robot-fallback-image">
-              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="mobile-robot-fallback" />
-            </div>
-          ) : isDesktop && loadSpline ? (
-            <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
-              <SplineScene 
-                scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
-                className="hero-robot-canvas"
-              />
-            </Suspense>
-          ) : (
-            <div className="hero-robot-fallback">
-              <span className="loader"></span>
-            </div>
-          )}
-        </div>
+        )}
       </div>
       
       <div className="hero-background">
