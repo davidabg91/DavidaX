@@ -25,12 +25,13 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
           </div>
         }
       >
-        <Spline
-          scene={scene}
-          className={className}
-          onLoad={() => setIsLoaded(true)}
-          style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}
-        />
+        <div style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.5s ease-in-out', width: '100%', height: '100%' }}>
+          <Spline
+            scene={scene}
+            className={className}
+            onLoad={() => setIsLoaded(true)}
+          />
+        </div>
       </Suspense>
     </div>
   )
