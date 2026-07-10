@@ -109,7 +109,11 @@ const Hero: React.FC = () => {
             <span className="brand-accent">X</span>
             <span className="brand-bracket">/&gt;</span>
           </div>
-          {isDesktop && loadSpline ? (
+          {!isDesktop ? (
+            <div className="hero-robot-fallback-image">
+              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="mobile-robot-fallback" />
+            </div>
+          ) : isDesktop && loadSpline ? (
             <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
               <SplineScene 
                 scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
@@ -117,8 +121,8 @@ const Hero: React.FC = () => {
               />
             </Suspense>
           ) : (
-            <div className="hero-robot-fallback-image">
-              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="mobile-robot-fallback" />
+            <div className="hero-robot-fallback">
+              <span className="loader"></span>
             </div>
           )}
         </div>
