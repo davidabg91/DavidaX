@@ -326,7 +326,7 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
             src={item.imageSrc}
             alt={item.title}
             draggable={false}
-            loading="eager"
+            loading="lazy"
             style={{ height: "100%", width: "100%", objectFit: "cover" }}
           />
         ) : (
