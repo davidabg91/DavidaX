@@ -167,6 +167,17 @@ ul {
   will-change: transform, opacity;
 }
 
+/* Sync animations with the global preloader */
+body.has-preloader .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: none;
+}
+
+body.site-ready .fade-in {
+  animation: fadeIn 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

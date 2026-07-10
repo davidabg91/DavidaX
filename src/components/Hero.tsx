@@ -36,6 +36,21 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    document.body.classList.add('has-preloader');
+    
+    return () => {
+      document.body.classList.remove('has-preloader');
+      document.body.classList.remove('site-ready');
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!showPreloader) {
+      document.body.classList.add('site-ready');
+    }
+  }, [showPreloader]);
+
+  useEffect(() => {
     if (!isDesktop) {
       const timer = setTimeout(() => {
         setShowPreloader(false);
