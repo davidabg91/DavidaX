@@ -7,7 +7,12 @@ const SplineScene = lazy(() => import('./ui/SplineScene').then(module => ({ defa
 const Hero: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth >= 1024;
+    }
+    return false;
+  });
   const [loadSpline, setLoadSpline] = useState(false);
 
   useEffect(() => {
