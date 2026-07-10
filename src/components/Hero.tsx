@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
               <span className="brand-accent">X</span>
               <span className="brand-bracket">/&gt;</span>
             </div>
-            <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
+            <Suspense fallback={null}>
               <SplineScene 
                 scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
                 className="hero-robot-canvas"
