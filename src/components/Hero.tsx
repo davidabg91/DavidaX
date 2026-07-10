@@ -19,6 +19,8 @@ const Hero: React.FC = () => {
     }
     return false;
   });
+  const [isRobotLoaded, setIsRobotLoaded] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
     const checkViewport = () => {
@@ -32,6 +34,27 @@ const Hero: React.FC = () => {
       window.removeEventListener('resize', checkViewport);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isDesktop) {
+      const timer = setTimeout(() => {
+        setShowPreloader(false);
+      }, 700);
+      return () => clearTimeout(timer);
+    } else {
+      const safetyTimer = setTimeout(() => {
+        setShowPreloader(false);
+      }, 6000);
+      return () => clearTimeout(safetyTimer);
+    }
+  }, [isDesktop]);
+
+  const handleRobotLoaded = () => {
+    setIsRobotLoaded(true);
+    setTimeout(() => {
+      setShowPreloader(false);
+    }, 400);
+  };
 
   useEffect(() => {
     const heroElement = document.getElementById('home');
@@ -60,7 +83,24 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="hero-section">
+    <>
+      {showPreloader && (
+        <div className={`global-preloader ${!isRobotLoaded && isDesktop ? 'loading' : 'fade-out'}`}>
+          <div className="preloader-content">
+            <div className="preloader-brand">
+              <span className="brand-bracket">&lt;</span>
+              <span className="brand-name">Davida</span>
+              <span className="brand-accent">X</span>
+              <span className="brand-bracket">/&gt;</span>
+            </div>
+            <div className="preloader-progress-container">
+              <div className="preloader-progress-bar"></div>
+            </div>
+            <p className="preloader-text">Инициализиране на иновации...</p>
+          </div>
+        </div>
+      )}
+      <section id="home" className="hero-section">
       <div className="hero-container">
         <div className="hero-content fade-in">
           <div className="hero-tag-container fade-in" style={{ animationDelay: '0.4s' }}>
@@ -118,6 +158,7 @@ const Hero: React.FC = () => {
               <SplineScene 
                 scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
                 className="hero-robot-canvas"
+                onLoad={handleRobotLoaded}
               />
             </Suspense>
           </div>
@@ -136,6 +177,7 @@ const Hero: React.FC = () => {
         <div className="glow-circle bottom"></div>
       </div>
     </section>
+    </>
   );
 };
 
