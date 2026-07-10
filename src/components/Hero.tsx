@@ -1,11 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { SplineScene } from './ui/SplineScene';
 import './Hero.css';
+
+const SplineScene = lazy(() => import('./ui/SplineScene').then(module => ({ default: module.SplineScene })));
 
 const Hero: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
+  }, []);
 
   useEffect(() => {
     const heroElement = document.getElementById('home');
@@ -87,10 +99,18 @@ const Hero: React.FC = () => {
             <span className="brand-accent">X</span>
             <span className="brand-bracket">/&gt;</span>
           </div>
-          <SplineScene 
-            scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
-            className="hero-robot-canvas"
-          />
+          {isDesktop ? (
+            <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
+              <SplineScene 
+                scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
+                className="hero-robot-canvas"
+              />
+            </Suspense>
+          ) : (
+            <div className="hero-robot-fallback-image">
+              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="DavidaX Logo" className="mobile-robot-fallback" />
+            </div>
+          )}
         </div>
       </div>
       
