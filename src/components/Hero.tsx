@@ -13,7 +13,6 @@ const Hero: React.FC = () => {
     }
     return false;
   });
-  const [loadSpline, setLoadSpline] = useState(false);
 
   useEffect(() => {
     const checkViewport = () => {
@@ -23,14 +22,8 @@ const Hero: React.FC = () => {
     checkViewport();
     window.addEventListener('resize', checkViewport);
 
-    // Delay 3D Spline load by 2.5 seconds on desktop to prevent TBT page lock
-    const timer = setTimeout(() => {
-      setLoadSpline(true);
-    }, 2500);
-
     return () => {
       window.removeEventListener('resize', checkViewport);
-      clearTimeout(timer);
     };
   }, []);
 
@@ -115,18 +108,12 @@ const Hero: React.FC = () => {
               <span className="brand-accent">X</span>
               <span className="brand-bracket">/&gt;</span>
             </div>
-            {loadSpline ? (
-              <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
-                <SplineScene 
-                  scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
-                  className="hero-robot-canvas"
-                />
-              </Suspense>
-            ) : (
-              <div className="hero-robot-fallback">
-                <span className="loader"></span>
-              </div>
-            )}
+            <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
+              <SplineScene 
+                scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
+                className="hero-robot-canvas"
+              />
+            </Suspense>
           </div>
         )}
       </div>
