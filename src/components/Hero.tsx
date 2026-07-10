@@ -8,6 +8,7 @@ const Hero: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [loadSpline, setLoadSpline] = useState(false);
 
   useEffect(() => {
     const checkViewport = () => {
@@ -16,7 +17,16 @@ const Hero: React.FC = () => {
 
     checkViewport();
     window.addEventListener('resize', checkViewport);
-    return () => window.removeEventListener('resize', checkViewport);
+
+    // Delay 3D Spline load by 2.5 seconds on desktop to prevent TBT page lock
+    const timer = setTimeout(() => {
+      setLoadSpline(true);
+    }, 2500);
+
+    return () => {
+      window.removeEventListener('resize', checkViewport);
+      clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
@@ -99,7 +109,7 @@ const Hero: React.FC = () => {
             <span className="brand-accent">X</span>
             <span className="brand-bracket">/&gt;</span>
           </div>
-          {isDesktop ? (
+          {isDesktop && loadSpline ? (
             <Suspense fallback={<div className="hero-robot-fallback"><span className="loader"></span></div>}>
               <SplineScene 
                 scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
