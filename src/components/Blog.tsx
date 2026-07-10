@@ -6,6 +6,22 @@ import './Blog.css';
 const Blog: React.FC = () => {
   useEffect(() => {
     window.lenisInstance?.scrollTo(0, { immediate: true });
+
+    const originalTitle = document.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const originalDesc = metaDesc ? metaDesc.getAttribute('content') : '';
+
+    document.title = 'Блог за Софтуерни Решения и Иновации | DavidaX';
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Интересни статии, тенденции, цени за изработка на сайтове, софтуерни разработки и ИИ автоматизации от DavidaX.');
+    }
+
+    return () => {
+      document.title = originalTitle;
+      if (metaDesc && originalDesc) {
+        metaDesc.setAttribute('content', originalDesc);
+      }
+    };
   }, []);
 
   return (

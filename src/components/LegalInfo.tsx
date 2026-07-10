@@ -5,6 +5,22 @@ import './LegalInfo.css';
 const LegalInfo: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const originalTitle = document.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const originalDesc = metaDesc ? metaDesc.getAttribute('content') : '';
+
+    document.title = 'Правна Информация и Данни за Компанията | DavidaX';
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Официални данни за ДАВИДА БГ ЕООД, седалище, адреси за контакти и комисии за защита на потребителите.');
+    }
+
+    return () => {
+      document.title = originalTitle;
+      if (metaDesc && originalDesc) {
+        metaDesc.setAttribute('content', originalDesc);
+      }
+    };
   }, []);
 
   return (

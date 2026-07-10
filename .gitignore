@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Antigravity/Gemini environment artifacts and helper files
+.agents/
+fetched_homepage.html
+homepage_seo.json
+next_f_decoded.txt
+reconstructed_code.txt
+scratch/
