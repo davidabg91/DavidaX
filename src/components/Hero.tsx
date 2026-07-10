@@ -2,7 +2,13 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import './Hero.css';
 
-const SplineScene = lazy(() => import('./ui/SplineScene').then(module => ({ default: module.SplineScene })));
+const isBrowserDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024;
+const SplineScene = lazy(() => {
+  if (isBrowserDesktop) {
+    return import('./ui/SplineScene').then(module => ({ default: module.SplineScene }));
+  }
+  return Promise.resolve({ default: () => <div /> });
+});
 
 const Hero: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
