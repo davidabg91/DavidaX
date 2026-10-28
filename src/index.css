@@ -4,7 +4,7 @@
   --text-secondary: #a0a0b0;
   --accent-color: #00f2fe;
   --accent-glow: rgba(0, 242, 254, 0.5);
-  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(255, 255, 255, 0.08);
   --font-heading: 'Outfit', 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -88,8 +88,6 @@ h1, h2, h3, h4 {
 
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
 }
 

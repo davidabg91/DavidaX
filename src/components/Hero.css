@@ -45,10 +45,9 @@
   letter-spacing: 0.3em;
   font-weight: 800;
   padding: 10px 25px;
-  background: rgba(0, 242, 254, 0.03);
+  background: rgba(0, 242, 254, 0.06);
   border: 1px solid rgba(0, 242, 254, 0.15);
   border-radius: 100px;
-  backdrop-filter: blur(8px);
   box-shadow: 0 0 20px rgba(0, 242, 254, 0.1);
   display: inline-block;
 }
@@ -125,10 +124,9 @@
   margin: 0 0 50px;
   padding: 30px 40px;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  box-shadow: 
+  box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.5),
     inset 0 0 20px rgba(255, 255, 255, 0.02);
   gap: 30px;
@@ -222,7 +220,6 @@
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
 }
 
 @media (max-width: 768px) {
@@ -414,13 +411,11 @@
   width: max-content;
   
   /* Premium Glass Capsule */
-  background: rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.04);
   padding: 16px 48px;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  box-shadow: 
+  box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.45),
     inset 0 0 25px rgba(0, 242, 254, 0.03);
 }
