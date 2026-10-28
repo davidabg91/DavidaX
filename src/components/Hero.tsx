@@ -21,6 +21,9 @@ const Hero: React.FC = () => {
   });
   const [isRobotLoaded, setIsRobotLoaded] = useState(false);
   const [showPreloader, setShowPreloader] = useState(true);
+  // Defer mounting the heavy 3D scene until the browser is idle, so the hero
+  // text/CTA (LCP) paint first instead of being blocked by ~3.9MB of Spline JS.
+  const [mountSpline, setMountSpline] = useState(false);
 
   useEffect(() => {
     const checkViewport = () => {
@@ -49,6 +52,20 @@ const Hero: React.FC = () => {
       document.body.classList.add('site-ready');
     }
   }, [showPreloader]);
+
+  useEffect(() => {
+    if (!isDesktop) return;
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (typeof w.requestIdleCallback === 'function') {
+      const id = w.requestIdleCallback(() => setMountSpline(true), { timeout: 2000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = setTimeout(() => setMountSpline(true), 300);
+    return () => clearTimeout(t);
+  }, [isDesktop]);
 
   useEffect(() => {
     if (!isDesktop) {
@@ -169,13 +186,15 @@ const Hero: React.FC = () => {
               <span className="brand-accent">X</span>
               <span className="brand-bracket">/&gt;</span>
             </div>
-            <Suspense fallback={null}>
-              <SplineScene 
-                scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`} 
-                className="hero-robot-canvas"
-                onLoad={handleRobotLoaded}
-              />
-            </Suspense>
+            {mountSpline && (
+              <Suspense fallback={null}>
+                <SplineScene
+                  scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`}
+                  className="hero-robot-canvas"
+                  onLoad={handleRobotLoaded}
+                />
+              </Suspense>
+            )}
           </div>
         )}
       </div>

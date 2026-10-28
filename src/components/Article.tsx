@@ -35,6 +35,9 @@ const Article: React.FC = () => {
     const ogSecureImage = document.querySelector('meta[property="og:image:secure_url"]');
     const originalOgSecureImage = ogSecureImage ? ogSecureImage.getAttribute('content') : '';
 
+    const ogImageType = document.querySelector('meta[property="og:image:type"]');
+    const originalOgImageType = ogImageType ? ogImageType.getAttribute('content') : '';
+
     const canonical = document.querySelector('link[rel="canonical"]');
     const originalCanonical = canonical ? canonical.getAttribute('href') : '';
 
@@ -47,6 +50,7 @@ const Article: React.FC = () => {
     const absoluteImageUrl = `https://davidax.org/assets/blog/${article.image}`;
     if (ogImage) ogImage.setAttribute('content', absoluteImageUrl);
     if (ogSecureImage) ogSecureImage.setAttribute('content', absoluteImageUrl);
+    if (ogImageType) ogImageType.setAttribute('content', 'image/webp');
     
     const absoluteArticleUrl = `https://davidax.org/blog/${article.slug}`;
     if (canonical) canonical.setAttribute('href', absoluteArticleUrl);
@@ -97,6 +101,7 @@ const Article: React.FC = () => {
       if (ogDesc && originalOgDesc) ogDesc.setAttribute('content', originalOgDesc);
       if (ogImage && originalOgImage) ogImage.setAttribute('content', originalOgImage);
       if (ogSecureImage && originalOgSecureImage) ogSecureImage.setAttribute('content', originalOgSecureImage);
+      if (ogImageType && originalOgImageType) ogImageType.setAttribute('content', originalOgImageType);
       if (canonical && originalCanonical) canonical.setAttribute('href', originalCanonical);
 
       // Remove dynamic schema script

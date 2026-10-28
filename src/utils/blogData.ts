@@ -16,7 +16,7 @@ export const blogArticles: Article[] = [
     date: '2 Май, 2026',
     category: 'Бизнес',
     readTime: '6 мин.',
-    image: 'pricing-2026.png',
+    image: 'pricing-2026.webp',
     excerpt: 'Инвестицията в уебсайт е инвестиция в бъдещето на вашия бизнес. Разберете как се промениха цените и какво получавате за парите си през 2026 година.',
     content: `
       <h2>Дигиталната среда през 2026</h2>
@@ -48,7 +48,7 @@ export const blogArticles: Article[] = [
     date: '1 Май, 2026',
     category: 'Дизайн',
     readTime: '5 мин.',
-    image: 'mistakes.png',
+    image: 'mistakes.webp',
     excerpt: 'Много фирми губят потенциални клиенти заради дребни, но критични грешки в своите сайтове. Разберете кои са те и как да ги избегнете.',
     content: `
       <h2>Грешка 1: Липса на мобилна оптимизация</h2>
@@ -76,7 +76,7 @@ export const blogArticles: Article[] = [
     date: '30 Април, 2026',
     category: 'Кейс Стъди',
     readTime: '8 мин.',
-    image: 'transport-case.png',
+    image: 'transport-case.webp',
     excerpt: 'Вижте как интеграцията на TransitFlow помогна на транспортна фирма да елиминира измамите, да автоматизира абонаментите и да повиши оборота си с 30%.',
     content: `
       <h2>Предизвикателството: Остарели системи и загуби</h2>
@@ -116,7 +116,7 @@ export const blogArticles: Article[] = [
     date: '1 Май, 2026',
     category: 'Технологии',
     readTime: '6 мин.',
-    image: 'nfc-bulgaria.png',
+    image: 'nfc-bulgaria.webp',
     excerpt: 'Дигиталната трансформация започва от джоба ви. Разберете как NFC Bulgaria променя начина, по който обменяме информация и управляваме обекти.',
     content: `
       <h2>Революцията в мрежовия маркетинг</h2>
