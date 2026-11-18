@@ -16,7 +16,11 @@ const clamp = (v: number, a = 0, b = 1) => (v < a ? a : v > b ? b : v);
 interface HeroRefs { el: HTMLElement; media: HTMLElement | null; dim: HTMLElement | null; inner: HTMLElement | null; h: number; hidden: boolean }
 interface ParallaxItem { el: HTMLElement; mid: number; range: number; amt: number }
 interface GrowItem { el: HTMLElement; corners: HTMLElement | null; top: number }
-interface Strip { el: HTMLElement; w: number; x: number; dir: number; speed: number; on: boolean }
+interface FanItem { el: HTMLElement; host: HTMLElement; top: number; h: number; x: number; y: number; r: number; e: number }
+interface Reel {
+  el: HTMLElement; drum: HTMLElement; items: HTMLElement[]; count: HTMLElement | null;
+  n: number; step: number; a: number; t: number; drawn: number; idx: number; idle: number; next: number; on: boolean;
+}
 
 let started = false;
 let raf = 0;
@@ -30,7 +34,8 @@ let footer: HTMLElement | null = null;
 let hero: HeroRefs | null = null;
 let parallax: ParallaxItem[] = [];
 let grows: GrowItem[] = [];
-let strips: Strip[] = [];
+let fans: FanItem[] = [];
+let reels: Reel[] = [];
 let scrolledState: boolean | null = null;
 let atTopState: boolean | null = null;
 
@@ -38,7 +43,7 @@ const jobs = new Set<Job>();
 const seen = new WeakSet<Element>();
 const tilted = new WeakSet<Element>();
 let io: IntersectionObserver | null = null;
-let stripIO: IntersectionObserver | null = null;
+let reelIO: IntersectionObserver | null = null;
 let measureQueued = false;
 
 function request() {
@@ -64,11 +69,11 @@ function measure() {
   vh = window.innerHeight;
   const heroH = hero ? hero.el.offsetHeight : 0;
   const pGeo = parallax.map((p) => {
-    const host = p.el.parentElement as HTMLElement;
-    return [docTop(host), host.offsetHeight];
+    const host = p.el.parentElement; // null, ако елементът вече е махнат от страницата
+    return host ? [docTop(host), host.offsetHeight] : [0, 0];
   });
   const gGeo = grows.map((g) => docTop(g.el));
-  const sGeo = strips.map((s) => s.el.scrollWidth / 2);
+  const fGeo = fans.map((f) => [docTop(f.host), f.host.offsetHeight]);
   const footH = footer ? footer.offsetHeight : 0;
 
   // запис
@@ -78,7 +83,10 @@ function measure() {
     p.range = vh / 2 + pGeo[i][1] / 2;
   });
   grows.forEach((g, i) => { g.top = gGeo[i]; });
-  strips.forEach((s, i) => { s.w = sGeo[i]; });
+  fans.forEach((f, i) => {
+    f.top = fGeo[i][0];
+    f.h = fGeo[i][1];
+  });
 
   // Футърът се разкрива изпод листа само ако се побира в екрана.
   const footFx = footH > 0 && footH <= vh * 0.94;
@@ -157,22 +165,59 @@ function frame(now: number) {
     if (g.corners) g.corners.style.opacity = e.toFixed(3);
   }
 
-  let stripsOn = false;
-  for (const s of strips) {
-    if (!s.on || s.w <= 0) continue;
-    stripsOn = true;
-    // постоянна скорост + ускорение от инерцията на скрола
-    const px = (s.speed + Math.min(Math.abs(vel) * 10, 1100)) * (dt / 1000);
-    s.x = (s.x + px) % s.w;
-    const tx = s.dir > 0 ? -s.x : s.x - s.w;
-    s.el.style.transform = `translate3d(${tx.toFixed(1)}px,0,0)`;
+  // Слоеве, които се разтварят като ветрило, докато секцията влиза в екрана
+  for (const f of fans) {
+    const t = clamp((y + vh * 0.92 - f.top - f.h * 0.3) / (vh * 0.5));
+    const e = t * t * (3 - 2 * t);
+    if (e === f.e) continue;
+    f.e = e;
+    f.el.style.transform = `translate3d(${(f.x * e).toFixed(2)}%,${(f.y * e).toFixed(2)}%,0) rotate(${(f.r * e).toFixed(2)}deg)`;
+  }
+
+  // Барабан с надписи: върти се стъпка по стъпка и се търкаля със скрола
+  let reelsOn = false;
+  for (const r of reels) {
+    if (!r.on) continue;
+    reelsOn = true;
+    if (dy !== 0) {
+      r.t += dy * 0.0045;
+      r.idle = 0;
+      r.next = now + 1500;
+    } else {
+      r.idle += dt;
+      if (r.idle > 150) {
+        r.t = Math.round(r.t); // застава точно на ред
+        if (now >= r.next) {
+          r.t += 1;
+          r.next = now + 2100;
+        }
+      }
+    }
+    r.a += (r.t - r.a) * (1 - Math.exp(-dt / 135));
+    if (Math.abs(r.t - r.a) < 0.0004) r.a = r.t;
+    if (r.a === r.drawn) continue;
+    r.drawn = r.a;
+
+    const total = r.items.length;
+    r.drum.style.transform = `rotateX(${(r.a * r.step).toFixed(2)}deg)`;
+    for (let k = 0; k < total; k++) {
+      let d = (((k - r.a) % total) + total) % total;
+      if (d > total / 2) d = total - d;
+      const o = Math.pow(clamp(1 - (d * r.step) / 80), 2.1);
+      r.items[k].style.opacity = o.toFixed(3);
+    }
+    const idx = (((Math.round(r.a) % r.n) + r.n) % r.n) + 1;
+    if (idx !== r.idx) {
+      r.idx = idx;
+      if (r.count) r.count.textContent = idx < 10 ? `0${idx}` : `${idx}`;
+    }
   }
 
   for (const job of [...jobs]) {
     if (!job(now)) jobs.delete(job);
   }
 
-  if (stripsOn || vel !== 0 || jobs.size > 0) request();
+  if (reelsOn || vel !== 0 || jobs.size > 0) request();
   else lastT = 0;
 }
 
@@ -249,15 +294,17 @@ function init() {
     { rootMargin: '0px 0px -10% 0px', threshold: 0 },
   );
 
-  stripIO = new IntersectionObserver(
+  reelIO = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
-        const s = strips.find((x) => x.el === e.target);
-        if (s) s.on = e.isIntersecting;
+        const r = reels.find((x) => x.el === e.target);
+        if (!r) continue;
+        r.on = e.isIntersecting;
+        if (r.on) r.next = performance.now() + 1400;
       }
       request();
     },
-    { rootMargin: '80px 0px' },
+    { rootMargin: '60px 0px' },
   );
 
   window.addEventListener('scroll', request, { passive: true });
@@ -300,15 +347,33 @@ export function scan() {
     el, corners: el.querySelector<HTMLElement>('.grow__corners'), top: 0,
   }));
 
-  const prev = strips;
-  strips = [...document.querySelectorAll<HTMLElement>('.strip__track')].map((el) => {
-    const old = prev.find((s) => s.el === el);
-    if (old) return old;
-    stripIO?.observe(el);
-    return { el, w: 0, x: 0, dir: el.dataset.dir === '-1' ? -1 : 1, speed: parseFloat(el.dataset.speed || '') || 46, on: false };
+  fans = [...document.querySelectorAll<HTMLElement>('[data-fan]')].map((el) => {
+    const [x = 0, y = 0, r = 0] = (el.dataset.fan || '').split(',').map(Number);
+    return { el, host: el.closest<HTMLElement>('[data-fan-host]') ?? (el.parentElement as HTMLElement), top: 0, h: 0, x, y, r, e: -1 };
   });
 
-  document.querySelectorAll<HTMLElement>('.reveal, [data-split], [data-count]').forEach((el) => {
+  const prev = reels;
+  reels = [];
+  document.querySelectorAll<HTMLElement>('[data-reel]').forEach((el) => {
+    const old = prev.find((r) => r.el === el);
+    if (old) {
+      reels.push(old);
+      return;
+    }
+    const drum = el.querySelector<HTMLElement>('.reel__drum');
+    const items = [...el.querySelectorAll<HTMLElement>('.reel__item')];
+    if (!drum || items.length === 0) return;
+    reelIO?.observe(el);
+    reels.push({
+      el, drum, items,
+      count: el.closest('.reel')?.querySelector<HTMLElement>('[data-reel-count]') ?? null,
+      n: parseInt(el.dataset.reel || '', 10) || items.length,
+      step: 360 / items.length,
+      a: 0, t: 0, drawn: NaN, idx: 0, idle: 0, next: 0, on: false,
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('.reveal, [data-split], [data-count], [data-in]').forEach((el) => {
     if (seen.has(el)) return;
     seen.add(el);
     if (el.dataset.count !== undefined) el.textContent = `0${el.dataset.suffix || ''}`;

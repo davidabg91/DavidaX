@@ -15,17 +15,34 @@ const Navbar: FC = () => {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
-  // Затваряне с Escape и заключване на скрола, докато мобилното меню е отворено
+  // Затваряне с Escape и спиране на скрола, докато мобилното меню е отворено.
+  // Скролът се спира с отказ на жеста, а НЕ с overflow: hidden върху body:
+  // това прави body скрол контейнер, „залепеният“ hero се откача и подскача.
   useEffect(() => {
     if (!open) return;
+    const menu = document.getElementById('nav-menu');
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false);
     };
+    const block = (e: Event) => {
+      // ако самото меню не се побира (нисък екран), то трябва да може да се скролва
+      const inMenu = menu && e.target instanceof Node && menu.contains(e.target);
+      if (inMenu && menu.scrollHeight > menu.clientHeight) return;
+      if (e.cancelable) e.preventDefault();
+    };
+    const desktop = window.matchMedia('(min-width: 901px)');
+    const onDesktop = () => {
+      if (desktop.matches) setOpen(false);
+    };
     document.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
+    document.addEventListener('touchmove', block, { passive: false });
+    document.addEventListener('wheel', block, { passive: false });
+    desktop.addEventListener('change', onDesktop);
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
+      document.removeEventListener('touchmove', block);
+      document.removeEventListener('wheel', block);
+      desktop.removeEventListener('change', onDesktop);
     };
   }, [open]);
 

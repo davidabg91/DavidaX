@@ -1,0 +1,79 @@
+.reel { padding: clamp(3rem, 7vw, 5.5rem) var(--gut) 0; }
+
+.reel__grid {
+  display: grid; grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.5rem, 6vw, 6rem); align-items: center;
+}
+.reel__side { display: grid; gap: clamp(.8rem, 2vw, 1.4rem); }
+.reel__count { display: none; align-items: baseline; gap: .55rem; font-family: var(--font-d); line-height: 1; }
+.reel__count b {
+  font-weight: 800; letter-spacing: -.05em; font-variant-numeric: tabular-nums;
+  font-size: clamp(2.6rem, 7vw, 5.4rem); color: var(--a2-ink);
+}
+.reel__count span { font-size: clamp(.85rem, 1.3vw, 1rem); font-weight: 600; letter-spacing: .1em; color: var(--muted); }
+
+/* Без движение: обикновен пренасящ се списък */
+.reel__stage {
+  font-family: var(--font-d); font-weight: 700; letter-spacing: -.03em; line-height: 1.15;
+  font-size: clamp(1.25rem, 3.2vw, 2.2rem);
+  color: var(--text);
+}
+.reel__drum { display: flex; flex-wrap: wrap; gap: .35em 1.1em; }
+.reel__item[aria-hidden], .reel__lens { display: none; }
+
+/* С движение: 14 реда по цилиндър с радиус --r, през --step градуса */
+html.fx .reel__count { display: flex; }
+html.fx .reel__stage {
+  --r: 3em; --step: 25.7143deg;
+  position: relative; height: 6.5em;
+  font-size: clamp(1.4rem, 4.3vw, 3.5rem);
+  perspective: 17em; perspective-origin: 22% 50%;
+  -webkit-mask-image: linear-gradient(180deg, transparent 2%, #000 24%, #000 76%, transparent 98%);
+  mask-image: linear-gradient(180deg, transparent 2%, #000 24%, #000 76%, transparent 98%);
+}
+html.fx .reel__pit, html.fx .reel__drum { position: absolute; inset: 0; display: block; transform-style: preserve-3d; }
+/* цилиндърът е избутан назад с радиуса си, за да е предният ред в естествен размер */
+html.fx .reel__pit { transform: translateZ(calc(var(--r) * -1)); }
+html.fx .reel__drum { will-change: transform; }
+html.fx .reel__item, html.fx .reel__item[aria-hidden] {
+  display: block; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1.15em; margin-top: -.575em; padding-left: .7em;
+  white-space: nowrap;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  transform: rotateX(calc(var(--k) * var(--step) * -1)) translateZ(var(--r));
+}
+/* „леща“ върху предния ред */
+html.fx .reel__lens {
+  display: block; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1.62em; margin-top: -.81em; pointer-events: none;
+  border-block: 1.5px solid rgba(27, 22, 19, .13);
+}
+html.fx .reel__lens::before {
+  content: ""; position: absolute; left: 0; top: 22%; bottom: 22%; width: .16em; min-width: 4px; border-radius: 99px;
+  background: linear-gradient(180deg, var(--a2), var(--a1));
+}
+
+/* Етикети под барабана */
+.reel__chips {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  margin-top: clamp(1.8rem, 4vw, 3rem);
+}
+.reel__chip {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .58rem 1.05rem .58rem .68rem; border-radius: 999px;
+  background: var(--card); box-shadow: inset 0 0 0 1px var(--line), var(--shadow-sm);
+  font-size: .92rem; font-weight: 600; line-height: 1.3; color: var(--text);
+}
+.reel__chip svg { width: 1.25rem; height: 1.25rem; flex: none; color: var(--a2-ink); }
+html.fx .reel__chip.reveal {
+  transition: opacity .7s ease, translate .9s var(--ease), scale .9s var(--ease), rotate .9s var(--ease);
+  transition-delay: calc(var(--ri, 0) * 80ms);
+}
+html.fx .reel__chip.reveal:not(.in) { translate: 0 20px; scale: .84; rotate: -5deg; }
+html.fx .reel__chip.reveal:nth-child(even):not(.in) { rotate: 5deg; }
+
+@media (max-width: 760px) {
+  .reel__grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .reel__side { grid-template-columns: 1fr auto; align-items: end; }
+  .reel__count b { font-size: 2.4rem; }
+}

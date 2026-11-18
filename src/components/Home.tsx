@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from './Hero';
-import Strip from './Strip';
+import Reel from './Reel';
 import About from './About';
 import Campaign from './Campaign';
 import Services from './Services';
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <Hero />
       {/* Светъл „лист“, който се плъзга върху закования hero */}
       <div className="sheet" id="main-content">
-        <Strip />
+        <Reel />
         <About />
         <Services />
         <Campaign />
