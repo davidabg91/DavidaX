@@ -5,13 +5,15 @@ import { scrollToHash, withRouteTransition } from '../../fx/nav';
 interface TLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
   /** Вътрешен адрес: "/blog", "/#contact", "/blog/slug" */
   to: string;
+  /** Без плавен скрол и без преход между страници (напр. изпод отвореното мобилно меню). */
+  instant?: boolean;
 }
 
 /**
  * Вътрешна връзка: плавен преход (View Transitions) между страниците и
  * плавен скрол до секция, когато целта е на текущата страница.
  */
-export function TLink({ to, onClick, children, ...rest }: TLinkProps) {
+export function TLink({ to, instant, onClick, children, ...rest }: TLinkProps) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,10 +27,12 @@ export function TLink({ to, onClick, children, ...rest }: TLinkProps) {
 
     if (path === location.pathname) {
       if (to !== location.pathname + location.hash) navigate(to);
-      scrollToHash(hash);
+      scrollToHash(hash, instant);
       return;
     }
-    withRouteTransition(() => navigate(to));
+    // Изпод отвореното меню страницата се сменя веднага: самото меню е преходът.
+    if (instant) navigate(to);
+    else withRouteTransition(() => navigate(to));
   };
 
   return (
