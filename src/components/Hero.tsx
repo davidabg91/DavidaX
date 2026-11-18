@@ -1,219 +1,67 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
-import { HashLink } from 'react-router-hash-link';
+import { type FC } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { TLink } from './ui/TLink';
+import { Chars } from './ui/Split';
+import { cssVars } from '../utils/css';
+import HeroBackground from './HeroBackground';
 import './Hero.css';
 
-const isBrowserDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024;
-const SplineScene = lazy(() => {
-  if (isBrowserDesktop) {
-    return import('./ui/SplineScene').then(module => ({ default: module.SplineScene }));
-  }
-  return Promise.resolve({ default: () => <div /> });
-});
+const lines = [
+  { text: 'Превръщаме сложните', size: 'sm' },
+  { text: 'идеи', size: 'xl' },
+  { text: 'в работещ', size: 'sm' },
+  { text: 'софтуер', size: 'xl', metal: true },
+];
 
-const Hero: React.FC = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth >= 1024;
-    }
-    return false;
-  });
-  const [isRobotLoaded, setIsRobotLoaded] = useState(false);
-  const [showPreloader, setShowPreloader] = useState(true);
-  // Defer mounting the heavy 3D scene until the browser is idle, so the hero
-  // text/CTA (LCP) paint first instead of being blocked by ~3.9MB of Spline JS.
-  const [mountSpline, setMountSpline] = useState(false);
-
-  useEffect(() => {
-    const checkViewport = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-
-    checkViewport();
-    window.addEventListener('resize', checkViewport);
-
-    return () => {
-      window.removeEventListener('resize', checkViewport);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.body.classList.add('has-preloader');
-    
-    return () => {
-      document.body.classList.remove('has-preloader');
-      document.body.classList.remove('site-ready');
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!showPreloader) {
-      document.body.classList.add('site-ready');
-    }
-  }, [showPreloader]);
-
-  useEffect(() => {
-    if (!isDesktop) return;
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    if (typeof w.requestIdleCallback === 'function') {
-      const id = w.requestIdleCallback(() => setMountSpline(true), { timeout: 2000 });
-      return () => w.cancelIdleCallback?.(id);
-    }
-    const t = setTimeout(() => setMountSpline(true), 300);
-    return () => clearTimeout(t);
-  }, [isDesktop]);
-
-  useEffect(() => {
-    if (!isDesktop) {
-      const timer = setTimeout(() => {
-        setShowPreloader(false);
-      }, 700);
-      return () => clearTimeout(timer);
-    } else {
-      const safetyTimer = setTimeout(() => {
-        setShowPreloader(false);
-      }, 6000);
-      return () => clearTimeout(safetyTimer);
-    }
-  }, [isDesktop]);
-
-  const handleRobotLoaded = () => {
-    setIsRobotLoaded(true);
-    setTimeout(() => {
-      setShowPreloader(false);
-    }, 400);
-  };
-
-  useEffect(() => {
-    const heroElement = document.getElementById('home');
-    if (!heroElement) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = heroElement.getBoundingClientRect();
-      setMousePos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top
-      });
-    };
-
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => setIsHovered(false);
-
-    heroElement.addEventListener('mousemove', handleMouseMove);
-    heroElement.addEventListener('mouseenter', handleMouseEnter);
-    heroElement.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      heroElement.removeEventListener('mousemove', handleMouseMove);
-      heroElement.removeEventListener('mouseenter', handleMouseEnter);
-      heroElement.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
+const Hero: FC = () => {
   return (
-    <>
-      {showPreloader && (
-        <div className={`global-preloader ${!isRobotLoaded && isDesktop ? 'loading' : 'fade-out'}`}>
-          <div className="preloader-content">
-            <div className="preloader-brand">
-              <span className="brand-bracket">&lt;</span>
-              <span className="brand-name">Davida</span>
-              <span className="brand-accent">X</span>
-              <span className="brand-bracket">/&gt;</span>
-            </div>
-            <div className="preloader-progress-container">
-              <div className="preloader-progress-bar"></div>
-            </div>
-            <p className="preloader-text">Инициализиране на иновации...</p>
-          </div>
+    <section id="home" className="hero on-dark">
+      <HeroBackground />
+      <div className="hero__shade" aria-hidden="true"></div>
+      <div className="hero__dim" aria-hidden="true"></div>
+
+      <div className="hero__inner">
+        <p className="hero__pill">
+          <i className="hero__pulse" aria-hidden="true"></i>
+          Премиум Студио за Софтуерни Иновации
+        </p>
+
+        <h1 className="hero__title" aria-label="DavidaX - Професионална Изработка на Сайтове, Уеб Дизайн и Софтуерни Решения">
+          <span aria-hidden="true">
+            {lines.map((l, li) => (
+              <span
+                key={li}
+                className={`hero__line hero__line--${l.size}${l.metal ? ' hero__line--metal' : ''}`}
+                style={cssVars({ '--li': li })}
+              >
+                <Chars text={l.text} />{li < lines.length - 1 ? ' ' : ''}
+              </span>
+            ))}
+          </span>
+        </h1>
+
+        <p className="hero__sub">
+          DavidaX — Екосистема за иновации. Превръщаме сложни концепции в мащабируеми,
+          високопроизводителни и естетически съвършени дигитални решения.
+        </p>
+
+        <div className="hero__cta">
+          <TLink to="/#contact" className="btn btn--accent" aria-label="Вземи своята безплатна оферта">
+            Вземи безплатна оферта
+            <ArrowRight aria-hidden="true" />
+          </TLink>
+          <TLink to="/#projects" className="btn btn--ghost" aria-label="Разгледай нашите проекти">
+            Виж Проектите
+          </TLink>
         </div>
-      )}
-      <section id="home" className="hero-section">
-      <div className="hero-container">
-        <div className="hero-content fade-in">
-          <div className="hero-tag-container fade-in" style={{ animationDelay: '0.4s' }}>
-            <span className="hero-tagline-badge">Премиум Студио за Софтуерни Иновации</span>
-          </div>
-
-          <div className="hero-mobile-brand hero-robot-brand">
-            <span className="brand-bracket">&lt;</span>
-            <span className="brand-name">Davida</span>
-            <span className="brand-accent">X</span>
-            <span className="brand-bracket">/&gt;</span>
-          </div>
-
-          <h1 className="hero-title" aria-label="DavidaX - Професионална Изработка на Сайтове, Уеб Дизайн и Софтуерни Решения">
-            <span className="brand-decipher">Превръщаме</span> сложните <span className="highlight">идеи</span> <br />
-            в <span className="gradient-text glow-text">работещ софтуер</span>
-          </h1>
-          
-          {/* New Offer Panel */}
-          <div className="offer-panel glass fade-in" style={{ animationDelay: '0.8s' }}>
-            <div className="offer-content">
-              <span className="hero-offer-tag">Ексклузивно</span>
-              <h2 className="offer-text">ВЗЕМИ БЕЗПЛАТНА ОФЕРТА ДНЕС!</h2>
-              <p className="offer-description">Консултирайте се с нашите експерти и получете план за вашия дигитален растеж.</p>
-            </div>
-            <HashLink 
-              to="/#contact" 
-              className="offer-btn" 
-              aria-label="Вземи своята безплатна оферта"
-              scroll={(el) => window.lenisInstance?.scrollTo(el)}
-            >
-              Вземи Сега
-            </HashLink>
-          </div>
-
-          <p className="hero-description">
-            DavidaX — Екосистема за иновации. Превръщаме сложни концепции в мащабируеми, 
-            високопроизводителни и естетически съвършени дигитални решения.
-          </p>
-          <div className="hero-btns">
-            <HashLink to="/#projects" className="btn-hero primary" aria-label="Разгледай нашите проекти" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Виж Проектите</HashLink>
-            <HashLink to="/#services" className="btn-hero secondary" aria-label="Научи повече за нашите услуги" scroll={(el) => window.lenisInstance?.scrollTo(el)}>Нашите Услуги</HashLink>
-          </div>
-        </div>
-
-        {isDesktop && (
-          <div className="hero-robot-container fade-in" style={{ animationDelay: '0.6s' }}>
-            <div className="hero-desktop-brand hero-robot-brand">
-              <span className="brand-bracket">&lt;</span>
-              <span className="brand-name">Davida</span>
-              <span className="brand-accent">X</span>
-              <span className="brand-bracket">/&gt;</span>
-            </div>
-            {mountSpline && (
-              <Suspense fallback={null}>
-                <SplineScene
-                  scene={`${import.meta.env.BASE_URL}assets/scene.splinecode`}
-                  className="hero-robot-canvas"
-                  onLoad={handleRobotLoaded}
-                />
-              </Suspense>
-            )}
-          </div>
-        )}
       </div>
-      
-      <div className="hero-background">
-        <div 
-          className="hero-spotlight"
-          style={{
-            background: `radial-gradient(550px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 242, 254, 0.12), transparent 80%)`,
-            opacity: isHovered ? 1 : 0,
-          }}
-        />
-        <div className="glow-circle top"></div>
-        <div className="glow-circle bottom"></div>
-      </div>
+
+      <TLink to="/#about" className="hero__scroll" aria-label="Скролирай към съдържанието">
+        <span className="hero__scroll-line" aria-hidden="true"></span>
+        Скрол
+      </TLink>
     </section>
-    </>
   );
 };
 
 export default Hero;
-

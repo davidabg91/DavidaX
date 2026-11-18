@@ -1,71 +1,81 @@
-import { useState, useEffect, type FC } from 'react';
-import { Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+import { useEffect, useState, type FC } from 'react';
+import { useLocation } from 'react-router-dom';
+import { TLink } from './ui/TLink';
 import './Navbar.css';
 
+const links = [
+  { to: '/#home', label: 'Начало' },
+  { to: '/#about', label: 'Бранд' },
+  { to: '/#services', label: 'Услуги' },
+  { to: '/#projects', label: 'Проекти' },
+  { to: '/blog', label: 'Блог' },
+];
+
 const Navbar: FC = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
+  // Затваряне с Escape и заключване на скрола, докато мобилното меню е отворено
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const close = () => setOpen(false);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
-      <div className="navbar-logo">
-        <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Отиди на началната страница">
-          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX Logo" className="navbar-logo-img" />
-        </Link>
-      </div>
-      
-      <button 
-        className={`navbar-mobile-toggle ${isMenuOpen ? 'active' : ''}`} 
-        onClick={toggleMenu} 
-        aria-label={isMenuOpen ? "Затвори менюто" : "Отвори менюто"}
-        aria-expanded={isMenuOpen}
-        aria-controls="navbar-links"
-      >
-        <span></span>
-        <span><span></span></span>
-        <span></span>
-      </button>
+    <header className={`nav on-dark${open ? ' is-open' : ''}`}>
+      <div className="nav__bar">
+        <TLink to="/#home" className="nav__logo" onClick={close} aria-label="Отиди на началната страница">
+          <img src={`${import.meta.env.BASE_URL}assets/logo-dev.svg`} alt="DavidaX Logo" width="140" height="60" />
+        </TLink>
 
-      <ul id="navbar-links" className={`navbar-links ${isMenuOpen ? 'active' : ''}`} role="menu">
-        <li role="none">
-          <HashLink to="/#home" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Начало</HashLink>
-        </li>
-        <li role="none">
-          <HashLink to="/#about" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Бранд</HashLink>
-        </li>
-        <li role="none">
-          <HashLink to="/#services" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Услуги</HashLink>
-        </li>
-        <li role="none">
-          <HashLink to="/#projects" role="menuitem" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>Проекти</HashLink>
-        </li>
-        <li role="none">
-          <Link to="/blog" role="menuitem" onClick={() => setIsMenuOpen(false)}>Блог</Link>
-        </li>
-        <li role="none" className="mobile-only-cta">
-          <HashLink to="/#contact" role="menuitem" className="nav-btn" onClick={() => setIsMenuOpen(false)} scroll={(el) => window.lenisInstance?.scrollTo(el)}>
-            Консултация
-          </HashLink>
-        </li>
-      </ul>
+        <nav className="nav__menu" id="nav-menu" aria-label="Основна навигация">
+          <ul className="nav__links">
+            {links.map((l) => (
+              <li key={l.to}>
+                <TLink
+                  to={l.to}
+                  onClick={close}
+                  aria-current={l.to === '/blog' && pathname.startsWith('/blog') ? 'page' : undefined}
+                >
+                  {l.label}
+                </TLink>
+              </li>
+            ))}
+            <li className="nav__links-cta">
+              <TLink to="/#contact" className="btn btn--accent" onClick={close}>
+                Консултация
+              </TLink>
+            </li>
+          </ul>
+        </nav>
 
-      <div className="navbar-cta">
-        <HashLink to="/#contact" className="nav-btn" aria-label="Заявете безплатна консултация" scroll={(el) => window.lenisInstance?.scrollTo(el)}>
+        <TLink to="/#contact" className="btn btn--accent nav__cta" aria-label="Заявете безплатна консултация">
           Консултация
-        </HashLink>
+        </TLink>
+
+        <button
+          type="button"
+          className="nav__toggle"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? 'Затвори менюто' : 'Отвори менюто'}
+          aria-expanded={open}
+          aria-controls="nav-menu"
+        >
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </nav>
+    </header>
   );
 };
 

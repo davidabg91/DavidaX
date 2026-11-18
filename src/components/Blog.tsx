@@ -1,64 +1,55 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { blogArticles } from '../utils/blogData';
+import { TLink } from './ui/TLink';
+import { Words } from './ui/Split';
+import { cssVars } from '../utils/css';
 import './Blog.css';
 
 const Blog: React.FC = () => {
-  useEffect(() => {
-    window.lenisInstance?.scrollTo(0, { immediate: true });
-
-    const originalTitle = document.title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    const originalDesc = metaDesc ? metaDesc.getAttribute('content') : '';
-
-    document.title = 'Блог за Софтуерни Решения и Иновации | DavidaX';
-    if (metaDesc) {
-      metaDesc.setAttribute('content', 'Интересни статии, тенденции, цени за изработка на сайтове, софтуерни разработки и ИИ автоматизации от DavidaX.');
-    }
-
-    return () => {
-      document.title = originalTitle;
-      if (metaDesc && originalDesc) {
-        metaDesc.setAttribute('content', originalDesc);
-      }
-    };
-  }, []);
-
   return (
-    <section className="blog-container">
-      <div className="blog-header fade-in">
-        <span className="blog-subtitle">Познание и Иновации</span>
-        <h1 className="section-title">Нашият <span className="gradient-text">Блог</span></h1>
-      </div>
+    <>
+      <header className="phero on-dark">
+        <div className="wrap">
+          <span className="kicker reveal">Познание и Иновации</span>
+          <h1 className="phero__title" data-split>
+            <Words>Нашият *Блог*</Words>
+          </h1>
+        </div>
+      </header>
 
-      <div className="blog-grid">
-        {blogArticles.map((article, index) => (
-          <article 
-            key={article.slug} 
-            className="blog-card glass fade-in" 
-            style={{ animationDelay: `${index * 0.1}s` }}
-          >
-            <div className="blog-card-image">
-              <img src={`${import.meta.env.BASE_URL}assets/blog/${article.image}`} alt={article.title} loading="lazy" />
-            </div>
-            <div className="blog-card-content">
-              <div className="blog-card-meta">
-                <span className="blog-card-category">{article.category}</span>
-                <span>{article.date} • {article.readTime}</span>
+      <section className="sheet sheet--page blog">
+        <div className="wrap blog__grid">
+          {blogArticles.map((article, index) => (
+            <article key={article.slug} className="post reveal" style={cssVars({ '--ri': index % 2 })} data-tilt="4">
+              <span className="spot" aria-hidden="true"></span>
+              <div className="post__media" style={cssVars({ viewTransitionName: `post-${article.slug}` })}>
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/blog/${article.image}`}
+                  alt={article.title}
+                  width="1024"
+                  height="1024"
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
               </div>
-              <h2 className="blog-card-title">{article.title}</h2>
-              <p className="blog-card-excerpt">{article.excerpt}</p>
-              <Link to={`/blog/${article.slug}`} className="blog-card-link">
-                Прочети повече
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                </svg>
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
+              <div className="post__body">
+                <div className="post__meta">
+                  <span className="post__cat">{article.category}</span>
+                  <span>{article.date} • {article.readTime}</span>
+                </div>
+                <h2 className="post__title">{article.title}</h2>
+                <p className="post__excerpt">{article.excerpt}</p>
+                <TLink to={`/blog/${article.slug}`} className="post__link" aria-label={`Прочети повече: ${article.title}`}>
+                  Прочети повече
+                  <ArrowRight aria-hidden="true" />
+                </TLink>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 

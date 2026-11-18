@@ -1,175 +1,76 @@
-.campaign-section {
-  padding: 10px 5% 40px;
-  position: relative;
+.campaign { padding: clamp(1rem, 3vw, 2.5rem) clamp(8px, 1.6vw, 22px) clamp(4.5rem, 10vw, 8.5rem); }
+
+.campaign__panel {
+  --rr: clamp(26px, 4vw, 50px);
+  position: relative; overflow: hidden;
+  background: var(--ink); color: var(--on-dark);
+  padding: clamp(3.4rem, 8vw, 7rem) var(--gut);
+  transform-origin: 50% 0;
+  will-change: transform;
 }
 
-.campaign-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 40px;
-  text-align: center;
-  position: relative;
+/* Заобляне на ъглите само с opacity: четири „изрязани“ ъгъла в цвета на листа */
+.grow__corners {
+  position: absolute; inset: -1px; z-index: 5; pointer-events: none;
+  background:
+    radial-gradient(circle at 100% 100%, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 0 0 / var(--rr) var(--rr) no-repeat,
+    radial-gradient(circle at 0 100%, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 100% 0 / var(--rr) var(--rr) no-repeat,
+    radial-gradient(circle at 100% 0, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 0 100% / var(--rr) var(--rr) no-repeat,
+    radial-gradient(circle at 0 0, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 100% 100% / var(--rr) var(--rr) no-repeat;
+}
+
+.campaign__glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(48% 62% at 100% 0%, rgba(var(--a2-rgb), .42), transparent 70%),
+    radial-gradient(40% 55% at 0% 100%, rgba(var(--a1-rgb), .2), transparent 70%);
+}
+
+.campaign__inner { position: relative; z-index: 2; }
+.campaign__head { max-width: 800px; }
+.campaign__head .lead { margin-top: 1.4rem; }
+
+.campaign__badge {
+  display: inline-flex; align-items: center; min-height: 34px; padding: .3rem 1rem;
+  border-radius: 999px;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: .74rem; letter-spacing: .1em;
+  color: var(--a1);
+  box-shadow: inset 0 0 0 1px rgba(var(--a1-rgb), .4);
+}
+
+.campaign__grid {
+  margin-top: clamp(2.2rem, 5vw, 3.8rem);
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.9rem, 1.8vw, 1.4rem);
+}
+
+.offer {
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+  border-radius: var(--r-lg);
+  background: rgba(247, 243, 236, .055);
+  box-shadow: inset 0 0 0 1px rgba(247, 243, 236, .11);
 }
+.offer > :not(.spot) { position: relative; z-index: 2; }
+.offer__top { display: flex; align-items: center; justify-content: space-between; }
+.offer__icon {
+  display: grid; place-items: center;
+  width: 56px; height: 56px; border-radius: 18px;
+  background: linear-gradient(135deg, var(--a1), #55b4ff); color: var(--ink);
+}
+.offer__badge {
+  font-family: var(--font-d); font-weight: 800; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: -.04em;
+  background: var(--metal); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.offer h3 { margin-top: 1.6rem; font-size: clamp(1.05rem, 1.45vw, 1.25rem); line-height: 1.3; letter-spacing: -.02em; }
+.offer p { margin-top: .7rem; color: var(--on-dark-muted); font-size: 1rem; }
 
-.tech-badge {
-  display: inline-block;
-  padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #888;
-  font-size: 0.65rem;
-  font-weight: 800;
-  border-radius: 100px;
-  margin-bottom: 25px;
-  letter-spacing: 2px;
+.campaign__foot {
+  margin-top: clamp(2rem, 4.5vw, 3.2rem);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem 2rem;
 }
+.campaign__note { color: var(--on-dark-muted); font-size: .92rem; max-width: 46ch; }
 
-.campaign-title {
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 25px;
-  letter-spacing: -0.05em;
-  line-height: 1.1;
-}
-
-.campaign-intro {
-  font-size: 1.1rem;
-  color: #888;
-  max-width: 800px;
-  margin: 0 auto 50px;
-  line-height: 1.6;
-}
-
-.campaign-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  margin-bottom: 50px;
-}
-
-.offer-card {
-  padding: 30px 25px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  text-align: left;
-}
-
-.offer-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateY(-5px);
-}
-
-.offer-icon-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.offer-icon {
-  color: var(--accent-color);
-  filter: drop-shadow(0 0 10px var(--accent-glow));
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), color 0.5s cubic-bezier(0.23, 1, 0.32, 1), filter 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.offer-card:hover .offer-icon {
-  transform: scale(1.15) rotate(8deg);
-  color: #fff;
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
-}
-
-.campaign-offer-badge {
-  padding: 6px 14px;
-  background: rgba(0, 242, 254, 0.08);
-  border: 1px solid rgba(0, 242, 254, 0.2);
-  color: var(--accent-color);
-  font-size: 0.85rem;
-  font-weight: 950;
-  border-radius: 100px;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
-  text-transform: uppercase;
-}
-
-.offer-card h3 {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 12px;
-  font-weight: 800;
-}
-
-.offer-card p {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-}
-
-.campaign-btn {
-  padding: 18px 36px;
-  background: #fff;
-  color: #000;
-  font-weight: 800;
-  border-radius: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-}
-
-.campaign-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-}
-
-.eligibility-text {
-  font-size: 0.75rem;
-  color: #555;
-  margin-top: 40px;
-  margin-bottom: 25px;
-  font-style: italic;
-}
-
-@media (max-width: 1100px) {
-  .campaign-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .campaign-section {
-    padding: 60px 20px;
-  }
-  .campaign-container {
-    padding: 60px 20px;
-    border-radius: 32px;
-  }
-  .campaign-title {
-    font-size: 2rem;
-  }
-  .campaign-intro {
-    font-size: 1rem;
-    margin-bottom: 40px;
-  }
-  .offer-icon {
-    width: 32px !important;
-    height: 32px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .campaign-title {
-    font-size: 1.7rem;
-  }
-  .offer-card {
-    padding: 25px 20px;
-  }
-}
+@media (max-width: 900px) { .campaign__grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .campaign__foot .btn { width: 100%; white-space: normal; } }

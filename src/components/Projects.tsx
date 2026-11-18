@@ -1,140 +1,209 @@
-import { type FC, useState, useEffect } from 'react';
-import { CardStack, type CardStackItem } from './ui/card-stack';
+import { type FC, useLayoutEffect, useRef, useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import { Words, Wave } from './ui/Split';
+import { cssVars } from '../utils/css';
+import { withTransition } from '../fx/nav';
+import { scan } from '../fx/motion';
 import './Projects.css';
 
-const projects: CardStackItem[] = [
+type Category = 'platforms' | 'shops' | 'sites' | 'play';
+
+interface Project {
+  id: number;
+  title: string;
+  tag: string;
+  image: string;
+  href: string;
+  description: string;
+  category: Category;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: 'Needo',
     tag: 'Services Marketplace',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/needo.webp`,
+    image: 'needo.webp',
     href: 'https://needobg.com/',
     description: 'Needo свързва хората с идеи с хората с умения. Снимай, публикувай и избери най-добрата оферта за секунди.',
+    category: 'platforms',
   },
   {
     id: 2,
     title: 'TransitFlow',
     tag: 'Fleet Management & NFC',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/transitflow.webp`,
+    image: 'transitflow.webp',
     href: 'http://transitflow.org/',
     description: 'Дигитализация на транспортния сектор чрез NFC валидиране, динамични графици и детайлна финансова отчетност.',
+    category: 'platforms',
   },
   {
     id: 3,
     title: 'NFC Bulgaria',
     tag: 'NFC & Digital IDs',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/nfcbulgaria.webp`,
+    image: 'nfcbulgaria.webp',
     href: 'https://nfcbulgaria.com/',
     description: 'Смарт решения за дигитални визитки, NFC табели и автоматизация на бизнеса.',
+    category: 'sites',
   },
   {
     id: 4,
     title: 'Dary Commerce',
     tag: 'SaaS & Fintech',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/darycommerce.webp`,
+    image: 'darycommerce.webp',
     href: 'https://darycommerce.com/',
     description: 'Иновативна платформа за управление на абонаменти и дигитални разплащания.',
+    category: 'platforms',
   },
   {
     id: 5,
     title: 'ДИ ЦЕНТЪР',
     tag: 'Хотелиерски Софтуер',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/dicenter.webp`,
+    image: 'dicenter.webp',
     href: 'https://davidabg91.github.io/DICenter/',
     description: 'Премиум уеб сайт за управление на резервации и луксозно настаняване.',
+    category: 'sites',
   },
   {
     id: 6,
     title: 'The Corner',
     tag: 'Grocery & E-commerce',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/thecorner.webp`,
+    image: 'thecorner.webp',
     href: 'https://www.thecornerbar.online/',
     description: 'Модерна платформа за онлайн пазаруване и дигитализация на местни хранителни магазини.',
+    category: 'shops',
   },
   {
     id: 7,
     title: 'Fabcrush',
     tag: 'E-commerce Platform',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/fabcrush.webp`,
+    image: 'fabcrush.webp',
     href: 'https://fabcrush.com/',
     description: 'Мащабируем онлайн маркетплейс с фокус върху потребителското преживяване.',
+    category: 'shops',
   },
   {
     id: 8,
     title: 'Fortnite Status',
     tag: 'Real-time API Monitor',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/isfortnite.webp`,
+    image: 'isfortnite.webp',
     href: 'https://isfortnite.online/',
     description: 'Система за мониторинг на гейминг сървъри в реално време.',
+    category: 'play',
   },
   {
     id: 9,
     title: 'Odd One Out',
     tag: 'Interactive Social Game',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/oddoneout.webp`,
+    image: 'oddoneout.webp',
     href: 'https://oddoneout.site/',
     description: 'Уеб-базирана социална игра с фокус върху интерактивността.',
+    category: 'play',
   },
   {
     id: 10,
     title: 'Умаревска Ябълка',
     tag: 'E-commerce & Local Business',
-    imageSrc: `${import.meta.env.BASE_URL}assets/projects/umarevskaqbylka.webp`,
+    image: 'umarevskaqbylka.webp',
     href: 'https://davidabg91.github.io/UmarevskaQbylka',
     description: 'Иновативен уеб сайт и онлайн магазин за производител на натурални ябълки и студено пресован сок с интерактивна количка.',
+    category: 'shops',
   },
 ];
 
-function useCardSize() {
-  const [width, setWidth] = useState(window.innerWidth);
-  useEffect(() => {
-    const handler = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handler);
-    return () => window.removeEventListener('resize', handler);
-  }, []);
-
-  const isMobile = width < 768;
-
-  if (isMobile) {
-    const cardWidth = Math.round(width * 0.78);
-    const maxOffset = 2;
-    // leftmost card left edge = 0: width/2 - maxOffset*cardSpacing - cardWidth/2 = 0
-    const cardSpacing = (width - cardWidth) / (2 * maxOffset);
-    const overlap = 1 - cardSpacing / cardWidth;
-    return { cardWidth, cardHeight: Math.round(cardWidth * 0.6), overlap, spreadDeg: 24, maxVisible: maxOffset * 2 + 1 };
-  }
-
-  const cardWidth = 560;
-  const cardHeight = 340;
-  const maxOffset = 3;
-  // leftmost card left edge touches screen left: width/2 - maxOffset*cardSpacing - cardWidth/2 = 0
-  const cardSpacing = (width - cardWidth) / (2 * maxOffset);
-  const overlap = 1 - cardSpacing / cardWidth;
-  return { cardWidth, cardHeight, overlap, spreadDeg: 44, maxVisible: maxOffset * 2 + 1 };
-}
+const filters: { key: Category | 'all'; label: string }[] = [
+  { key: 'all', label: 'Всички' },
+  { key: 'platforms', label: 'Платформи' },
+  { key: 'shops', label: 'Магазини' },
+  { key: 'sites', label: 'Сайтове' },
+  { key: 'play', label: 'Игри и инструменти' },
+];
 
 const Projects: FC = () => {
-  const { cardWidth, cardHeight, overlap, spreadDeg, maxVisible } = useCardSize();
+  const [filter, setFilter] = useState<Category | 'all'>('all');
+  const grid = useRef<HTMLDivElement>(null);
+  const touched = useRef(false);
+
+  const visible = filter === 'all' ? projects : projects.filter((p) => p.category === filter);
+
+  // След филтриране новите карти се показват веднага (преходът е от View Transitions)
+  useLayoutEffect(() => {
+    if (!touched.current) return;
+    grid.current?.querySelectorAll('.reveal:not(.in)').forEach((el) => el.classList.add('in'));
+    scan();
+  }, [filter]);
+
+  const choose = (key: Category | 'all') => {
+    if (key === filter) return;
+    touched.current = true;
+    withTransition(() => setFilter(key));
+  };
 
   return (
-    <section id="projects" className="projects-section section fade-in">
-      <h2 className="section-title">
-        Избрани <span className="gradient-text">Проекти</span>
-      </h2>
-      <CardStack
-        items={projects}
-        initialIndex={0}
-        cardWidth={cardWidth}
-        cardHeight={cardHeight}
-        overlap={overlap}
-        spreadDeg={spreadDeg}
-        maxVisible={maxVisible}
-        autoAdvance
-        intervalMs={2800}
-        pauseOnHover
-        showDots
-        loop
-      />
+    <section id="projects" className="projects on-dark">
+      <Wave position="top" />
+      <div className="projects__glow" aria-hidden="true"></div>
+
+      <div className="wrap projects__inner">
+        <header className="projects__head">
+          <div>
+            <span className="kicker reveal">Портфолио</span>
+            <h2 className="h2" data-split>
+              <Words>Избрани *Проекти*</Words>
+            </h2>
+          </div>
+
+          <div className="filters reveal" role="group" aria-label="Филтър по тип проект">
+            {filters.map((f) => (
+              <button
+                key={f.key}
+                type="button"
+                className={`filters__btn${filter === f.key ? ' is-active' : ''}`}
+                aria-pressed={filter === f.key}
+                onClick={() => choose(f.key)}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </header>
+
+        <div className="projects__grid" ref={grid}>
+          {visible.map((p, i) => (
+            <a
+              key={p.id}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project reveal"
+              style={cssVars({ '--ri': i % 3, viewTransitionName: `project-${p.id}` })}
+              data-tilt="5"
+            >
+              <span className="spot" aria-hidden="true"></span>
+              <div className="project__media">
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/projects/${p.image}`}
+                  alt={`${p.title} — ${p.tag}`}
+                  width="640"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="project__body">
+                <span className="project__tag">{p.tag}</span>
+                <h3 className="project__title">
+                  {p.title}
+                  <ArrowUpRight aria-hidden="true" />
+                </h3>
+                <p className="project__desc">{p.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <Wave position="bottom" />
     </section>
   );
 };

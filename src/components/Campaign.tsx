@@ -1,59 +1,75 @@
 import { type FC } from 'react';
-import { HashLink } from 'react-router-hash-link';
-import { Percent, Wrench, Rocket } from 'lucide-react';
+import { Percent, Wrench, Rocket, ArrowRight } from 'lucide-react';
+import { TLink } from './ui/TLink';
+import { Words } from './ui/Split';
+import { cssVars } from '../utils/css';
 import './Campaign.css';
+
+const offers = [
+  {
+    icon: Percent,
+    badge: '-50%',
+    title: 'Изграждане на Сайт & Система',
+    text: 'Пълна разработка на вашата дигитална инфраструктура на половин цена.',
+  },
+  {
+    icon: Wrench,
+    title: '6 Месеца Безплатна Поддръжка',
+    text: 'Ние се грижим за всичко технически, докато вие се фокусирате върху растежа.',
+  },
+  {
+    icon: Rocket,
+    title: 'Безплатни Обновявания',
+    text: 'Актуализация на вашите продукти и услуги напълно безплатно през първото полугодие.',
+  },
+];
 
 const Campaign: FC = () => {
   return (
-    <section id="campaign" className="campaign-section section fade-in">
-      <div className="campaign-container">
-        <div className="campaign-header">
-          <div className="tech-badge">PROMO_2026 // SUPPORT_PROGRAM</div>
-          <h2 className="campaign-title">Подкрепа за <span className="gradient-text">Стартиращи Бизнеси</span></h2>
-          <p className="campaign-intro">
-            Вярваме в силата на новите идеи. Затова DavidaX стартира ексклузивна кампания за подкрепа на бизнеси, 
-            основани в последните 6 месеца.
-          </p>
-        </div>
+    <section id="campaign" className="campaign">
+      {/* Панелът „пораства“ и си заобля ъглите при влизане (scale + opacity от fx/motion.ts) */}
+      <div className="campaign__panel on-dark" data-grow>
+        <span className="grow__corners" aria-hidden="true"></span>
+        <div className="campaign__glow" aria-hidden="true"></div>
 
-        <div className="campaign-grid">
-          <div className="offer-card glass">
-            <div className="offer-icon-wrapper">
-              <Percent className="offer-icon" size={36} />
-              <span className="campaign-offer-badge">-50%</span>
-            </div>
-            <h3>Изграждане на Сайт & Система</h3>
-            <p>Пълна разработка на вашата дигитална инфраструктура на половин цена.</p>
-          </div>
-          
-          <div className="offer-card glass">
-            <div className="offer-icon-wrapper">
-              <Wrench className="offer-icon" size={36} />
-            </div>
-            <h3>6 Месеца Безплатна Поддръжка</h3>
-            <p>Ние се грижим за всичко технически, докато вие се фокусирате върху растежа.</p>
+        <div className="wrap campaign__inner">
+          <header className="campaign__head">
+            <span className="campaign__badge reveal">PROMO_2026 // SUPPORT_PROGRAM</span>
+            <h2 className="h2" data-split>
+              <Words>Подкрепа за *Стартиращи* *Бизнеси*</Words>
+            </h2>
+            <p className="lead reveal" style={cssVars({ '--ri': 1 })}>
+              Вярваме в силата на новите идеи. Затова DavidaX стартира ексклузивна кампания за подкрепа на бизнеси,
+              основани в последните 6 месеца.
+            </p>
+          </header>
+
+          <div className="campaign__grid">
+            {offers.map((o, i) => {
+              const Icon = o.icon;
+              return (
+                <article className="offer reveal" key={o.title} style={cssVars({ '--ri': i })} data-tilt="6">
+                  <span className="spot" aria-hidden="true"></span>
+                  <div className="offer__top">
+                    <span className="offer__icon">
+                      <Icon size={26} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    {o.badge && <span className="offer__badge">{o.badge}</span>}
+                  </div>
+                  <h3>{o.title}</h3>
+                  <p>{o.text}</p>
+                </article>
+              );
+            })}
           </div>
 
-          <div className="offer-card glass">
-            <div className="offer-icon-wrapper">
-              <Rocket className="offer-icon" size={36} />
-            </div>
-            <h3>Безплатни Обновявания</h3>
-            <p>Актуализация на вашите продукти и услуги напълно безплатно през първото полугодие.</p>
-          </div>
-        </div>
-
-        <div className="campaign-footer">
-          <p className="eligibility-text">
-            * Офертата важи за нови бизнеси, регистрирани през последните 180 дни.
-          </p>
-          <HashLink 
-            to="/#contact" 
-            className="campaign-btn"
-            scroll={(el) => window.lenisInstance?.scrollTo(el)}
-          >
-            КАНДИДАТСТВАЙ ЗА ПОДКРЕПА
-          </HashLink>
+          <footer className="campaign__foot reveal">
+            <p className="campaign__note">* Офертата важи за нови бизнеси, регистрирани през последните 180 дни.</p>
+            <TLink to="/#contact" className="btn btn--accent">
+              Кандидатствай за подкрепа
+              <ArrowRight aria-hidden="true" />
+            </TLink>
+          </footer>
         </div>
       </div>
     </section>
