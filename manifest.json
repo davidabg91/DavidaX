@@ -4,8 +4,8 @@
   "description": "Премиум студио за софтуерни иновации в Плевен. Професионална изработка на уеб сайтове и софтуерни решения.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#0d0b0a",
+  "theme_color": "#0d0b0a",
   "icons": [
     {
       "src": "/branded-favicon.png",

@@ -1,26 +1,19 @@
 <!doctype html>
 <html lang="bg" prefix="og: https://ogp.me/ns#">
   <head>
+    <link rel="preload" as="font" type="font/woff2" href="/static/onest-cyrillic-wght-normal-DayYxulF.woff2" crossorigin="">
+    <link rel="preload" as="font" type="font/woff2" href="/static/unbounded-cyrillic-wght-normal-C627f1f8.woff2" crossorigin="">
+    <link rel="preload" as="font" type="font/woff2" href="/static/unbounded-latin-wght-normal-D5afBTBx.woff2" crossorigin="">
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" sizes="32x32" href="/branded-favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DavidaX | Изработка на Сайтове | Софтуерни Решения</title>
-    <meta name="description" content="DavidaX - Премиум студио за софтуерни иновации. Професионална изработка на уеб сайтове, сложни системи, уеб дизайн и ИИ интеграция. Вашият партньор за дигитален успех." />
+    <title>Колко струва изработка на сайт през 2026? Цени и тенденции | DavidaX</title>
+    <meta name="description" content="Инвестицията в уебсайт е инвестиция в бъдещето на вашия бизнес. Разберете как се промениха цените и какво получавате за парите си през 2026 година." />
     <meta name="keywords" content="изработка на сайтове, уеб дизайн, разработчик на софтуер, софтуерни разработки, ИИ интеграция, DavidaX, програмиране" />
-    <!-- Preload the heavy 3D scene ONLY on desktop (mobile never renders Spline) -->
-    <script>
-      if (window.innerWidth >= 1024) {
-        var l = document.createElement('link');
-        l.rel = 'preload';
-        l.href = '/assets/scene.splinecode';
-        l.as = 'fetch';
-        l.crossOrigin = 'anonymous';
-        document.head.appendChild(l);
-      }
-    </script>
-    <link rel="canonical" href="https://davidax.org" />
+    <link rel="canonical" href="https://davidax.org/blog/cena-izrabotka-sait-2026" />
 
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#0d0b0a" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/branded-favicon.png" />
 
@@ -28,14 +21,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="bg_BG" />
     <meta property="og:site_name" content="DavidaX" />
-    <meta property="og:url" content="https://davidax.org" />
-    <meta property="og:title" content="DavidaX | Изработка на Сайтове | Софтуерни Решения" />
-    <meta property="og:description" content="DavidaX - Премиум студио за софтуерни иновации. Професионална изработка на уеб сайтове, сложни системи и ИИ интеграция." />
-    <meta property="og:image" content="https://davidax.org/og-innovations.png" />
-    <meta property="og:image:secure_url" content="https://davidax.org/og-innovations.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="https://davidax.org/blog/cena-izrabotka-sait-2026" />
+    <meta property="og:title" content="Колко струва изработка на сайт през 2026? Цени и тенденции" />
+    <meta property="og:description" content="Инвестицията в уебсайт е инвестиция в бъдещето на вашия бизнес. Разберете как се промениха цените и какво получавате за парите си през 2026 година." />
+    <meta property="og:image" content="https://davidax.org/assets/blog/pricing-2026.webp" />
+    <meta property="og:image:secure_url" content="https://davidax.org/assets/blog/pricing-2026.webp" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:alt" content="DavidaX - Софтуерни Иновации" />
 
     <!-- Schema.org for Google -->
@@ -45,10 +38,10 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://davidax.org" />
-    <meta name="twitter:title" content="DavidaX | Софтуерни Иновации" />
-    <meta name="twitter:description" content="Премиум студио за софтуерни иновации. Изграждаме бъдещето чрез чист код." />
-    <meta name="twitter:image" content="https://davidax.org/og-innovations.png" />
+    <meta name="twitter:url" content="https://davidax.org/blog/cena-izrabotka-sait-2026" />
+    <meta name="twitter:title" content="Колко струва изработка на сайт през 2026? Цени и тенденции" />
+    <meta name="twitter:description" content="Инвестицията в уебсайт е инвестиция в бъдещето на вашия бизнес. Разберете как се промениха цените и какво получавате за парите си през 2026 година." />
+    <meta name="twitter:image" content="https://davidax.org/assets/blog/pricing-2026.webp" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -243,11 +236,95 @@
     }
     </script>
 
-    <!-- Google Fonts - Optimized (Only using Outfit and Inter) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <!-- Критичен CSS: фон + входна завеса (показва се преди да се зареди пакетът) -->
+    <style>
+      @property --iris { syntax: "<length>"; inherits: true; initial-value: 0px; }
+      html { background: #0d0b0a; }
+      body { margin: 0; }
+      .pl { position: fixed; inset: 0; z-index: 9999; --ix: 50vw; --iy: 50vh; --d0: 0px; color: #f7f3ec;
+        animation: pl-bail .4s ease 4.6s forwards; }
+      .pl__curtain, .pl__ring { position: absolute; inset: 0; }
+      .pl__curtain { background: #0d0b0a; --w: calc(var(--d0) + var(--iris)); }
+      .pl__ring { display: none; }
+      .pl__ring--1 { background: #00dfd8; --w: calc(var(--iris) * .93); }
+      .pl__ring--2 { background: #0070f3; --w: calc(var(--iris) * .86); }
+      .pl__center { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 1.5rem; }
+      .pl__word { font: 700 clamp(2.1rem, 9.5vw, 4.4rem)/1 'Unbounded Variable', 'Unbounded', system-ui, sans-serif; letter-spacing: -.03em; white-space: nowrap; }
+      .pl__letters { display: inline-block; }
+      .pl__t { animation: pl-pulse 1.4s ease-in-out infinite alternate; }
+      .pl__i { position: relative; display: inline-block; }
+      .pl__dot { position: absolute; left: 50%; top: .035em; width: .2em; height: .2em; margin-left: -.1em; border-radius: 50%; background: #00dfd8; }
+      .pl__dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #00dfd8; animation: pl-ping 1.4s ease-out infinite; }
+      .pl__bar { width: min(46vw, 190px); height: 2px; border-radius: 2px; background: rgba(247, 243, 236, .14); overflow: hidden; }
+      .pl__bar i { display: block; height: 100%; background: linear-gradient(90deg, #0070f3, #00dfd8); transform-origin: 0 50%; transform: scaleX(0); animation: pl-load 3.4s cubic-bezier(.12, .7, .2, 1) forwards; }
+      @keyframes pl-pulse { to { opacity: .5; } }
+      @keyframes pl-ping { from { transform: scale(1); opacity: .7; } to { transform: scale(3.2); opacity: 0; } }
+      @keyframes pl-load { to { transform: scaleX(.92); } }
+      @keyframes pl-bail { to { opacity: 0; visibility: hidden; } }
+      /* Изход без движение (prefers-reduced-motion): обикновено избледняване за 0.4 сек */
+      .pl--out { animation: none; opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility 0s .4s; }
+      /* Изход с ирис: анимира се единствено регистрираната променлива --iris */
+      .fx .pl--go { animation: pl-iris 2.05s linear forwards; }
+      .fx .pl--go .pl__ring { display: block; }
+      .fx .pl--go .pl__curtain, .fx .pl--go .pl__ring {
+        -webkit-mask-image: radial-gradient(circle closest-side, #000 calc(100% - 1px), transparent), linear-gradient(#000 0 0);
+        mask-image: radial-gradient(circle closest-side, #000 calc(100% - 1px), transparent), linear-gradient(#000 0 0);
+        -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+        -webkit-mask-size: var(--w) var(--w), 100% 100%; mask-size: var(--w) var(--w), 100% 100%;
+        -webkit-mask-position: calc(var(--ix) - var(--w) / 2) calc(var(--iy) - var(--w) / 2), 0 0;
+        mask-position: calc(var(--ix) - var(--w) / 2) calc(var(--iy) - var(--w) / 2), 0 0;
+        -webkit-mask-composite: xor; mask-composite: exclude;
+      }
+      .fx .pl--go .pl__dot { opacity: 0; }
+      .fx .pl--go .pl__letters { transform: scale(.78); opacity: 0; transition: transform .55s cubic-bezier(.5, 0, .2, 1), opacity .3s ease; }
+      .fx .pl--go .pl__bar { opacity: 0; transition: opacity .25s ease; }
+      @keyframes pl-iris {
+        0%, 12% { --iris: 0px; animation-timing-function: cubic-bezier(.2, .9, .25, 1); }
+        36% { --iris: 50vmin; animation-timing-function: ease-in-out; }
+        46% { --iris: 43vmin; animation-timing-function: ease-in-out; }
+        56% { --iris: 45.5vmin; animation-timing-function: cubic-bezier(.7, 0, .84, .12); }
+        100% { --iris: 380vmax; }
+      }
+    </style>
+    <script>
+      /* html.fx се слага само ако няма prefers-reduced-motion; целият код за движение е под този клас. */
+      (function () {
+        var d = document, h = d.documentElement;
+        var fx = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+        if (fx) h.classList.add('fx');
+        var done = false;
+        window.__dxReveal = function () {
+          if (done) return;
+          done = true;
+          var pl = d.getElementById('preloader');
+          if (!pl) { h.classList.add('ready'); return; }
+          if (!fx) {
+            pl.classList.add('pl--out');
+            h.classList.add('ready');
+            setTimeout(function () { pl.remove(); }, 450);
+            return;
+          }
+          /* Отворът тръгва точно от точката на „i“ – мерим я и я подаваме като център на маската. */
+          var dot = pl.querySelector('.pl__dot'), letters = pl.querySelector('.pl__letters');
+          var r = dot.getBoundingClientRect(), lr = letters.getBoundingClientRect();
+          var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          pl.style.setProperty('--ix', cx + 'px');
+          pl.style.setProperty('--iy', cy + 'px');
+          pl.style.setProperty('--d0', r.width + 'px');
+          letters.style.transformOrigin = (cx - lr.left) + 'px ' + (cy - lr.top) + 'px';
+          pl.classList.add('pl--go');
+          /* Входът на hero започва, докато отворът още расте. */
+          setTimeout(function () { h.classList.add('ready'); }, 900);
+          var kill = function () { if (pl.parentNode) pl.remove(); };
+          pl.addEventListener('animationend', function (e) { if (e.animationName === 'pl-iris') kill(); });
+          setTimeout(kill, 2600);
+        };
+        /* Предпазител: ако нещо не се зареди, завесата се маха сама. */
+        setTimeout(window.__dxReveal, 4200);
+      })();
+    </script>
+
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -266,12 +343,44 @@
       gtag('config', 'G-5M22WSWEP5');
     </script>
 
-    <script type="module" crossorigin src="/assets/index-CKEQ34SS.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/chunk-BEqpzyXh.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-CS08su4_.css">
+    <script type="module" crossorigin src="/static/index-TPCpaTTB.js"></script>
+    <link rel="stylesheet" crossorigin href="/static/index-CoRPonmr.css">
+      <script type="application/ld+json" id="dynamic-article-schema">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Колко струва изработка на сайт през 2026? Цени и тенденции","description":"Инвестицията в уебсайт е инвестиция в бъдещето на вашия бизнес. Разберете как се промениха цените и какво получавате за парите си през 2026 година.","datePublished":"2026-05-02","image":"https://davidax.org/assets/blog/pricing-2026.webp","author":{"@type":"Organization","name":"DavidaX","url":"https://davidax.org"},"publisher":{"@type":"Organization","name":"DavidaX","logo":{"@type":"ImageObject","url":"https://davidax.org/logo.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://davidax.org/blog/cena-izrabotka-sait-2026"}}</script>
   </head>
   <body>
-    <div id="root">
+    <!-- Без JavaScript: без завеса, съдържанието се вижда веднага -->
+    <noscript><style>.pl { display: none !important; }</style></noscript>
+    <div class="pl" id="preloader" role="status" aria-label="Зареждане на DavidaX">
+      <div class="pl__ring pl__ring--2"></div>
+      <div class="pl__ring pl__ring--1"></div>
+      <div class="pl__curtain"></div>
+      <div class="pl__center" aria-hidden="true">
+        <div class="pl__word"><span class="pl__letters"><span class="pl__t">Dav</span><span class="pl__i"><span class="pl__t">&#305;</span><i class="pl__dot"></i></span><span class="pl__t">daX</span></span></div>
+        <div class="pl__bar"><i></i></div>
+      </div>
     </div>
+    <div id="root" data-route="/blog/cena-izrabotka-sait-2026"><link rel="preload" as="image" href="/assets/logo-dev.svg"/><link rel="preload" as="image" href="/assets/blog/pricing-2026.webp"/><a class="skip" href="#main">Към съдържанието</a><div class="progress" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div><header class="nav on-dark"><div class="nav__bar"><a href="/#home" class="nav__logo" aria-label="Отиди на началната страница"><img src="/assets/logo-dev.svg" alt="DavidaX Logo" width="140" height="60"/></a><nav class="nav__menu" id="nav-menu" aria-label="Основна навигация"><ul class="nav__links"><li><a href="/#home">Начало</a></li><li><a href="/#about">Бранд</a></li><li><a href="/#services">Услуги</a></li><li><a href="/#projects">Проекти</a></li><li><a href="/blog" aria-current="page">Блог</a></li><li class="nav__links-cta"><a href="/#contact" class="btn btn--accent">Консултация</a></li></ul></nav><a href="/#contact" class="btn btn--accent nav__cta" aria-label="Заявете безплатна консултация">Консултация</a><button type="button" class="nav__toggle" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span></button></div></header><main id="main"><article class="article"><header class="phero on-dark article__hero"><div class="wrap article__wrap"><a href="/blog" class="back-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>Назад към Блога</a><span class="kicker article__cat">Бизнес</span><h1 class="phero__title article__title">Колко струва изработка на сайт през 2026? Цени и тенденции</h1><div class="phero__meta"><span>2 Май, 2026</span><span aria-hidden="true">•</span><span>6 мин.<!-- --> четене</span></div></div></header><div class="sheet sheet--page article__sheet"><div class="article__wrap"><div class="article__image" style="view-transition-name:post-cena-izrabotka-sait-2026"><img src="/assets/blog/pricing-2026.webp" alt="Колко струва изработка на сайт през 2026? Цени и тенденции" width="1024" height="1024" decoding="async"/></div><div class="article__body">
+      <h2>Дигиталната среда през 2026</h2>
+      <p>Светът на технологиите се развива с главозамайваща скорост. Ако през 2024 година един обикновен сайт беше достатъчен, то през 2026 изискванията на потребителите и алгоритмите на Google са много по-високи. Днес един сайт не е просто визитка – той е сложна екосистема от AI интеграции, светкавична скорост и безупречно потребителско изживяване.</p>
+
+      <h2>От какво зависи цената на един сайт?</h2>
+      <p>В <strong>davidax</strong> вярваме в прозрачността. Основната разлика в цената идва от сложността и индивидуалния подход. Ето основните фактори:</p>
+      <ul>
+        <li><strong>Технологичен стек:</strong> Използването на модерни технологии като React и Next.js гарантира дълголетие и скорост, които евтините шаблони не могат да предложат.</li>
+        <li><strong>Дизайн:</strong> Уникалният дизайн, разработен специално за вашия бранд, винаги носи по-висока конверсия.</li>
+        <li><strong>AI функционалности:</strong> Интеграцията на умни чатботове и персонализирано съдържание е стандарт през 2026.</li>
+        <li><strong>SEO оптимизация:</strong> Без правилна структура, вашият сайт ще остане невидим за Google.</li>
+      </ul>
+
+      <h2>Ориентировъчни бюджети през 2026</h2>
+      <p>Цените започват от около 1500 лв. за малък представителен сайт и могат да достигнат 15 000+ лв. за мащабни корпоративни портали или електронни магазини с хиляди продукти.</p>
+      
+      <blockquote>
+        "Най-скъпият сайт е този, който не ви носи клиенти. Изборът на правилен партньор като davidax е първата стъпка към успеха."
+      </blockquote>
+
+      <h2>Защо да изберете davidax?</h2>
+      <p>Ние не просто "правим сайтове". Ние изграждаме вашата дигитална идентичност. С екип от професионалисти, следящи най-новите тенденции, <strong>davidax</strong> гарантира, че вашата инвестиция ще се възвърне многократно чрез реални резултати и доволни клиенти.</p>
+    </div><div class="article__cta on-dark reveal"><h3>Готови ли сте да промените бизнеса си?</h3><p>Нека заедно изградим вашето дигитално присъствие с модерни технологии и печеливша стратегия.</p><a href="/#contact" class="btn btn--accent">Безплатна Консултация<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div><footer class="article__nav"><a href="/blog" class="back-link">Всички статии</a><a href="/#home" class="back-link">Към Начало</a></footer></div></div></article></main><footer class="footer on-dark"><div class="footer__glow" aria-hidden="true"></div><div class="wrap footer__inner"><div class="footer__top"><div class="footer__brand"><img src="/assets/logo-dev.svg" alt="DavidaX - Изработка на Сайтове" class="footer__logo" width="140" height="60" loading="lazy"/><span class="footer__sig">EST. 2022 // INNOVATION LAB</span></div><nav class="footer__nav" aria-label="Footer Navigation"><ul><li><a href="/#services">Услуги</a></li><li><a href="/#projects">Проекти</a></li><li><a href="/#about">За Нас</a></li><li><a href="/blog">Блог</a></li><li><a href="/legal">Правна Информация</a></li><li><a href="/#contact">Контакт</a></li></ul></nav><address class="footer__address"><p><strong>DavidaX — Софтуерни Решения</strong></p><p>гр. Плевен, Център, 5800</p><p>Email: <a href="mailto:office@davidax.org">office@davidax.org</a></p><p>Тел: <a href="tel:+359876141826">+359 876 141 826</a></p></address><a href="https://www.facebook.com/p/DavidaX-61578418701694/" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Последвайте ни във Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 16.9913 5.65681 21.1283 10.4375 21.8785V14.8906H7.89844V12H10.4375V9.79688C10.4375 7.29063 11.9305 5.90625 14.2148 5.90625C15.3086 5.90625 16.4531 6.10156 16.4531 6.10156V8.5625H15.1922C13.95 8.5625 13.5625 9.33333 13.5625 10.125V12H16.3359L15.8926 14.8906H13.5625V21.8785C18.3432 21.1283 22 16.9913 22 12Z"></path></svg><span>Facebook</span></a></div><p class="footer__word" aria-hidden="true">DavidaX</p><p class="footer__copy">© <!-- -->2026<!-- --> DavidaX. Професионална Изработка на Сайтове и Софтуер. Всички права запазени.</p></div></footer></div>
   </body>
 </html>
