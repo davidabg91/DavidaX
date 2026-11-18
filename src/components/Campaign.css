@@ -3,20 +3,11 @@
 .campaign__panel {
   --rr: clamp(26px, 4vw, 50px);
   position: relative; overflow: hidden;
+  border-radius: var(--rr);
   background: var(--ink); color: var(--on-dark);
   padding: clamp(3.4rem, 8vw, 7rem) var(--gut);
   transform-origin: 50% 0;
   will-change: transform;
-}
-
-/* Заобляне на ъглите само с opacity: четири „изрязани“ ъгъла в цвета на листа */
-.grow__corners {
-  position: absolute; inset: -1px; z-index: 5; pointer-events: none;
-  background:
-    radial-gradient(circle at 100% 100%, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 0 0 / var(--rr) var(--rr) no-repeat,
-    radial-gradient(circle at 0 100%, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 100% 0 / var(--rr) var(--rr) no-repeat,
-    radial-gradient(circle at 100% 0, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 0 100% / var(--rr) var(--rr) no-repeat,
-    radial-gradient(circle at 0 0, transparent calc(var(--rr) - .6px), var(--sheet) var(--rr)) 100% 100% / var(--rr) var(--rr) no-repeat;
 }
 
 .campaign__glow {

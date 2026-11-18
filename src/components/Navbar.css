@@ -76,17 +76,27 @@ html.fx:not(.scrolled) .nav__bar::before { opacity: 0; transition-duration: .45s
     position: fixed; inset: 0; z-index: -2; margin: 0;
     display: grid; align-content: safe center;
     padding: 5.5rem var(--gut) 2rem;
-    will-change: opacity;
+    visibility: hidden;
+    transition: visibility 0s .42s;
+    overflow-y: auto; overscroll-behavior: contain;
+  }
+  .nav.is-open .nav__menu { visibility: visible; transition-delay: 0s; }
+  /* Фонът е отделен слой и само той избледнява. Ако избледняваше цялото меню,
+     редовете щяха да са „прозрачност в прозрачност“ и първият ред трепти,
+     защото се появява, докато фонът още не е плътен. */
+  .nav__menu::before {
+    content: ""; position: fixed; inset: 0; z-index: -1;
     background:
       radial-gradient(70% 50% at 100% 0%, rgba(var(--a2-rgb), .3), transparent 70%),
       radial-gradient(60% 45% at 0% 100%, rgba(var(--a1-rgb), .16), transparent 70%),
       var(--ink);
-    opacity: 0; visibility: hidden;
+    opacity: 0; will-change: opacity;
     /* затварянето започва с малко закъснение, за да е готов фонът на лентата под него */
-    transition: opacity .35s ease .07s, visibility 0s .42s;
-    overflow-y: auto; overscroll-behavior: contain;
+    transition: opacity .35s ease .07s;
   }
-  .nav.is-open .nav__menu { opacity: 1; visibility: visible; transition-delay: 0s, 0s; }
+  .nav.is-open .nav__menu::before { opacity: 1; transition: opacity .28s ease; }
+  /* без движение менюто се показва и скрива наведнъж */
+  html:not(.fx) .nav__menu, html:not(.fx) .nav__menu::before { transition: none; }
 
   .nav__links { flex-direction: column; align-items: stretch; gap: .2rem; }
   .nav__links a:not(.btn) {
@@ -103,9 +113,10 @@ html.fx:not(.scrolled) .nav__bar::before { opacity: 0; transition-duration: .45s
     opacity: 0; translate: 0 22px;
     transition: opacity .22s ease, translate 0s .44s;
   }
+  /* първият ред тръгва, когато фонът вече е плътен */
   html.fx .nav.is-open .nav__links li {
-    transition: opacity .5s ease, translate .6s var(--ease);
-    transition-delay: calc(.06s * var(--n, 1) + .08s);
+    transition: opacity .42s ease, translate .55s var(--ease);
+    transition-delay: calc(.055s * var(--n, 1) + .2s);
   }
   .nav__links li:nth-child(1) { --n: 1; }
   .nav__links li:nth-child(2) { --n: 2; }

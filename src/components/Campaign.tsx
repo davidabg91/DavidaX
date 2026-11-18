@@ -27,9 +27,8 @@ const offers = [
 const Campaign: FC = () => {
   return (
     <section id="campaign" className="campaign">
-      {/* Панелът „пораства“ и си заобля ъглите при влизане (scale + opacity от fx/motion.ts) */}
+      {/* Панелът „пораства“ при влизане (scale от fx/motion.ts) */}
       <div className="campaign__panel on-dark" data-grow>
-        <span className="grow__corners" aria-hidden="true"></span>
         <div className="campaign__glow" aria-hidden="true"></div>
 
         <div className="wrap campaign__inner">

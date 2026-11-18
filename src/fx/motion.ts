@@ -15,7 +15,7 @@ const clamp = (v: number, a = 0, b = 1) => (v < a ? a : v > b ? b : v);
 
 interface HeroRefs { el: HTMLElement; media: HTMLElement | null; dim: HTMLElement | null; inner: HTMLElement | null; h: number; hidden: boolean }
 interface ParallaxItem { el: HTMLElement; mid: number; range: number; amt: number }
-interface GrowItem { el: HTMLElement; corners: HTMLElement | null; top: number }
+interface GrowItem { el: HTMLElement; top: number }
 interface FanItem { el: HTMLElement; host: HTMLElement; top: number; h: number; x: number; y: number; r: number; e: number }
 interface Reel {
   el: HTMLElement; drum: HTMLElement; items: HTMLElement[]; count: HTMLElement | null;
@@ -162,7 +162,6 @@ function frame(now: number) {
     const t = clamp((y + vh - g.top) / (vh * 0.85));
     const e = t * (2 - t);
     g.el.style.transform = `scale(${(0.86 + 0.14 * e).toFixed(4)})`;
-    if (g.corners) g.corners.style.opacity = e.toFixed(3);
   }
 
   // Слоеве, които се разтварят като ветрило, докато секцията влиза в екрана
@@ -344,7 +343,7 @@ export function scan() {
   }));
 
   grows = [...document.querySelectorAll<HTMLElement>('[data-grow]')].map((el) => ({
-    el, corners: el.querySelector<HTMLElement>('.grow__corners'), top: 0,
+    el, top: 0,
   }));
 
   fans = [...document.querySelectorAll<HTMLElement>('[data-fan]')].map((el) => {

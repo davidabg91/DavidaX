@@ -66,11 +66,11 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: 'The Corner',
-    tag: 'Grocery & E-commerce',
-    image: 'thecorner.webp',
-    href: 'https://www.thecornerbar.online/',
-    description: 'Модерна платформа за онлайн пазаруване и дигитализация на местни хранителни магазини.',
+    title: 'Поръчки за малки и големи',
+    tag: 'E-commerce & Community',
+    image: 'malkiigolemi.webp',
+    href: 'https://malkiigolemi.com/',
+    description: 'Онлайн магазин на Facebook общността „Поръчки за малки и големи“ — козметика, играчки и стоки за дома с бърза доставка.',
     category: 'shops',
   },
   {

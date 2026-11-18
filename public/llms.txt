@@ -22,7 +22,7 @@
 - **NFC Bulgaria** (NFC & Digital IDs) - https://nfcbulgaria.com/
 - **Dary Commerce** (SaaS & Fintech) - https://darycommerce.com/
 - **ДИ ЦЕНТЪР** (Хотелиерски Софтуер) - https://davidabg91.github.io/DICenter/
-- **The Corner** (Grocery & E-commerce) - https://www.thecornerbar.online/
+- **Поръчки за малки и големи** (E-commerce & Community) - https://malkiigolemi.com/
 - **Fabcrush** (E-commerce Platform) - https://fabcrush.com/
 - **Fortnite Status** (Real-time API Monitor) - https://isfortnite.online/
 - **Odd One Out** (Interactive Social Game) - https://oddoneout.site/
